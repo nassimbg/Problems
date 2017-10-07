@@ -4,6 +4,35 @@ import java.util.List;
 public class Permutations {
 
    public static List<List<Integer>> permute(int[] nums) {
+      List<List<Integer>> rightList = new ArrayList<>(nums.length);
+      List<Integer> emptyPermutation = new ArrayList<>(nums.length);
+      for (int i = 0; i < nums.length; i++) {
+         emptyPermutation.add(null);
+      }
+      rightList.add(emptyPermutation);
+
+      for (int index = nums.length -1; index >= 0; index--) {
+         List<List<Integer>> leftList = new ArrayList<>(nums.length);
+
+         for (int permutationIndex = 0; permutationIndex < nums.length; permutationIndex++) {
+
+            for (List<Integer> listPerCellInRight : rightList) {
+               if (listPerCellInRight.get(permutationIndex) == null) {
+                  List<Integer> permutation = new ArrayList<>(listPerCellInRight);
+                  permutation.set(permutationIndex, nums[index]);
+                  leftList.add(permutation);
+
+               }
+            }
+
+         }
+         rightList = leftList;
+      }
+
+      return rightList;
+   }
+
+   public List<List<Integer>> permute1(int[] nums) {
       List<List<List<Integer>>> rightList = new ArrayList<>(3);
 
       for (int index = nums.length -1; index >= 0; index--) {
@@ -48,4 +77,5 @@ public class Permutations {
       }
       return answer;
    }
+
 }
