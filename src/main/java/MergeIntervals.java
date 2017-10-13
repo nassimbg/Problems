@@ -3,6 +3,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import common.Interval;
+
 public class MergeIntervals {
 
    public static List<Interval> merge(List<Interval> intervals) {
@@ -32,18 +34,4 @@ public class MergeIntervals {
 
    }
 
-   public static class Interval {
-      int start;
-      int end;
-
-      Interval() {
-         start = 0;
-         end = 0;
-      }
-
-      Interval(int s, int e) {
-         start = s;
-         end = e;
-      }
-   }
 }
