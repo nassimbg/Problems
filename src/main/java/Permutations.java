@@ -17,6 +17,7 @@ public class Permutations {
          for (int permutationIndex = 0; permutationIndex < nums.length; permutationIndex++) {
 
             for (List<Integer> listPerCellInRight : rightList) {
+               //we check if the value is null, so that we know that this index is still empty and haven't been taken
                if (listPerCellInRight.get(permutationIndex) == null) {
                   List<Integer> permutation = new ArrayList<>(listPerCellInRight);
                   permutation.set(permutationIndex, nums[index]);
