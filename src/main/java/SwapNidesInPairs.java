@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class SwapNidesInPairs {
 
 
@@ -23,13 +25,6 @@ public class SwapNidesInPairs {
 
       return newHead;
 
-   }
-
-
-   public static class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
    }
 }
 

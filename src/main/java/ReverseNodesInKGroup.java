@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class ReverseNodesInKGroup {
 
    public static ListNode reverseKGroup2(ListNode head, int k) {
@@ -89,12 +91,5 @@ public class ReverseNodesInKGroup {
       }
 
       return dummyHead.next;
-   }
-
-
-   public static class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
    }
 }

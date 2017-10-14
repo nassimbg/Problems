@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class MergeTwoSortedLists {
 
    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -33,13 +35,5 @@ public class MergeTwoSortedLists {
       return dummyFirst.next;
 
    }
-
-
-
-     public static class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-     }
 
 }

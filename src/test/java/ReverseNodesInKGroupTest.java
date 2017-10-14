@@ -2,16 +2,18 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import common.ListNode;
+
 public class ReverseNodesInKGroupTest {
    @Test
    public void reverseKGroup1() throws Exception {
 
-      ReverseNodesInKGroup.ListNode first = new ReverseNodesInKGroup.ListNode(1);
-      ReverseNodesInKGroup.ListNode second = new ReverseNodesInKGroup.ListNode(2);
-      ReverseNodesInKGroup.ListNode third = new ReverseNodesInKGroup.ListNode(3);
-      ReverseNodesInKGroup.ListNode fourth = new ReverseNodesInKGroup.ListNode(4);
-      ReverseNodesInKGroup.ListNode fifth = new ReverseNodesInKGroup.ListNode(5);
-      ReverseNodesInKGroup.ListNode six = new ReverseNodesInKGroup.ListNode(6);
+      ListNode first = new ListNode(1);
+      ListNode second = new ListNode(2);
+      ListNode third = new ListNode(3);
+      ListNode fourth = new ListNode(4);
+      ListNode fifth = new ListNode(5);
+      ListNode six = new ListNode(6);
 
       first.next = second;
       second.next = third;
@@ -34,11 +36,11 @@ public class ReverseNodesInKGroupTest {
    @Test
    public void reverseKGroup2() throws Exception {
 
-      ReverseNodesInKGroup.ListNode first = new ReverseNodesInKGroup.ListNode(1);
-      ReverseNodesInKGroup.ListNode second = new ReverseNodesInKGroup.ListNode(2);
-      ReverseNodesInKGroup.ListNode third = new ReverseNodesInKGroup.ListNode(3);
-      ReverseNodesInKGroup.ListNode fourth = new ReverseNodesInKGroup.ListNode(4);
-      ReverseNodesInKGroup.ListNode fifth = new ReverseNodesInKGroup.ListNode(5);
+      ListNode first = new ListNode(1);
+      ListNode second = new ListNode(2);
+      ListNode third = new ListNode(3);
+      ListNode fourth = new ListNode(4);
+      ListNode fifth = new ListNode(5);
 
       first.next = second;
       second.next = third;
@@ -59,11 +61,11 @@ public class ReverseNodesInKGroupTest {
    @Test
    public void reverseKGroup3() throws Exception {
 
-      ReverseNodesInKGroup.ListNode first = new ReverseNodesInKGroup.ListNode(1);
-      ReverseNodesInKGroup.ListNode second = new ReverseNodesInKGroup.ListNode(2);
-      ReverseNodesInKGroup.ListNode third = new ReverseNodesInKGroup.ListNode(3);
-      ReverseNodesInKGroup.ListNode fourth = new ReverseNodesInKGroup.ListNode(4);
-      ReverseNodesInKGroup.ListNode fifth = new ReverseNodesInKGroup.ListNode(5);
+      ListNode first = new ListNode(1);
+      ListNode second = new ListNode(2);
+      ListNode third = new ListNode(3);
+      ListNode fourth = new ListNode(4);
+      ListNode fifth = new ListNode(5);
 
       first.next = second;
       second.next = third;
@@ -84,11 +86,11 @@ public class ReverseNodesInKGroupTest {
    @Test
    public void reverseKGroup4() throws Exception {
 
-      ReverseNodesInKGroup.ListNode first = new ReverseNodesInKGroup.ListNode(1);
-      ReverseNodesInKGroup.ListNode second = new ReverseNodesInKGroup.ListNode(2);
-      ReverseNodesInKGroup.ListNode third = new ReverseNodesInKGroup.ListNode(3);
-      ReverseNodesInKGroup.ListNode fourth = new ReverseNodesInKGroup.ListNode(4);
-      ReverseNodesInKGroup.ListNode fifth = new ReverseNodesInKGroup.ListNode(5);
+      ListNode first = new ListNode(1);
+      ListNode second = new ListNode(2);
+      ListNode third = new ListNode(3);
+      ListNode fourth = new ListNode(4);
+      ListNode fifth = new ListNode(5);
 
       first.next = second;
       second.next = third;

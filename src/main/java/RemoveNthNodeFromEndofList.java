@@ -1,11 +1,6 @@
-public class RemoveNthNodeFromEndofList {
+import common.ListNode;
 
-   
-     public static class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-     }
+public class RemoveNthNodeFromEndofList {
 
 
    public static ListNode removeNthFromEnd(ListNode head, int n) {
