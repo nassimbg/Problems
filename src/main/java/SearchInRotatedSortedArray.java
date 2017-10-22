@@ -16,16 +16,10 @@ public class SearchInRotatedSortedArray {
       int minPosition = minPosition(nums, 0, nums.length - 1);
 
       int position;
-
-      if (minPosition == 0) {
-         position = Arrays.binarySearch(nums, 0, nums.length, target);
+      if (target <= nums[nums.length - 1]) {
+         position = Arrays.binarySearch(nums, minPosition, nums.length, target);
       } else {
-         if (target >= nums[0]) {
-            position = Arrays.binarySearch(nums, 0, minPosition, target);
-
-         } else {
-            position = Arrays.binarySearch(nums, minPosition, nums.length, target);
-         }
+         position = Arrays.binarySearch(nums, 0, minPosition, target);
       }
 
       return position < 0 ? -1 : position;

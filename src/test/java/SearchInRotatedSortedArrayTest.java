@@ -75,4 +75,11 @@ public class SearchInRotatedSortedArrayTest {
 
       assertEquals(3, SearchInRotatedSortedArray.search(new int[] {1,2,3,4,5,6}, 4));
    }
+
+
+   @Test
+   public void find8() throws Exception {
+
+      assertEquals(5, SearchInRotatedSortedArray.search(new int[] {5,5,6,1,2,3,3}, 3));
+   }
 }
