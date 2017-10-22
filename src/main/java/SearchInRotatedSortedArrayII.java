@@ -28,6 +28,8 @@ public class SearchInRotatedSortedArrayII {
          return mid;
       }
 
+      //if value of mid is equal to end then we have to check the whole array to know where does the min start
+      // check diff scenarios in the test
       if (nums[mid] == nums[end]) {
          for (int index = start + 1; index <= end; index++) {
             if (nums[index] < nums[index - 1]) {
