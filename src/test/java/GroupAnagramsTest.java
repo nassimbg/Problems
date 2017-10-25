@@ -2,6 +2,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -9,11 +11,14 @@ public class GroupAnagramsTest {
    @Test
    public void groupAnagrams() throws Exception {
 
-      ArrayList<Object> expected = new ArrayList<>();
-      expected.add(Arrays.asList("ate", "eat","tea"));
-      expected.add(Arrays.asList("nat","tan"));
+      ArrayList<List<String>> expected = new ArrayList<>();
       expected.add(Arrays.asList("bat"));
-      assertEquals(expected, GroupAnagrams.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
+      expected.add(Arrays.asList("tan", "nat"));
+      expected.add(Arrays.asList("eat","tea","ate"));
+      List<List<String>> actual = GroupAnagrams.groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" });
+
+      actual.sort(Comparator.comparingInt(List::size));
+      assertEquals(expected, actual);
    }
 
    @Test

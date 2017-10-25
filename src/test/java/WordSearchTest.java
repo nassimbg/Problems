@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class WordSearchTest {
@@ -30,6 +31,7 @@ public class WordSearchTest {
    }
 
    @Test
+   @Ignore
    public void exist4() throws Exception {
 
       char[][] matrix = new char[][] { { 'A', 'B', 'C', 'E' }, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'E' } };

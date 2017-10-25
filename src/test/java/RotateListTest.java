@@ -21,7 +21,7 @@ public class RotateListTest {
 
       ListNode listNode = RotateList.rotateRight(first, 2);
 
-      assertEquals("4 -> 5 -> 1 -> 2 -> 3 -> null", listNode.toString());
+      assertEquals("4 -> 5 -> 1 -> 2 -> 3", listNode.toString());
 
    }
 
@@ -40,7 +40,7 @@ public class RotateListTest {
 
       ListNode listNode = RotateList.rotateRight(first, 8);
 
-      assertEquals("3 -> 4 -> 5 -> 1 -> 2 -> null", listNode.toString());
+      assertEquals("3 -> 4 -> 5 -> 1 -> 2", listNode.toString());
 
    }
 
@@ -59,7 +59,7 @@ public class RotateListTest {
 
       ListNode listNode = RotateList.rotateRight(first, 0);
 
-      assertEquals("1 -> 2 -> 3 -> 4 -> 5 -> null", listNode.toString());
+      assertEquals("1 -> 2 -> 3 -> 4 -> 5", listNode.toString());
 
    }
 
@@ -70,7 +70,7 @@ public class RotateListTest {
 
       ListNode listNode = RotateList.rotateRight(first, 8);
 
-      assertEquals("1 -> null", listNode.toString());
+      assertEquals("1", listNode.toString());
 
    }
 
