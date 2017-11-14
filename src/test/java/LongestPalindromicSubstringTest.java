@@ -6,20 +6,31 @@ public class LongestPalindromicSubstringTest {
    @Test
    public void longestPalindrome1() throws Exception {
 
-      assertEquals("bab", LongestPalindromicSubstring.longestPalindrome("babad"));
+      assertEquals("bab", new LongestPalindromicSubstring().longestPalindrome("babad"));
    }
 
    @Test
    public void longestPalindrome2() throws Exception {
 
-      assertEquals("bb", LongestPalindromicSubstring.longestPalindrome("cbbd"));
+      assertEquals("bb",  new LongestPalindromicSubstring().longestPalindrome("cbbd"));
    }
 
 
    @Test
    public void longestPalindrome3() throws Exception {
 
-      assertEquals("aaaaaa", LongestPalindromicSubstring.longestPalindrome("cbbdbbryaaaaaa"));
+      assertEquals("aaaaaa",  new LongestPalindromicSubstring().longestPalindrome("cbbdbbryaaaaaa"));
    }
 
+   @Test
+   public void longestPalindrome4() throws Exception {
+
+      assertEquals("adada",  new LongestPalindromicSubstring().longestPalindrome("babadada"));
+   }
+
+   @Test
+   public void longestPalindrome5() throws Exception {
+
+      assertEquals("adada",  new LongestPalindromicSubstring().longestPalindrome("babaddtattarrattatddetartrateedredividerb"));
+   }
 }
