@@ -15,4 +15,9 @@ public class TrieNode {
       return children[index];
    }
 
+   public static int transformCharToInt(char c) {
+      return c - 'a';
+   }
+
+
 }

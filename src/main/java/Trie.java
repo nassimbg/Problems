@@ -1,3 +1,5 @@
+import static common.TrieNode.transformCharToInt;
+
 import common.TrieNode;
 
 public class Trie {
@@ -60,8 +62,5 @@ public class Trie {
       return true;
    }
 
-   private static int transformCharToInt(char c) {
-      return c - 'a';
-   }
 
 }
