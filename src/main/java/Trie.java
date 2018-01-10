@@ -1,3 +1,5 @@
+import common.TrieNode;
+
 public class Trie {
 
 
@@ -16,15 +18,10 @@ public class Trie {
       for (int i = 0; i < word.length(); i++) {
          int charAt = transformCharToInt(word.charAt(i));
 
-         if (current.children[charAt] != null) {
-            current = current.children[charAt];
-         } else {
-            ++current.childrenSize;
-            current = current.children[charAt] = new TrieNode();
-         }
+         current = current.addChildIfNotExist(charAt);
       }
 
-      current.value = word;
+      current.isLeaf = true;
 
    }
 
@@ -43,7 +40,7 @@ public class Trie {
          }
       }
 
-      return !current.value.isEmpty();
+      return current.isLeaf;
    }
 
    /** Returns if there is any word in the trie that starts with the given prefix. */
@@ -67,10 +64,4 @@ public class Trie {
       return c - 'a';
    }
 
-   static class TrieNode {
-      TrieNode[] children = new TrieNode[26];
-      String value = "";
-      int childrenSize = 0;
-
-   }
 }
