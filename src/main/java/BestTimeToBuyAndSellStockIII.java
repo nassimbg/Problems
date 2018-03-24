@@ -19,7 +19,7 @@ public class BestTimeToBuyAndSellStockIII {
             dp[row][i] = Math.max(Math.max(dp[row - 1][i], dp[row][i - 1]), prices[i] + maxProfitWithBuyingStock);
 
             // this here is a very important step that we should pay attention cz instead of at every price in a row we
-            // due a for loop to see when is it best to buy the current stock along the way we save the max value
+            // do a for loop to see when is it best to buy the current stock along the way we save the max value
             maxProfitWithBuyingStock = Math.max(maxProfitWithBuyingStock, dp[row - 1][i - 1] - prices[i]);
          }
 
