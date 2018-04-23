@@ -1,26 +1,31 @@
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class RemoveDuplicateLettersTest {
 
     @Test
     public void removeDuplicateLetters() {
-        assertEquals("abc", new  RemoveDuplicateLetters().removeDuplicateLetters("bcabc"));
+        assertEquals("abc", RemoveDuplicateLetters.removeDuplicateLetters("bcabc"));
     }
 
     @Test
     public void removeDuplicateLetters2() {
-        assertEquals("acdb", new RemoveDuplicateLetters().removeDuplicateLetters("cbacdcbc"));
+        assertEquals("acdb", RemoveDuplicateLetters.removeDuplicateLetters("cbacdcbc"));
     }
 
     @Test
     public void removeDuplicateLetters3() {
-        assertEquals("", new RemoveDuplicateLetters().removeDuplicateLetters(""));
+        assertEquals("", RemoveDuplicateLetters.removeDuplicateLetters(""));
     }
+
+   @Test
+   public void removeDuplicateLetters5() {
+      assertEquals("bac", RemoveDuplicateLetters.removeDuplicateLetters("bbcaac"));
+   }
 
     @Test
     public void removeDuplicateLetters4() {
-        assertEquals("abc", new RemoveDuplicateLetters().removeDuplicateLetters("abacb"));
+        assertEquals("abc", RemoveDuplicateLetters.removeDuplicateLetters("abacb"));
     }
 }

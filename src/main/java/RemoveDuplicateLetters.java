@@ -1,39 +1,40 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class RemoveDuplicateLetters {
-    public String removeDuplicateLetters(String s) {
+    public static String removeDuplicateLetters(String s) {
         int[] characIndexTaken = new int[26];
-        char[] charsInString = s.toCharArray();
 
-        int lastCharAdded = 0;
-        for (int index = charsInString.length - 1; index >= 0; --index) {
-            int value = charsInString[index] - 'a';
+        int numberOfUnique = 0;
+       for (int i = 0; i < s.length(); i++) {
+          char c = s.charAt(i);
 
-            if (characIndexTaken[value] != 0) {
-                int indexToReplaceByStar = index;
-                if (charsInString[index] < charsInString[lastCharAdded]) {
-                    indexToReplaceByStar = characIndexTaken[value];
-                    characIndexTaken[value] = index;
-                    lastCharAdded = index;
-                }
+          if (characIndexTaken[charToInt(c )]++ == 0) {
+             ++numberOfUnique;
+          }
+       }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    charsInString[indexToReplaceByStar] = '*';
+       char[] chars = new char[numberOfUnique];
+       int size = 0;
+       boolean[] taken = new boolean[26];
 
-            } else {
-                characIndexTaken[value] = index;
-                lastCharAdded = index;
-            }
-        }
+       for (int i = 0; i < s.length(); i++) {
+          char c = s.charAt(i);
+          int charIndexInAlpha = charToInt(c);
 
-        StringBuilder stringBuilder = new StringBuilder();
+          if (!taken[charIndexInAlpha]) {
+             while (size > 0 && chars[size - 1] >= c && characIndexTaken[charToInt(chars[size - 1])] > 0) {
+                taken[charToInt(chars[size - 1])] = false;
+                --size;
+             }
 
-        for (char aCharsInString : charsInString) {
-            if (aCharsInString != '*') {
-                stringBuilder.append(aCharsInString);
-            }
-        }
+             chars[size++] = c;
+             taken[charIndexInAlpha] = true;
+          }
+          characIndexTaken[charIndexInAlpha]--;
+       }
 
-        return stringBuilder.toString();
+       return new String(chars);
+    }
+
+    private static int charToInt(char c) {
+       return c - 'a';
     }
 }
