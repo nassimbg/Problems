@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -14,7 +15,7 @@ public class DataStreamAsDisjointIntervals {
        * Initialize your data structure here.
        */
       public SummaryRanges() {
-         intervals = new TreeSet<>((i1, i2) -> i1.start - i2.start);
+         intervals = new TreeSet<>(Comparator.comparingInt(i -> i.start));
       }
 
       public void addNum(int val) {
