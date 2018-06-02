@@ -8,40 +8,29 @@ import org.junit.Test;
 
 import common.NestedInteger;
 
-public class NestedIteratorTest {
+public class NestedListWeightSumIITest {
 
    @Test
-   public void next() {
+   public void depthSumInverse() {
 
-      NestedIntegerList first = new NestedIntegerList(Arrays.asList(new NestedIntegerInt(1), new NestedIntegerInt(1)));
-      NestedIntegerList second = new NestedIntegerList(Arrays.asList(new NestedIntegerInt(1), new NestedIntegerInt(1)));
+      List<NestedInteger> list = new ArrayList<>();
+      list.add(new NestedIntegerList(Arrays.asList(new NestedIntegerInt(1), new NestedIntegerInt(1))));
+      list.add(new NestedIntegerInt(2));
+      list.add(new NestedIntegerList(Arrays.asList(new NestedIntegerInt(1), new NestedIntegerInt(1))));
 
-
-      NestedIterator nestedIterator = new NestedIterator(Arrays.asList(first, new NestedIntegerInt(2), second));
-
-      List<Integer> actual = new ArrayList<>();
-      while (nestedIterator.hasNext()) {
-         actual.add(nestedIterator.next());
-      }
-
-      assertEquals(Arrays.asList(1, 1, 2, 1, 1),  actual);
+      assertEquals(8, NestedListWeightSumII.depthSumInverse(list));
    }
 
    @Test
-   public void next2() {
+   public void depthSumInverse2() {
 
       NestedIntegerList second = new NestedIntegerList(Arrays.asList(new NestedIntegerInt(6)));
       NestedIntegerList first = new NestedIntegerList(Arrays.asList(new NestedIntegerInt(4), second));
 
 
-      NestedIterator nestedIterator = new NestedIterator(Arrays.asList( new NestedIntegerInt(1), first));
 
-      List<Integer> actual = new ArrayList<>();
-      while (nestedIterator.hasNext()) {
-         actual.add(nestedIterator.next());
-      }
+      assertEquals(17, NestedListWeightSumII.depthSumInverse(Arrays.asList( new NestedIntegerInt(1), first)));
 
-      assertEquals(Arrays.asList(1, 4,6),  actual);
    }
 
    private static class NestedIntegerInt implements NestedInteger {
@@ -52,6 +41,7 @@ public class NestedIteratorTest {
 
          this.val = val;
       }
+
       @Override
       public boolean isInteger() {
          return true;
@@ -76,6 +66,7 @@ public class NestedIteratorTest {
 
          this.list = list;
       }
+
       @Override
       public boolean isInteger() {
          return false;
