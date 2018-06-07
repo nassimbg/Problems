@@ -28,9 +28,9 @@ public class AddTwoNumbersII {
       head.next = sameLevelAddition;
 
       if (carry) {
-         ListNode carretAddition = new ListNode(1);
-         carretAddition.next = head.next;
-         head.next = carretAddition;
+         ListNode carry = new ListNode(1);
+         carry.next = head.next;
+         head.next = carry;
       }
 
       return head.next;
