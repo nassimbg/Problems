@@ -7,6 +7,17 @@ public class MaximumGap {
       if (nums.length < 2) {
          return 0;
       }
+      radixSort(nums);
+
+      int maxGap = Integer.MIN_VALUE;
+      for (int index = 0; index < nums.length -1; index++) {
+         maxGap = Math.max(maxGap, nums[index + 1] - nums[index]);
+      }
+
+      return maxGap;
+   }
+
+   private static void radixSort(int[] nums) {
       List<ArrayDeque<Integer>> deques = new ArrayList<>();
       for (int i = 0; i < 10; i++) {
          deques.add(new ArrayDeque<>());
@@ -33,12 +44,5 @@ public class MaximumGap {
          div*=10;
          max/=10;
       }
-
-      int maxGap = Integer.MIN_VALUE;
-      for (int index = 0; index < nums.length -1; index++) {
-         maxGap = Math.max(maxGap, nums[index + 1] - nums[index]);
-      }
-
-      return maxGap;
    }
 }
