@@ -19,4 +19,16 @@ public class UTF8ValidationTest {
    public void validUtf83() {
       assertFalse(UTF8Validation.validUtf8(new int[] { 197 }));
    }
+
+
+   @Test
+   public void validUtf84() {
+      assertFalse(UTF8Validation.validUtf8(new int[] { 248,130,130,130 }));
+   }
+
+   @Test
+   public void validUtf85() {
+      assertFalse(UTF8Validation.validUtf8(new int[] { 255 }));
+   }
+
 }
