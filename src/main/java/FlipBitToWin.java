@@ -1,5 +1,27 @@
 public class FlipBitToWin {
-   static int flip(int n) {
+
+   public static int flip(int n){
+      int firstZero = -1;
+      int secondZero = -1;
+
+      int index = 0;
+      int mask = 1;
+      int longestSequence = 0;
+
+      while(index < 32) {
+         if ((mask & n) == 0) {
+            longestSequence = Math.max(longestSequence, index - secondZero - 1);
+            secondZero = firstZero;
+            firstZero = index;
+         }
+         mask <<= 1;
+         ++index;
+      }
+
+      return Math.max(longestSequence, index - secondZero - 1);
+   }
+
+   static int flip2(int n) {
       int lastZero = -1;
       int currentLength = 0;
       int maxLength = 0;
