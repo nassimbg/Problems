@@ -19,6 +19,11 @@ public class DecodeWaysTest {
    }
 
    @Test
+   public void numDecoding11() throws Exception {
+      assertEquals(0, DecodeWays.numDecodings("01"));
+   }
+
+   @Test
    public void numDecoding4() throws Exception {
       assertEquals(1, DecodeWays.numDecodings("2"));
    }
@@ -26,6 +31,11 @@ public class DecodeWaysTest {
    @Test
    public void numDecoding5() throws Exception {
       assertEquals(0, DecodeWays.numDecodings("0"));
+   }
+
+   @Test
+   public void numDecoding10() throws Exception {
+      assertEquals(0, DecodeWays.numDecodings("00"));
    }
 
    @Test
