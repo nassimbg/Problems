@@ -1,5 +1,79 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FractionToRecurringDecimal {
+
+
+
+
    public static String fractionToDecimal(int numerator, int denominator) {
+      if (denominator == 0) {
+         return "";
+      }
+      if (numerator == 0) {
+         return "0";
+      }
+      StringBuilder str = new StringBuilder();
+
+      if (numerator < 0 ^ denominator < 0) {
+         str.append("-");
+      }
+
+      long deno = Math.abs((long)denominator);
+      long nume = Math.abs((long)numerator);
+
+      str.append( nume/ deno);
+      long rem = nume % deno;
+
+      Map<Long, Integer> positionOfRem = new HashMap<>();
+
+      if (rem != 0) {
+         str.append('.');
+      }
+
+      while(rem != 0 && !positionOfRem.containsKey(rem)) {
+
+         positionOfRem.put(rem, str.length());
+         rem *= 10;
+         str.append((rem/deno));
+         rem = rem % deno;
+      }
+
+      if (rem != 0) {
+         int indexToInsert = positionOfRem.get(rem);
+         str.insert(indexToInsert, "(");
+         str.append(")");
+      }
+
+
+      return str.toString();
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   public static String fractionToDecimal2(int numerator, int denominator) {
       double value = (1.0 * numerator) / denominator;
       String val = String.valueOf(value);
       String[] split = val.split("\\.");
