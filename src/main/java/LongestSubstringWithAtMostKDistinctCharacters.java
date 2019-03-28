@@ -3,6 +3,43 @@ import java.util.Map;
 
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
+   static int lengthOfLongestSubstringTwoDistinct(String s, int k) {
+      Map<Character, Integer> freq = new HashMap<>();
+      int maxSize = 0;
+
+      int start = 0;
+      int end = 0;
+      int length = s.length();
+      while (start < length && end < length) {
+
+         while (end < length && freq.size() <= k) {
+            char c = s.charAt(end);
+            int currentFreq = freq.getOrDefault(c, 0);
+
+            freq.put(c, currentFreq + 1);
+
+            if (freq.size() <= k) {
+               maxSize = Math.max(maxSize, end - start + 1);
+            }
+            end++;
+         }
+
+         while (start < end && freq.size() > k) {
+            char c = s.charAt(start);
+            int currentFreq = freq.get(c);
+
+            if (currentFreq == 1) {
+               freq.remove(c);
+            } else {
+               freq.put(c, currentFreq - 1);
+            }
+            start++;
+         }
+      }
+
+      return maxSize;
+   }
+
 
    public static String findSubString(String s, int k) {
       Map<Character, Integer> freq = new HashMap<>();
