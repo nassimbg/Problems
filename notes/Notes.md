@@ -1,6 +1,12 @@
 - [Amortization](#amortization)
-  - [Next Greater / Max O(1)](#next-greater--max-o1)
+  - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
+    - [Next Greater / Max O(1)](#next-greater--max-o1)
+    - [Remove Smaller/Bigger elements O(1)](#remove-smallerbigger-elements-o1)
+- [Array](#array)
+  - [Inplace manipulation](#inplace-manipulation)
+    - [Find missing values in array size n and values 1< a[i] < n](#find-missing-values-in-array-size-n-and-values-1-ai--n)
 - [Bit Manipulation](#bit-manipulation)
+  - [use bits as states](#use-bits-as-states)
 - [Boyer-Moore Algo](#boyer-moore-algo)
 - [Cumulative Sum](#cumulative-sum)
   - [Immutable](#immutable)
@@ -19,19 +25,23 @@
       - [MAX / MIN](#max--min)
         - [Several Options/Item (ex: rob or dont rob)](#several-optionsitem-ex-rob-or-dont-rob)
       - [COUNT](#count)
-      - [TRUE / FALSE](#true--false)
+      - [TRUE / FALSE (think of Rec + Memo)](#true--false-think-of-rec--memo)
       - [Find all possible answers](#find-all-possible-answers)
     - [SubString x[i:j]](#substring-xij)
+- [Greedy](#greedy)
 - [Graphs](#graphs)
-  - [BFS](#bfs)
+  - [BFS / DFS](#bfs--dfs)
     - [Level Traversal](#level-traversal)
   - [TOPO Sort / Dependency](#topo-sort--dependency)
   - [Dijkstra](#dijkstra)
   - [From START -> END state (state ex: word, char, number, fraction...)](#from-start---end-state-state-ex-word-char-number-fraction)
+- [Heap](#heap)
+  - [Kth smallest/Largest...](#kth-smallestlargest)
 - [Intervals](#intervals)
-  - [Greedy](#greedy)
+  - [Greedy](#greedy-1)
+  - [Segmant/Interval Trees](#segmantinterval-trees)
 - [Iterator](#iterator)
-  - [Design](#design)
+  - [Design](#design-1)
 - [Linked List](#linked-list)
 - [Math](#math)
   - [Division](#division)
@@ -46,7 +56,11 @@
 - [Pointers](#pointers)
   - [Left / Right Pointers](#left--right-pointers)
     - [Swaping Values](#swaping-values)
-    - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
+    - [Sliding window](#sliding-window)
+      - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
+      - [Rabin-Karp](#rabin-karp)
+  - [Start / End Pointers](#start--end-pointers)
+    - [Calculate Value btw them](#calculate-value-btw-them)
 - [Regex](#regex)
 - [Search](#search)
   - [Median](#median)
@@ -54,20 +68,21 @@
   - [D&G](#dg)
     - [Quick Select](#quick-select)
     - [Binary Search](#binary-search)
+  - [Other](#other)
+- [Serialization / Deserialization](#serialization--deserialization)
 - [Sorting](#sorting)
   - [Merge Sort](#merge-sort)
-    - [External Sort (K lists)](#external-sort-k-lists)
+    - [K sorted lists](#k-sorted-lists)
   - [Paitence Sort](#paitence-sort)
   - [Tag Sort](#tag-sort)
   - [Top X](#top-x)
-- [Sliding window](#sliding-window)
-  - [Find Min/Max Substring](#find-minmax-substring)
+- [SQL](#sql)
 - [Trie](#trie)
-  - [Design](#design)
+  - [Design](#design-2)
   - [Prefix/Word Search](#prefixword-search)
     - [Match Prefix/Word with DIFF](#match-prefixword-with-diff)
   - [List Lexo order](#list-lexo-order)
-  - [Next Enumeration/Value](#next-enumerationvalue)
+  - [Next/Kth Enumeration/Value](#nextkth-enumerationvalue)
     - [From Dictionary of words](#from-dictionary-of-words)
     - [From given letters/digits](#from-given-lettersdigits)
       - [Optimized by sorting](#optimized-by-sorting)
@@ -76,33 +91,109 @@
   - [Traversal](#traversal)
     - [Level By Level](#level-by-level)
     - [Recursive](#recursive)
+    - [Iterative](#iterative)
   - [Finding (in) Path](#finding-in-path)
-  - [Serialization / Deserialization](#serialization--deserialization)
+  - [Serialize / Deserialize BST](#serialize--deserialize-bst)
+  - [Equality in BST](#equality-in-bst)
+  - [- use a Map<String, Integer> where String is the String serialization of the current root and the Integer is the number of occurances that subtree has benn found](#use-a-mapstring-integer-where-string-is-the-string-serialization-of-the-current-root-and-the-integer-is-the-number-of-occurances-that-subtree-has-benn-found)
   - [Segment Tree / Fenwick](#segment-tree--fenwick)
     - [Search for All intervals that contain a query point](#search-for-all-intervals-that-contain-a-query-point)
     - [Sum of Given Range](#sum-of-given-range)
     - [Range Minimum Query](#range-minimum-query)
+- [Union-Find](#union-find)
+  - [Disjoint Sets](#disjoint-sets)
+    - [Number of diff Sets](#number-of-diff-sets)
 
 ---
+
 ---
+
 ---
 
 # Amortization
 
-## Next Greater / Max O(1)
+- When you want to do an operation in O(1) but u know it's hard to get it => think amortization
+- check oneNote
+
+## Remove unwanted Previous O(1) (using Linked List)
+
+**_Hints_**
+
+- this can be done using a **stack/LinkedList**
+
+**_Problems_**
+
+### Next Greater / Max O(1)
 
 - [Min Stack](https://leetcode.com/problems/min-stack/description/)
+
   - desinged it using one stack and an array to keep track of the min value
-  - this question is similar to the HW problem of __Min Queue__ but the hw was harder since it depends on __*Amortization*__
+  - this question is similar to the HW problem of **Min Queue** but the hw was harder since it depends on **_Amortization_**
 
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
-  - uses the same concept of ___Min Queue__
-  - but here we have to do 2 passes the same way and leaving the same stack since we are dealing with a circular array 
+  - uses the same concept of **Min Queue**
+  - but here we have to do 2 passes the same way and leaving the same stack since we are dealing with a circular array
+
+### Remove Smaller/Bigger elements O(1)
+
+- [Remove K Digits](https://leetcode.com/problems/remove-k-digits/description/)
+
+  - its a greedy algorithim
+  - start from left to right
+    - every char we encounter check in the stack (tail of linked list) if we have chars > current char
+      - if yes remove them as long as k > 0
+
+- [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/description/)
+
+  - VVVVVVVVVVIIIIIIIPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - This problem use a small idea from the **_Min Stack_ DS problem** which is:
+
+    - when u insert you check:
+
+      1. if the inserted char is smaller than the head of the stack
+      2. if the char in the head of stack exists in the string after the inserted char (to garanty that the head will be present in the result)
+
+      - if yes => pop head from stack
+      - if no => push the current char
+
+    - above cnd is in a while()
+
+  - Time: O(n), Space: O(n)
+  - Explanation:
+    First, given "bcabc", the solution should be "abc". If we think about this problem intuitively, you would sort of go from the beginning of the string and start removing one if there is still the same character left and a smaller character is after it. Given "bcabc", when you see a 'b', keep it and continue with the search, then keep the following 'c', then we see an 'a'. Now we get a chance to get a smaller lexi order, you can check if after 'a', there is still 'b' and 'c' or not. We indeed have them and "abc" will be our result.
+
+        Come to the implementation, we need some data structure to store the previous characters 'b' and 'c', and we need to compare the current character with previous saved ones, and if there are multiple same characters, we prefer left ones. This calls for a stack.
+
+        After we decided to use stack, the implementation becomes clearer. From the intuition, we know that we need to know if there are still remaining characters left or not. So we need to iterate the array and save how many each characters are there. A visited array is also required since we want unique character in the solution. The line while(!stack.isEmpty() && stack.peek() > c && count[stack.peek()-'a'] > 0) checks that the queued character should be removed or not, like the 'b' and 'c' in the previous example. After removing the previous characters,push in the new char and mark the visited array.
+
+---
+
+---
+
+---
+
+---
+
+# Array
+
+## Inplace manipulation
+
+### Find missing values in array size n and values 1< a[i] < n 
+
+- [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
+  - if value x found in array => then negate arr[x] 
+
+---
+
+---
+
+---
+
+---
 
 
----
----
----
 # Bit Manipulation
 
 **_Hints_**
@@ -112,13 +203,28 @@
 **_Problems_**
 
 - [UTF-8 Validation](https://leetcode.com/problems/utf-8-validation/description/)
-  * just check how many number of bytes we have from the first byte using {{0,0}, {2, 6}, {3, 14}, {4,30}}
-  * the problem is simple:
+  - just check how many number of bytes we have from the first byte using {{0,0}, {2, 6}, {3, 14}, {4,30}}
+  - the problem is simple:
     - from first byte we know how many bytes it follows
     - check the following byte if they start with 10xxxx
     - repeat until we reach end of data array
 
 ---
+
+## use bits as states
+
+- [Game of Life](https://leetcode.com/problems/game-of-life/description/)
+
+  - in order to solve it in-place we need to depend on the bits of every int in the array:
+    [2nd bit, 1st bit] = [next state, current state]
+
+    - 00 dead (next) <- dead (current)
+    - 01 dead (next) <- live (current)
+    - 10 live (next) <- dead (current)
+    - 11 live (next) <- live (current)
+
+  - check [this solution](https://leetcode.com/problems/game-of-life/discuss/73223/Easiest-JAVA-solution-with-explanation)
+  - for the infinite board part we need only to take as input the list of Live Coordinates no need for the full board => [infinite board solution](https://leetcode.com/problems/game-of-life/discuss/73217/Infinite-board-solution)
 
 ---
 
@@ -134,15 +240,17 @@
   - majority element must be > n/2
   - VVVVVVVVVVVVIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
 
-
-- [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
+* [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
   - its the generic form of Boyer-Moore algo
   - in this case they asked for: all number that are greater > n/3 => we have at most 2 numbers
   - Algo: we need two pointer one for each majority
   - VVVIIIPPP NOTE: while iterating if candidate1 passes by an index that has value of candidate2 we don't decrement the counter of candidate1 we only increments candidate2's counter
   - [solution](https://discuss.leetcode.com/topic/17564/boyer-moore-majority-vote-algorithm-and-my-elaboration)
+
 ---
+
 ---
+
 ---
 
 # Cumulative Sum
@@ -221,27 +329,30 @@
   - [my solution with Set](https://leetcode.com/problems/happy-number/discuss/56913)
   - [nice solution using Floyd cycle algo](https://leetcode.com/problems/happy-number/discuss/56917)
   - read more aboud Floyd Cycle in down in general info secion
----
 
 ---
 
 ---
 
+---
 
 # Design
 
 ## Tic-Tac-Toe
 
 - [Tic-Tac-Toe](https://www.programcreek.com/2014/05/leetcode-tic-tac-toe-java/)
+
   - I did it in two ways:
     1. naive:O(n) everytime a player plays
     2. DP: O(1) time, O(n^2) space
   - they Did it in a better solution O(1)/play time and O(n) space
     - actually u dont need O(n^2)space u just need row[n] and col[n] and two ints for the diagonals
     - [check nice solution](https://www.programcreek.com/2014/05/leetcode-tic-tac-toe-java/)
-  
+
 ---
+
 ---
+
 ---
 
 # DP
@@ -277,7 +388,7 @@
   3. recurrence
      - Time/Subproblem
   4. Order
-     - $Total Time = \#subproblems * Time/Subproblem$
+     - $Total Time = \#subproblems \* Time/Subproblem$
   5. Origin problem
 
 ---
@@ -293,16 +404,19 @@
 **_Hints_**
 
 - **if u want to return combinations**
+
   - save the values in a temp Collection
   - => use a temp arrayList or set or queue
   - but at the **base case copy all values** to the new array that ur ganna save (ex: **result.add(new ArrayList<>(container))**;)
-  
+
 - if u **dont want repetition or the same value in different place or u need to preserve order**
+
   - **use starting index** where every recursive call will start from this index and upwards
   - => **doesn't look at behind values**
   - ex: for(int **index = startingIndex**; index < nums.length; ++index)
 
 - if we have **duplicates** => **sort the array** at first
+
   - and skip duplicate values if needed
 
 - **check oneNote on how to solve these kinds of questions**
@@ -310,6 +424,7 @@
 **_Problems_**
 
 - [Permutations](https://leetcode.com/problems/permutations/description/)
+
   - Can be done using Dynamic Programming
   - did it in two ways second is just a refactoring of the first where first
     - first I used: list<list<list<Integer>>> like in combination sum
@@ -317,6 +432,7 @@
   - but I always have previous row answer and current row answer
 
 - [PermutationsII](https://leetcode.com/problems/permutations-ii/description/)
+
   - similar to Permuations but added and if statement
   - SORT Array to have duplicates beside each other => easier to work with
   - this if statement checks if i dont have any value of the same number before the permutation index. Why would that work?
@@ -324,19 +440,20 @@
   - [general solution - backtracking](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)
 
 - [Palindrome Permutation II](https://leetcode.com/articles/palindrome-permutation-ii/)
+
   - use the general permutation way (backtracking)
 
 - [Factor Combinations](https://kennyzhuang.gitbooks.io/leetcode-lock/content/254_factor_combinations.html)
   - did it in DFS
-    - pass the multiplier as a start point to decompose the multiplicent so that the decomposed factors are >=  multiplier
+    - pass the multiplier as a start point to decompose the multiplicent so that the decomposed factors are >= multiplier
       - => preserve the asc order in the resulting array
-    - at every result u get even if its a subproblem add it to the result 
+    - at every result u get even if its a subproblem add it to the result
       - (we cant wait until we reach the end)
   - I did it using DP
   - can do it like previous problems using DFS (using the general solution)
- 
 
-- [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/description/)
+* [Expression Add Operators](https://leetcode.com/problems/expression-add-operators/description/)
+
   - did it using backtracking general solution
   - did a double backtracking to have a clearer solution
     1.  one for the numbers only
@@ -344,16 +461,18 @@
   - used the algo of **BASIC CALCULATOR II**
   - check solution with [one-combined DFS](https://leetcode.com/problems/expression-add-operators/discuss/71895/Java-Standard-Backtrace-AC-Solutoin-short-and-clear)
 
-- [Word Squares](http://massivealgorithms.blogspot.com/2016/10/leetcode-425-word-squares.html)
+* [Word Squares](http://massivealgorithms.blogspot.com/2016/10/leetcode-425-word-squares.html)
+
   - used backtracking to get all combinations
   - trie to find the prefix in the previous words
     <a id="Word_Squares"/>
 
-- [Subsets](https://leetcode.com/problems/subsets/description/)
+* [Subsets](https://leetcode.com/problems/subsets/description/)
+
   - we dont need duplicate values => use starting Index
   - we need all lengths => at first create loop for length and then call dfs
 
-- [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/solution/)
+* [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/solution/)
   - **STUDY THIS PROBLEM**
   - **Needs REVIEW**
   - VVVVVVVVIIIIPPPPP problem
@@ -407,12 +526,14 @@
        - if yes => Disregard it and find the next Abb
 
 - [Additive Number](https://leetcode.com/problems/additive-number/description/)
+
   - Do back tracking
   - if int is so large => keep them as String and do addition on the fly
 
 - [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
   - here we need to output all combination that gives us a specific some
   - follow algo as in OneNote
+
 ---
 
 ### DFS in Matrix
@@ -438,6 +559,7 @@
        - time: O($n m^2 + n^2 m$)
 
 - [Word Search](https://leetcode.com/problems/word-search/description/)
+
   - to search for the pattern you want, its only done in a recursive way
 
 - [Word Search II](https://leetcode.com/problems/word-search-ii/description/)
@@ -482,7 +604,9 @@
   - this problem can be solved using a mathematical proof [Lagrange's Four Square theorem]
   - [all solutions](<https://leetcode.com/problems/perfect-squares/discuss/71488/Summary-of-4-different-solutions-(BFS-DP-static-DP-and-mathematics)>)
 
-* [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
+- [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solution/)
+  - better to solve it in a greedy way
+- [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
 
   - **STUDY THIS PROBLEM**
   - **Needs REVIEW**
@@ -497,13 +621,13 @@
   - did it in general for K transactions, it looks like Knapsack and stock hw problem
   - [explanation of my solution](https://discuss.leetcode.com/topic/4766/a-clean-dp-solution-which-generalizes-to-k-transactions)
 
-* [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+- [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
 
   - this question has two parts
     1.  if k > prices.length/2 => solve it in a greedy way check [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solution/)
     2.  else solve it like [Best Time to Buy and Sell Stock III](https://discuss.leetcode.com/topic/4766/a-clean-dp-solution-which-generalizes-to-k-transactions)
 
-* [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
+- [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
 
   - in this question we dont have a limit on Transactions => no need for second dimension of length K like previous problems
     => only 1 is needed over the prices of every day
@@ -520,8 +644,11 @@
     - time: O(N)
     - space: O(1)
 
-* [Coin Change](https://leetcode.com/problems/coin-change/discuss/)
+- [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
 
+  - same as previous solutions but this time with trasaction fee
+
+- [Coin Change](https://leetcode.com/problems/coin-change/discuss/)
   - similar to **Subset Knapsack problem**
 
 ---
@@ -572,6 +699,8 @@
   - **STUDY THIS PROBLEM**
   - **Needs REVIEW**
   - can use the solution of [Longest Palindromic Substring](#Longest_Palindromic_Substring) with some modification
+  - In a string every char may be considered as a palindrom by its own
+    - => initial value of the dp[i] = i
   - the modification is whenever you have a palindrome (even if its not the largest one) check the necessary on cntds on it!!!!!
   - It was so hard to solve it despite the solution was easy
 
@@ -627,6 +756,7 @@
   - the brute force method is doing the same stuff many times so if we use a dp we can get the info needed of the current cell from the previous cell
 
 - [Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/description/)
+
   - similar to **text justification** but taking into consideration the number of arrays as a constraint
   - 5 Steps:
     1. Subproblems:
@@ -649,24 +779,21 @@
 - [Integer Break](https://leetcode.com/problems/integer-break/description/)
   - 2 solutions:
     1. [math](https://leetcode.com/problems/integer-break/discuss/80751/A-Clear-Math-Proof-of-the-Algorithm):
-        - dp[i] = dp[i-3] * dp[3]
-        - see explanation in link
-        - time: O(n) but can be optimized
+       - dp[i] = dp[i-3] \* dp[3]
+       - see explanation in link
+       - time: O(n) but can be optimized
     2. [dp](https://leetcode.com/problems/integer-break/discuss/80694/Java-DP-solution)
-        - time: O(n^2)
+       - time: O(n^2)
 
-
-
-- [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/description/)
-  - At first we have to save for every prime factor its minimum index (call it Mi) which is the index that points to a value in values array and we will use it to get next Ugly Number = PrimFactor * values[Mi]
+* [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/description/)
+  - At first we have to save for every prime factor its minimum index (call it Mi) which is the index that points to a value in values array and we will use it to get next Ugly Number = PrimFactor \* values[Mi]
   - loop for 1 -> n
-    - check which prime factor will generate the current min ugly number 
-      - for every prime factor to generate current ugly number = prime factor * values[Mi]
+    - check which prime factor will generate the current min ugly number
+      - for every prime factor to generate current ugly number = prime factor \* values[Mi]
     - when current min ugly number is calculated **loop over all the prime factors and check if (current min ugly number) % prime factor == 0**
       - if it is => **increment Prime factor's Mi**
   - [solution](https://leetcode.com/submissions/detail/172546104/)
   - [explanation: check dp solution](https://www.geeksforgeeks.org/ugly-numbers/)
-
 
 - [Super Ugly Number](https://leetcode.com/problems/super-ugly-number/description/)
   - the idea here we use counter for every prime in order to know which next value in the dp that we want to multiply it with
@@ -703,6 +830,12 @@
     - to not rob current => Max(left.rob, left.notRob) + Max(right.rob, right.notRob)
   - [solution](https://leetcode.com/problems/house-robber-iii/discuss/79330/Step-by-step-tackling-of-the-problem)
 
+- [Wiggle Subsequence](https://leetcode.com/problems/wiggle-subsequence/description/)
+  - to solve this problem we need to count the number of alterantions between a Maxima and a Minima
+  - time: O(n), Space: O(1)
+  - [solution](https://leetcode.com/articles/wiggle-subsequence/)
+  - similar to **finding the number of alternating max. and min. peaks in the array**
+
 #### COUNT
 
 - [Decode Ways](https://leetcode.com/problems/decode-ways/description/)
@@ -724,7 +857,11 @@
   - O(n)
   - not necessary to use array[n] its sufficient to use only to variable (paintLikePrevious, dontPaintLikePrevious) => space: O(1)
 
-#### TRUE / FALSE
+#### TRUE / FALSE (think of Rec + Memo)
+
+- Why True/False questions work with DP? - Since sometimes we can do backtracking (to get the answer)
+
+  - And then add Memo => DP
 
 - [Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
 
@@ -740,6 +877,12 @@
   - looks like **alternating coin game lecture 10 course 2**
   - somehow we have to find dp[n] = max(min(...), min(....))
   - [solution](https://leetcode.com/problems/nim-game/discuss/134338/Formal-way-of-dynamic-programming-(DP))
+
+* [Frog Jump](https://leetcode.com/problems/frog-jump/description/)
+  - Iterative DP
+  - **prefix problem x[0: i]**
+  - Time: O(n^2) space O(n^2)
+  - we iterate over every stone and then look at all previous stones to check if we can reach current stone from previous one (under cnd newK [oldK - 1, oldK + 1])
 
 #### Find all possible answers
 
@@ -790,6 +933,25 @@
 
 ---
 
+# Greedy
+
+- [Patching Array](https://leetcode.com/problems/patching-array/description/)
+  - VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - Did it in 3 ways:
+    1. using normal DP => O(KN)
+    2. optimized it to become O(N) but still gave me time exceed since we are passing from 1 -> N one by one
+    3. from solutions given by other people: [solution](https://leetcode.com/problems/patching-array/discuss/78488/Solution-+-explanation)
+    - this solution is not intuative at all => its sooooo hardddd
+    - read the explanation in the solution above carefully
+  - [great explanation](https://leetcode.com/problems/patching-array/discuss/78500/Explanation-of-sum-range-coverage)
+
+---
+
+---
+
+---
 
 # Graphs
 
@@ -797,8 +959,14 @@
 
 - Should know DFS, BFS, Topological Sort
 
+## BFS / DFS
 
-## BFS
+- [Valid Tree](https://www.programcreek.com/2014/05/graph-valid-tree-java/)
+  - Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), check if these edges form a valid tree.
+  - change list to adj Matrix (edges are undirected)
+  - do a DFS with a boolean[] visited to detect if a node points to a visited node
+    - if it does => we fail
+    - if it doesn't => its a tree
 
 ### Level Traversal
 
@@ -820,33 +988,50 @@
   - pay attention when they say **to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]** => the is directed
 
 - [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/description/)
+
   - we must output the courses in the needed order => TOPOLOGICAL SORT
-  
+
+- [alien language](https://www.geeksforgeeks.org/given-sorted-dictionary-find-precedence-characters/)
+
+  - The idea is to create a graph of characters and then find topological sorting of the created graph.
+  - Following are the detailed steps:
+
+    1. Create a graph g with number of vertices equal to the size of alphabet in the given alien language. For example, if the alphabet size is 5, then there can be 5 characters in words. Initially there are no edges in graph.
+
+    2. Do following for every pair of adjacent words in given sorted array.
+
+       - Let the current pair of words be word1 and word2. One by one compare characters of both words and find the first mismatching characters.
+       - Create an edge in g from mismatching character of word1 to that of word2.
+
+    3. Print topological sorting of the above created graph.
+
 ---
+
 ## Dijkstra
 
 - [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/description/)
   - I used a modified version of Dijkstra
   - the relaxing method is diff here
     - instead of d[u] = d[v] + w(u, v)
-    - we use d[u] = Max(d[v], grid[u])  
+    - we use d[u] = Max(d[v], grid[u])
+
 ---
 
 ## From START -> END state (state ex: word, char, number, fraction...)
 
 - [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation/)
-<a id="Minimum_Genetic_Mutation"></a>
+  <a id="Minimum_Genetic_Mutation"></a>
   - We want to go from start word to end word => minimum DFS
   - Vertex: every String in bank
   - Edges: edges btw words are available if word1 and word2 diff only by 1 gene
     - I used **Trie** to check if we can create an edge btw two words
   - [solution](<https://leetcode.com/problems/minimum-genetic-mutation/discuss/160892/Java-DP(DFS-and-memo)-+-Trie>)
-    
 
-- [Word Ladder](https://leetcode.com/problems/word-ladder/description/)
+* [Word Ladder](https://leetcode.com/problems/word-ladder/description/)
+
   - similar Explanation as [Minimum Genetic Mutation](#Minimum_Genetic_Mutation)
 
-- [Evaluate Division](https://leetcode.com/problems/evaluate-division/description/)
+* [Evaluate Division](https://leetcode.com/problems/evaluate-division/description/)
 
   - its similar to **alien language problem**
   - make every String in the equations a vertex => the numerators and denominators arte vertices
@@ -854,7 +1039,7 @@
   - => to calculate the division btw X/Y we should do a DFS or BFS from X to Y
   - **NOTE: I DONT CARE WHAT GRAPH ALGO I USE CZ THE DIVISION WILL ALWAYS BE THE SAME => SAME TO USE DFS OR DIJKASTRA**
 
-- [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/description/)
+* [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/description/)
 
   - VVVVVVVVVVIIIIIIIPPPPPPPPPPP
   - **Needs REVIEW**
@@ -880,7 +1065,8 @@
     - at the end since we have the longest value => backtrack to find the sequence
     - time: O(n sqrt(n)), Space: O(n)
 
-- [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
+* [Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
+
   - its a nice problem
   - do a typical DFS
   - since we need the final answer the list lexical order and to save some time from comparing every answer => **order every adj node for a node**
@@ -894,18 +1080,49 @@
 
 ---
 
-- [Valid Tree](https://www.programcreek.com/2014/05/-valid-tree-java/)
-  - Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), check if these edges form a valid tree.
-  - change list to adj Matrix (edges are undirected)
-  - do a DFS with a boolean[] visited to detect if a node points to a visited node
-    - if it does => we fail
-    - if it doesn't => its a tree
+---
+
+---
+
+# Heap
+
+- [Rearrange String k Distance Apart](https://www.programcreek.com/2014/08/leetcode-rearrange-string-k-distance-apart-java/)
+  - I solved it like the solution
+  - use a MaxQueue to store the char based on their current Frequency.
+  - every time you use remove a char from the queue:
+    1- add it to the StringBuilder
+    2- decrement its freq
+    3- add it to a set (name it InWindow) of chars currently withen window K if its freq > 0
+    else throw it away
+    4- at the end try to remove the char of stringBuilder.charAt(length - k) from InWindow and add it again to the MaxQueue
+
+---
+
+## Kth smallest/Largest...
+
+- [Merge k Sorted Lists](#merge_k_Sorted_Lists)
+
+- [Kth Smallest Element in a Sorted Matrix](#kth_Smallest_Element_in_a_Sorted_Matrix)
+
+- [Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums/description/)
+  - to solve this problem i used MinQueue
+  - at any time the elements in the min queue are O(k) elements
+  - time: O(k log k)
+  - Algo:
+    - at first we start by habing {0,0} indecies in the minQueue
+    - when we pop a pair from the queue we should:
+      - add minPair to result
+      - add pair {minPair[0] + 1, minPair[1] + 1} to minQueue
+      - check minPair[0] < nums1.length - 1 && minPair[1] == 0 ? => add {minPair[0] + 1, minPair[1]} to minQueue
+        - **why?** cz we need to make sure that pair {minPair[0] + 1, minPair[1] + 1} is less than {minPair[0] + 1, minPair[1]}
+    - keep doing this until we reach size = k
 
 ---
 
 ---
 
 ---
+
 # Intervals
 
 ## Greedy
@@ -915,18 +1132,20 @@
 - use Greedy when **optimization problem** with **unity weight**
 - check _Greedy_ and _Greedy vs DP sections_ in OneNote
 
-
 **_Problems_**
 
 - [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/description/)
+
   - same solution as the interval scheduling idea
   - sort by finish time
   - instead of removing the overlapping now we have to count them
 
 - [Find Right Interval](#Find_Right_Interval)
+
   - sort by starting point
 
 - [Interval Scheduling](#interval-scheduling)
+
   - similar to the problem in course2 lect 1
   - sort by finishing time
   - check Greedy section oneNote
@@ -938,7 +1157,13 @@
 - [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/description/)
   - greedy approach
   - use PriorityQueue to remove largest Iterval
-  - [solution](https://leetcode.com/problems/course-schedule-iii/solution/) 
+  - [solution](https://leetcode.com/problems/course-schedule-iii/solution/)
+
+---
+
+## Segmant/Interval Trees
+
+- [Data Stream as Disjoint Intervals](#data_stream_as_disjoint_intervals)
 
 ---
 
@@ -957,40 +1182,60 @@
 **_Problems_**
 
 - [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/description/)
+
   - in this problem we have 3 proposed solution:
     1. solution1: use 2 stack (Stack<List<NestedInteger>>, Stack<Integer>) the first to save the stack and the second to save the index we are in for every list in the stack
     2. solution2: optimize solution1 to use only one stack => use Stack<Iterator<NestedInteger>> instead of Stack<List<NestedInteger>>
-      - [solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80404/Simple-iterative-DFS-using-stack)
-    3. solution3: use only Stack<List<NestedInteger>> but also flatten every list       
-      - [check solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80147/Simple-Java-solution-using-a-stack-with-explanation)
+    - [solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80404/Simple-iterative-DFS-using-stack)
+    1. solution3: use only Stack<List<NestedInteger>> but also flatten every list
+    - [check solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80147/Simple-Java-solution-using-a-stack-with-explanation)
   - I did the first 2 solutions
 
----
+- [Flatten 2D Vector](https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.10.html)
+  - implement an iterator
+  - check corner scenraio in my code
+  - [solution](http://buttercola.blogspot.com/2015/08/leetcode-flatten-2d-vector.html)
 
 ---
 
 ---
 
+---
 
 # Linked List
 
 **_Hints_**
 
 - Try to use **DummyHead**
+- Runner technique: use more than one pointers separated btw each other with a constant distance (cracking coding interview p93)
+- If end -> beginning (reverse order) **ex: Plus One Linked List** => 2 ways:
+  1. recursive
+  2. reverse order + compute + reverse order again
+- when re-arranging nodes make sure to change node.next to appropraite value or null
+  - ex: **Odd Even Linked List**
 
 **_Problems_**
 
 - [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/)
+
   - used DFS to recurse on children pointers
   - returned head and tail when recursing
   - used DummyHead
-  
----
+
+- [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/description/)
+
+  - use 2 DummyHeads:
+    1. for odd head
+    2. for even head
+
+- [Reorder List](https://leetcode.com/problems/reorder-list/description/)
+  - partition list to two parts and use Reverse Linked List in this problem for the second part
 
 ---
 
 ---
 
+---
 
 # Math
 
@@ -1006,10 +1251,19 @@
 ## Division
 
 - [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
+
   - did it in a logarithmic way
   - check oneNote for algo explanation
   - [solution](https://leetcode.com/problems/divide-two-integers/discuss/161358/Concise-JAVA-solution-without-using-long)
+
+- [Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/description/)
+  - use **division by hand method**
+    - check oneNote for how to do it
+  - use a map to store the remainder and its place in the string
+    - since if we have a fractional repeat => we have a repeatition in the rem => we can detect it where to add "("
+
 ---
+
 ## Prime
 
 - [Count Primes](https://leetcode.com/problems/count-primes/description/)
@@ -1025,18 +1279,20 @@
 ## Calculator
 
 - [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/discuss/)
+
   - use stack to solve it
 
 - [Basic Calculator](https://leetcode.com/problems/basic-calculator/description/)
+
   - call the **calculate function recursively when u reach a '(' char**
   - check call its only O(n)
   - **use isAddition** (that is set according to meeting a '+' or '-') to record the operation thats ganna happen with the next number
 
 - [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/description/)
   - VVVVVVVVVVIIIIIIIPPPPPPPPPPP
-  - __Needs REVIEW__
-  - __Practice this problem more__
-  - now since we have * and / we have to walk and look for the operators and then depending on operator we treat the previous value and the current value
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - now since we have \* and / we have to walk and look for the operators and then depending on operator we treat the previous value and the current value
   - no need for stack => O(n) time O(1) space
   - check [solution](https://discuss.leetcode.com/topic/17435/java-straight-forward-iteration-solution-with-comments-no-stack-o-n-o-1)
 
@@ -1054,6 +1310,7 @@
   - check this [solution](https://leetcode.com/submissions/detail/171618647/)
 
 - [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/discuss/)
+
   - VVVVVVVVVVIIIIIIIPPPPPPPPPPP
   - **Needs REVIEW**
   - **Practice this problem more**
@@ -1063,26 +1320,28 @@
   - check my solution is based on this [link](https://math.stackexchange.com/questions/142126/how-many-zeroes-are-in-100)
 
 - [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/description/)
+
   - similar to sqrt
   - check sqrt formulas in OneNote
 
 - [Power of Three](https://leetcode.com/articles/power-of-three)
+
   - i did it using for loop => O(log3 n)
-  - the O(1) solution is so silly:  return n > 0 && 1162261467 % n == 0;
+  - the O(1) solution is so silly: return n > 0 && 1162261467 % n == 0;
   - check their solution
 
-- [Power of Four](https://leetcode.com/problems/power-of-four/discuss/80456/O(1)-one-line-solution-without-loops)
-  * VVVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-  * __Needs REVIEW__
-  * __Practice this problem more__
-  * 2 ways:
-    1.  return Integer.bitCount(num) == 1&&  Integer.numberOfTrailingZeros(num) % 2 == 0;
-    2. return (num > 0) && ((num & (num - 1)) == 0) && ((num & 0x55555555) == num);
-      - The basic idea is from power of 2, We can use “n&(n-1) == 0” to determine if n is power of 2.
-      - For power of 4, the additional restriction is that in binary form, the only “1” should always located at the odd position.           
-      - For example, 4^0 = 1, 4^1 = 100, 4^2 = 10000.           
-      - So we can use “num & 0x55555555==num” to check if “1” is located at the odd position.
-  * __second solution is better cz it doesn't depend on a specific language__
+- [Power of Four](<https://leetcode.com/problems/power-of-four/discuss/80456/O(1)-one-line-solution-without-loops>)
+  - VVVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - 2 ways:
+    1.  return Integer.bitCount(num) == 1&& Integer.numberOfTrailingZeros(num) % 2 == 0;
+    2.  return (num > 0) && ((num & (num - 1)) == 0) && ((num & 0x55555555) == num);
+    - The basic idea is from power of 2, We can use “n&(n-1) == 0” to determine if n is power of 2.
+    - For power of 4, the additional restriction is that in binary form, the only “1” should always located at the odd position.
+    - For example, 4^0 = 1, 4^1 = 100, 4^2 = 10000.
+    - So we can use “num & 0x55555555==num” to check if “1” is located at the odd position.
+  - **second solution is better cz it doesn't depend on a specific language**
 
 ---
 
@@ -1090,7 +1349,7 @@
 
 - [Rectangle Area](https://leetcode.com/problems/rectangle-area/discuss/62138)
   - Area = Arec1 + Arec2 - Aintersection
-  - Aintersection = (Max(left) - Min(Right)) * (Min(upper) - Max(bottom))
+  - Aintersection = (Max(left) - Min(Right)) \* (Min(upper) - Max(bottom))
   - if (Min(upper) <= Max(bottom) || Max(left) >= Min(Right)) => **they dont intersect**
   - [solution](https://leetcode.com/submissions/detail/171631752/)
 
@@ -1110,47 +1369,50 @@
 
 - [Count Numbers with Unique Digits](https://leetcode.com/problems/count-numbers-with-unique-digits/description/)
   - this problem is basically a permutation problem since they want to count the number with unique digits => permutation of 9Pn
-  - we solve it using DP since f(n) = f(n-1)* (10- (n-1))
-    => check [solution](https://leetcode.com/problems/count-numbers-with-unique-digits/discuss/83041/JAVA-DP-O(1)-solution.)
+  - we solve it using DP since f(n) = f(n-1)\* (10- (n-1))
+    => check [solution](<https://leetcode.com/problems/count-numbers-with-unique-digits/discuss/83041/JAVA-DP-O(1)-solution.>)
 
 #### Find kth value
 
 - [Permutation Sequence](https://leetcode.com/problems/permutation-sequence/discuss/)
-  * the above link shows how to solve it and that how I solved it
-  * practice it more
+  - the above link shows how to solve it and that how I solved it
+  - practice it more
 
 ---
 
 ## Series / Sequence
 
 - [Missing Number](https://leetcode.com/problems/missing-number/description/)
+
   - Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
   - use Gauss Formula **(arithmetic series) = n(n+1)/2**
   - can be also solved using bit manipulation (VVVVVIIIIPPPPPP)
   - [solution](https://leetcode.com/problems/missing-number/solution/)
 
 - [Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices/description/)
+
   - VVVVVVIIIIPPPPPPP
   - Idea uses **arithmetic series calculation**
   - There are 3 steps to do here
-    1. we need to find the appropriate windows for the series determind 
-        - I used two pointers left and right
-        - As long as A[right] - A[right - 1] = Current_Window_Diff we ++right => current window increase
+    1. we need to find the appropriate windows for the series determind
+       - I used two pointers left and right
+       - As long as A[right] - A[right - 1] = Current_Window_Diff we ++right => current window increase
     2. Determine number of **combinations per window**
-        - this is the arithmetic series calculation part
-        - $count/window = \sum_{j= 3}^{len} \sum_{k= 3}^{j} 1 = \dfrac{(len - 2)*(len - 1)  }{2}$
+       - this is the arithmetic series calculation part
+       - $count/window = \sum*{j= 3}^{len} \sum*{k= 3}^{j} 1 = \dfrac{(len - 2)\*(len - 1) }{2}$
     3. Total count = sum(combinations per window)
   - time O(n)
   - space O(1)
 
 - [Arranging Coins](https://leetcode.com/problems/arranging-coins/description/)
+
   - use arithmetic series
   - this time we have the total number n
-    - => $\sum_{j= 1}^{k} i = n \rightarrow \dfrac{k^2}{2} + \dfrac{k}{1} - n \leq 0 \rightarrow$  k = positive root of equation
+    - => $\sum\_{j= 1}^{k} i = n \rightarrow \dfrac{k^2}{2} + \dfrac{k}{1} - n \leq 0 \rightarrow$ k = positive root of equation
 
 - [RotateFunction](https://leetcode.com/problems/rotate-function/)
   - consider finding patterns (F(n) = F(n-1).... )
-  - [other solution using F(k) - F(k - 1)](https://leetcode.com/problems/rotate-function/discuss/87853/Java-O(n)-solution-with-explanation)
+  - [other solution using F(k) - F(k - 1)](<https://leetcode.com/problems/rotate-function/discuss/87853/Java-O(n)-solution-with-explanation>)
   - ![explanation](./RotateFunction.jpeg)
   - time: O(n)
 
@@ -1167,6 +1429,7 @@
 ### Swaping Values
 
 - [Move Zeroes](https://leetcode.com/problems/move-zeroes)
+
   - Approach:
     - here we need to keep a left pointer for the first zero
     - the right pointer is just traversing the array
@@ -1174,278 +1437,21 @@
   - its a nice problem and there are several ways to solve it
   - [best solutions](https://leetcode.com/articles/move-zeroes)
 
-
-### Longest/Shortest Sequence/String
-
-- [Longest Substring with At Most K Distinct Characters](https://www.programcreek.com/2013/02/longest-substring-which-contains-2-unique-characters/)
-  - use right pointer to advance as long as we have <= k distinct chars
-  - use left pointer to advance as long as we have > k ditinct chars
-  - at every iteration if current [left, right] have <= k check if its the max length
-
-
-- [Flip bit to Win](https://www.geeksforgeeks.org/find-longest-sequence-1s-binary-representation-one-flip/)
-  - we can use 3 pointers:
-    - index for current index
-    - firstZero for the first previous zero encountered
-    - secondZero for the second previous zero encountered
-  - when ever index reaches a zero
-    - calculate longestSequence = Max(longestSequence, index - secondZero - 1) 
-  - time: O(b)
-  - space: O(1)
-  ```` java
-   static int flip(int n) {
-      int firstZero = -1;
-      int secondZero = -1;
-
-      int index = 0;
-      int mask = 1;
-      int longestSequence = 0;
-
-      while(index < 32) {
-         if ((mask & n) == 0) {
-            longestSequence = Math.max(longestSequence, index - secondZero - 1);
-            secondZero = firstZero;
-            firstZero = index;
-         }
-         mask <<= 1;
-         ++index;
-      }
-
-      return Math.max(longestSequence, index - secondZero - 1);
-   }
-  ````
----
-
----
-
----
-# Regex
-
-**_Hints_**
-
-- if I use trimmed.split("\\s+") on empty string ""
-  => it will create an array of size 1
-
----
-
-- [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/solution/)
-
-  - we trim the string and then check if its empty since the split will create an array of size 1 if string was "" (empty string)
-  - trimmed.split("\\s+")
-
-
----
-
----
-
----
-
-# Search
-
-- [Best meeting point](https://www.geeksforgeeks.org/best-meeting-point-2d-binary-array/)
-  * I did it in a different way
-  * MY way:     
-    - calculated the total distance with respect to x = 0 and y = 0
-    - then start traversing right and sub 1 from every valid point on my right
-    - and add 1 for every valid point on my left
-    - do similar process when traversing the rows
-    - at every traversal check if we have a Min
-  * [Solution Way:](https://www.geeksforgeeks.org/best-meeting-point-2d-binary-array/)
-    - Store all horizontal and vertical positions of all group member.
-    - Now sort it to find minimum middle position, which will be the best meeting point.
-    - Find the distance of all members from best meeting point
-
----
-## Median
-
-- [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/solution/)
-  * Used two Priority Queques:
-    - MIN Queue to store larger half of the array
-    - MAX Queue to store the smaller half of the array
-  * check [solution](https://leetcode.com/problems/find-median-from-data-stream/solution/)
-
----
-
-## Mapping
-
-- [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/description/)
-  * use array of 128 or 256
-  * Two strings are isomorphic if the characters in s can be replaced to get t.
-  * All occurrences of a character must be replaced with another character while preserving the order of characters.   No two characters may map to the same character but a character may map to itself.
-
-## D&G
-
-### Quick Select
-
-**_Hints_**
-
-- check oneNote for explanation
-
-**_Problems_**
-
-- [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
-  - use Quick Select
-  - pay attention how to pick the pivot [use ur solution](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-  - and how to decide if u recurse left or right here is reversed from the normal quick sort since they ask for the kth largest and not smallest
-  - O(n)
-  - VVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPP
-
-
-### Binary Search
-
-**_Hints_**
-
-- pay attention when calculating the mid (from **overflow**)
-  - do **int mid = (start + end) >>> 1**
-- check oneNote for explanation
-
-**_Problems_**
-
-- [H-Index II](https://leetcode.com/problems/h-index-ii/description/)
-  - can be solved in binary search
-
-  ``` java
-    int rankLargest = citations.length - mid;
-    
-    if (rankLargest > citations[mid]) {
-        start = mid + 1;
-    } else {
-        maxCitation = Math.max(maxCitation, rankLargest);
-        end = mid - 1;
-    }
-  ```
-
-
-- [Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/description/)
-  - its a normal binary search
-  - the trick here is to watch for __overflow__ when calculating the mid
-    - so dont write int mid = (start + end)/2
-    - u should write  int mid = start + ((end-start) /2);
-  - [solution](https://leetcode.com/articles/guess-number-higher-or-lower/)
-
----
-
-- [Elimination Game](https://leetcode.com/problems/elimination-game/description/)
-  * it was hard to figure out the solution but I was approaching it
-  * [explanation](https://leetcode.com/problems/elimination-game/discuss/87119/JAVA:-Easiest-solution-O(logN)-with-explanation)
-  * solution:
-    - The list is a arithmetic progression.
-    - It can be represent by a vector v = (S, N, D). 
-    - S means the value of first element, 
-    - N means number of element in this list, 
-    - D means difference between the consecutive elements.
-    - So the original list is (S=1,N=n,D=1).
-    - After each elimination, the list will remain a arithmetic progression. N will be N/2; D will be 2*D; S will be S or S+D;
-  ``` java
-
-   static int lastRemaining(int n) {
-      int D = 1;
-      int S = 1;
-      boolean forward = true;
-      while (n > 1) {
-         if (forward) {
-            S += D;
-         } else {
-            if ((n & 1) != 0) {
-               S += D;
-            }
-         }
-         n >>= 1;
-         forward = !forward;
-         D <<= 1;
-      }
-      return S;
-   }
-  ```
-
----
-
----
-
----
-
-# Sorting
-
-**_Hints_**
-
-- use Arrays.sort()
-- list.sort()
-- Collections.binarySearch()
-
-**_Problems_**
-
-## Merge Sort
-
-### External Sort (K lists)
-
-- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/discuss/?page=1)
-  - [solution](https://leetcode.com/problems/merge-k-sorted-lists/solution/)
-  - use priorityQueue which size of rows => the queue contains one element from each row
-
-- [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/)
-  - similar to __Merge k Sorted Lists__
-  - VVVVVIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-  
----
-
-## Paitence Sort
-
-- [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
-  * <a id="longest_Increasing_Subsequence"> Longest Increasing Subsequence </a>
-  * VVVVVVVVIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP problem
-  * __Practice this problem more__
-  *  __Needs REVIEW__   * did it using DP in time: O(n^2)and space O(n)
-  * can optimize to __O(n log n) time by and space O(n)__:
-    1. using an augmented balanced BST where every node contains the max increasing subseq among nodes that are equal or greater to current node: [solution](https://www.cc.gatech.edu/~rpeng/CS3510_F16/notes/Oct17LIS.pdf)
-    2. using [patience sorting](https://prezi.com/uunlirdphxts/patience-sorting/)
-
-  * [solution](https://leetcode.com/problems/longest-increasing-subsequence/solution/)
-  * for the optimized solutions I thought about the Augmented BST => explanation of BST:
-    1. we start traversing from i: n-1 -> 0
-    2. at every index we try to insert its value to a BST. This BST is an Augmented BST by saving at every node the max increasing subseq size among nodes that are equal or greater to current traveresed node
-    3. when we reach the place that we want to insert the value we will already have the max sub sequence size starting with this value call it VcurrentMax
-    4. traverse again the tree to find the current inserted value to check at each node which has a value smaller than the inserted node if the VcurrentMax is greater than the nodesMax
-    
-
-- [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/discuss/)
-  * its a specific case for [longest Increasing Subsequence](#longest_Increasing_Subsequence)
----
-## Tag Sort
-
-- **(RTDB sorting algo)**
-
-- <a id="Find_Right_Interval"></a>[Find Right Interval](https://leetcode.com/problems/find-right-interval/description/)
-  - since they want the first starting interval j of interval
-    => used the trick (sorting + finding right interalv) of **weighted interval scheduling**
-  - used the idea of indirect sorting (RTDB uses it) where we sort the indices of original array
-    - use customized Comparator
-  - [solution](<https://leetcode.com/problems/find-right-interval/discuss/162162/Indirect-sorting-(use-indices-to-sort)-+-customized-Comparator>)
-  - Approach:
-    - sort intervals based on starting point
-    - traverse sorted intervals from n-1 -> 0
-    - at every interval at index t binary search the sorted array from t -> n -1
-      - in order to find the needed starting pint
-
-
-## Top X
-
-- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
-  - create a hashMap to save Frequency per value
-  - sort the values according to frequency
-  - get first K (we can use PriorityQueue)
-
----
-
----
-
----
-
-# Sliding window
+- [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
+  - Its nice how we can use two pointers (slow and fast) within only one loop (REMEMBER THIS GENERIC FORM)
+  - it looks like _Minimum Window Substring_ problem somehow
+
+- [String Compression](https://leetcode.com/problems/string-compression/)
+  - every char will be followed by the number of accurances 
+  - [solution](https://leetcode.com/problems/string-compression/solution/)
+
+### Sliding window
 
 **_Hints_**
 
 - Think about **you will have start and end index**
 - String matching Algo:
+
   - [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm)
     - [check how Hash Function is done](https://www.geeksforgeeks.org/searching-for-patterns-set-3-rabin-karp-algorithm/)
     - in the hash function we dont care about the length of the hash value cz its always mod p (p is prime)
@@ -1454,7 +1460,9 @@
     - skip(val) = (u - val _ (a^(|u| - 1) mod p) mod p = ((u mod p) - val _ (a^(|u| - 1) mod p)) mod p
   - [Knuth-Morris-Pratt](https://www.youtube.com/watch?v=D6dCOa_gMoY)
 
-## Find Min/Max Substring
+#### Longest/Shortest Sequence/String
+
+**_Problems_**
 
 - [Minimum Window Substring](https://leetcode.com/submissions/detail/124633862/)
 
@@ -1487,10 +1495,468 @@
   - use the same algo
   - check code or [solution](https://discuss.leetcode.com/topic/19055/java-o-n-solution-using-deque-with-explanation)
 
-- [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)
+* [Minimum Window Substring](https://leetcode.com/submissions/detail/124633862/)
+
+  - its similar to <a id="Longest_Substring_Without_Repeating_Characters">[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)</a>
+  - its a sliding window problem
+  - it will always contain a while loop and mostly the condition for the first while loop is (end < s.length>)
+  - in these types of problems we have to think about a sliding window where it has a beginning and end pointers => we compute the answer with O(n)
+  - if they say its a charac then we are working with ascii then use int[128] to save ur data
+  - look at this [generic form](https://leetcode.com/problems/minimum-window-substring/discuss/161215/Easy-Understand-Java-Solution)
+
+* [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)
+
   - this is solved using time: O(n)
   - space O(1) due to int[26] to save the count per char
   - we can use sliding window to solve this problem
+
+* [Flip bit to Win](https://www.geeksforgeeks.org/find-longest-sequence-1s-binary-representation-one-flip/)
+
+  - we can use 3 pointers:
+    - index for current index
+    - firstZero for the first previous zero encountered
+    - secondZero for the second previous zero encountered
+  - when ever index reaches a zero
+    - calculate longestSequence = Max(longestSequence, index - secondZero - 1)
+  - time: O(b)
+  - space: O(1)
+
+  ```java
+   static int flip(int n) {
+      int firstZero = -1;
+      int secondZero = -1;
+
+      int index = 0;
+      int mask = 1;
+      int longestSequence = 0;
+
+      while(index < 32) {
+         if ((mask & n) == 0) {
+            longestSequence = Math.max(longestSequence, index - secondZero - 1);
+            secondZero = firstZero;
+            firstZero = index;
+         }
+         mask <<= 1;
+         ++index;
+      }
+
+      return Math.max(longestSequence, index - secondZero - 1);
+   }
+  ```
+
+* [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+  - similar to **Flip bit to Win** problem
+
+#### Rabin-Karp
+
+- [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/description/)
+  - Here we have to apply the [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm)
+
+---
+
+## Start / End Pointers
+
+### Calculate Value btw them
+
+**_Hints_**
+
+- you may want to sort at first
+
+**_Problems_**
+
+- [Line Reflection](https://www.programcreek.com/2014/08/leetcode-line-reflection-java/)
+
+  - the idea here is to group all the points with the same y-cordinate and then check if two points reflect on the same y-line
+  - how to know what are the two points to compare to?
+    1. sort all points on the same y-axis and then start with the extreme points and check if they reflect on the same line => check my code
+    - time: O(n logn)
+    1. no need to sort, just take the furthest and closes point and check there reflection line, then for every point check if x = CurrentX - reflection is in the set we have
+       and this x should have same y as the
+    - time: O(n)
+
+- [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/discuss/)
+
+  - two pointers:
+    - one on the start
+    - one on the end
+  - calculate the area btw these two pointers with minHeight = min(heightStart, heightEnd)
+  - and dont forget to remove the area of current lower height from the whole area
+
+- [Sort Transformed Array](http://shirleyisnotageek.blogspot.com/2016/10/sort-transformed-array.html)
+  - We know that the transformation function forms a parabola, which has a minimum/maximum in the middle,
+    - if a == 0.=> line => return b >= 0 ? nums : reverse(nums)
+    - if a > 0
+      => So we can start from two ends, fill the result array from end to start, for a < 0, fill the result array from start to end  
+      (like the merge function in merge sort)
+
+---
+
+---
+
+---
+
+# Regex
+
+**_Hints_**
+
+- if I use trimmed.split("\\s+") on empty string ""
+  => it will create an array of size 1
+
+---
+
+- [Number of Segments in a String](https://leetcode.com/problems/number-of-segments-in-a-string/solution/)
+
+  - we trim the string and then check if its empty since the split will create an array of size 1 if string was "" (empty string)
+  - trimmed.split("\\s+")
+
+- [Compare Version Numbers](https://leetcode.com/problems/compare-version-numbers/discuss/)
+  - did it in 2 ways:
+    1. using normal iteration (while loop over every char)
+    2. using String.split("\\.")
+  - VVVVVVVIIIIIPPPPPPPP
+  - **_NOTE:_** instead of iterating over every char in the outer While loop use nested while loop the inner loop will iterate until it reaches a DOT
+    check this [solution](https://discuss.leetcode.com/topic/11410/my-2ms-easy-solution-with-c-c) THIS proposition helps in many question
+
+---
+
+---
+
+---
+
+# Search
+
+- [Best meeting point](https://www.geeksforgeeks.org/best-meeting-point-2d-binary-array/)
+  - I did it in a different way
+  - MY way:
+    - calculated the total distance with respect to x = 0 and y = 0
+    - then start traversing right and sub 1 from every valid point on my right
+    - and add 1 for every valid point on my left
+    - do similar process when traversing the rows
+    - at every traversal check if we have a Min
+  - [Solution Way:](https://www.geeksforgeeks.org/best-meeting-point-2d-binary-array/)
+    - Store all horizontal and vertical positions of all group member.
+    - Now sort it to find minimum middle position, which will be the best meeting point.
+    - Find the distance of all members from best meeting point
+
+---
+
+## Median
+
+- [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/solution/)
+  - Used two Priority Queques:
+    - MIN Queue to store larger half of the array
+    - MAX Queue to store the smaller half of the array
+  - check [solution](https://leetcode.com/problems/find-median-from-data-stream/solution/)
+
+---
+
+## Mapping
+
+- [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/description/)
+  - use array of 128 or 256
+  - Two strings are isomorphic if the characters in s can be replaced to get t.
+  - All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+
+## D&G
+
+### Quick Select
+
+**_Hints_**
+
+- check oneNote for explanation
+
+**_Problems_**
+
+- [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
+  - use Quick Select
+  - pay attention how to pick the pivot [use ur solution](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+  - and how to decide if u recurse left or right here is reversed from the normal quick sort since they ask for the kth largest and not smallest
+  - O(n)
+  - VVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPP
+
+### Binary Search
+
+**_Hints_**
+
+- pay attention when calculating the mid (from **overflow**)
+  - do **int mid = (start + end) >>> 1**
+- check oneNote for explanation
+
+**_Problems_**
+
+- [H-Index II](https://leetcode.com/problems/h-index-ii/description/)
+
+  - can be solved in binary search
+
+  ```java
+    int rankLargest = citations.length - mid;
+
+    if (rankLargest > citations[mid]) {
+        start = mid + 1;
+    } else {
+        maxCitation = Math.max(maxCitation, rankLargest);
+        end = mid - 1;
+    }
+  ```
+
+- [Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/description/)
+
+  - its a normal binary search
+  - the trick here is to watch for **overflow** when calculating the mid
+    - so dont write int mid = (start + end)/2
+    - u should write int mid = start + ((end-start) /2);
+  - [solution](https://leetcode.com/articles/guess-number-higher-or-lower/)
+
+- [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
+  - remember how a binary search is written
+  - Approch:
+    - do a binary search on rows
+      - if row[0] > target => Binary search from start -> mid - 1
+      - if row[row.length - 1] < target => Binary search from mid + 1 -> end
+      - else
+        - do binary search on column
+          - if found retunr
+          - else do two binary search
+            - Binary search from start -> mid - 1 and Binary search from mid + 1 -> end
+  - time: O(row log(column))
+
+---
+
+## Other
+
+- [Elimination Game](https://leetcode.com/problems/elimination-game/description/)
+
+  - it was hard to figure out the solution but I was approaching it
+  - [explanation](<https://leetcode.com/problems/elimination-game/discuss/87119/JAVA:-Easiest-solution-O(logN)-with-explanation>)
+  - solution:
+    - The list is a arithmetic progression.
+    - It can be represent by a vector v = (S, N, D).
+    - S means the value of first element,
+    - N means number of element in this list,
+    - D means difference between the consecutive elements.
+    - So the original list is (S=1,N=n,D=1).
+    - After each elimination, the list will remain a arithmetic progression. N will be N/2; D will be 2\*D; S will be S or S+D;
+
+  ```java
+   static int lastRemaining(int n) {
+      int D = 1;
+      int S = 1;
+      boolean forward = true;
+      while (n > 1) {
+         if (forward) {
+            S += D;
+         } else {
+            if ((n & 1) != 0) {
+               S += D;
+            }
+         }
+         n >>= 1;
+         forward = !forward;
+         D <<= 1;
+      }
+      return S;
+   }
+  ```
+
+---
+
+---
+
+---
+
+# Serialization / Deserialization
+
+**_Hints_**
+
+- **StringJoiner** for serialization
+  - use a delimiter to **separate btw values** of nodes
+- **StringTokenizer** for deserialization
+- represent **null nodes** as "#"
+
+**_Problems_**
+
+- [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/)
+
+  - VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - I used StringJoiner for serialization
+  - I used StringTokenizer for deserialization
+  - I did it using PreOrder traversal (DFS):
+    - Here we dont need InOrder traversal also like problem (build BST from Inorder and Preorder) since when we reach a null we put in the String as #
+      => we know when we reach null and we have to return
+    - Used StringJoiner to serialize BST and StringTokenizer to deserialize BST
+  - [BFS like LEETCODE OJ](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/74260/Recursive-DFS-Iterative-DFS-and-BFS)
+
+- [Serialize and Deserialize an N-ary Tree](http://massivealgorithms.blogspot.com/2015/10/serialize-and-deserialize-n-ary-tree.html)
+  - I used StringJoiner for serialization
+  - I used StringTokenizer for deserialization
+  - **since its an N-ary** =>
+    - when serializing **add the length of Children**
+    - when deserializing **use the length of children** to know how many children per node
+
+* [Encode and Decode Strings](http://buttercola.blogspot.com/2015/09/leetcode-encode-and-decode-strings.html)
+
+  - the solution that i did is the same as in the link above
+  - to encode the list<String> to string => for every String in the list we add at the end of it
+
+---
+
+---
+
+---
+
+# Sorting
+
+**_Hints_**
+
+- use Arrays.sort()
+- list.sort()
+- Collections.binarySearch()
+
+**_Problems_**
+
+## Merge Sort
+
+### K sorted lists
+
+- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/discuss/?page=1)
+
+  <a id="merge_k_Sorted_Lists"></a>
+
+  - [solution](https://leetcode.com/problems/merge-k-sorted-lists/solution/)
+  - use priorityQueue which size of rows => the queue contains one element from each row
+
+- [Kth Smallest Element in a Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/)<a id="kth_Smallest_Element_in_a_Sorted_Matrix"></a>
+
+  - similar to **Merge k Sorted Lists**
+  - VVVVVIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+
+---
+
+## Paitence Sort
+
+- [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
+
+  - <a id="longest_Increasing_Subsequence"> Longest Increasing Subsequence </a>
+  - VVVVVVVVIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP problem
+  - **Practice this problem more**
+  - **Needs REVIEW** \* did it using DP in time: O(n^2)and space O(n)
+  - can optimize to **O(n log n) time by and space O(n)**:
+
+    1. using an augmented balanced BST where every node contains the max increasing subseq among nodes that are equal or greater to current node: [solution](https://www.cc.gatech.edu/~rpeng/CS3510_F16/notes/Oct17LIS.pdf)
+    2. using [patience sorting](https://prezi.com/uunlirdphxts/patience-sorting/)
+
+  - [solution](https://leetcode.com/problems/longest-increasing-subsequence/solution/)
+  - for the optimized solutions I thought about the Augmented BST => explanation of BST:
+
+    1. we start traversing from i: n-1 -> 0
+    2. at every index we try to insert its value to a BST. This BST is an Augmented BST by saving at every node the max increasing subseq size among nodes that are equal or greater to current traveresed node
+    3. when we reach the place that we want to insert the value we will already have the max sub sequence size starting with this value call it VcurrentMax
+    4. traverse again the tree to find the current inserted value to check at each node which has a value smaller than the inserted node if the VcurrentMax is greater than the nodesMax
+
+* [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/discuss/)
+  - its a specific case for [longest Increasing Subsequence](#longest_Increasing_Subsequence)
+
+---
+
+## Tag Sort
+
+- **(RTDB sorting algo)**
+
+- <a id="Find_Right_Interval"></a>[Find Right Interval](https://leetcode.com/problems/find-right-interval/description/)
+  - since they want the first starting interval j of interval
+    => used the trick (sorting + finding right interalv) of **weighted interval scheduling**
+  - used the idea of indirect sorting (RTDB uses it) where we sort the indices of original array
+    - use customized Comparator
+  - [solution](<https://leetcode.com/problems/find-right-interval/discuss/162162/Indirect-sorting-(use-indices-to-sort)-+-customized-Comparator>)
+  - Approach:
+    - sort intervals based on starting point
+    - traverse sorted intervals from n-1 -> 0
+    - at every interval at index t binary search the sorted array from t -> n -1
+      - in order to find the needed starting pint
+
+## Top X
+
+- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
+  - create a hashMap to save Frequency per value
+  - sort the values according to frequency
+  - get first K (we can use PriorityQueue)
+
+---
+
+---
+
+---
+
+# SQL
+
+**_Hints_**
+
+- if an sql doesn't return a value and you want it to return a null => make it an inline select (PS: SELECT should return only 1 value)
+- [assigning value to variable Mysql ](https://stackoverflow.com/questions/39379659/what-does-the-operator-mean-in-mysql)
+- nice way to initialize variables without set => make a nested select for initializing variables. [TAKE A LOOK](http://fellowtuts.com/mysql/query-to-obtain-rank-function-in-mysql/)
+- always watch out for the alias outputted _dont forget it_
+- can use tuples for IN clause since in mySQl it allows that [check](https://leetcode.com/problems/department-highest-salary/solution/)
+- Delete row: DELETE FROM table WHERE [CLAUSE]
+- use [CASE WHEN](https://www.w3schools.com/sql/func_mysql_case.asp)
+- use [BETWEEN](https://www.techonthenet.com/mysql/between.php)
+- use [ROUND](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_truncate)
+- DATE FUNCTIONS:
+- [DATE_SUB](https://w3resource.com/mysql/date-and-time-functions/mysql-date_sub-function.php),
+- [DATEDIFF](https://w3resource.com/mysql/date-and-time-functions/mysql-datediff-function.php)
+
+**_Problems_**
+
+- [Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary/description/)
+
+  - function in mysql [check your solution](https://leetcode.com/problems/nth-highest-salary/description/)
+  - declare variables
+  - use [range limits](https://stackoverflow.com/questions/14536013/what-is-the-difference-between-mysql-limit-range-of-0-500-and-1-500)
+
+- [Rank Scores](https://leetcode.com/problems/rank-scores/description/)
+
+  - VVVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - this question can be solved using variables and without variables (check solution links below)
+  - the solution without variables looks like **cumulative solution**
+  - [solution](https://discuss.leetcode.com/topic/16097/simple-short-fast)
+  - [tutorial](http://fellowtuts.com/mysql/query-to-obtain-rank-function-in-mysql/)
+
+- [Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers/discuss/)
+
+  - 3 consecutive Numbers should be the same => use 3 joins
+
+- [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/discuss/)
+
+  - join table with itself
+
+- [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/description/)
+
+  - use having to get count > 1
+
+- [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/description/)
+
+  - use **Left join** + **having count(...) = 0**
+  - [better approach](https://leetcode.com/problems/customers-who-never-order/solution/)
+  - use **Not In**
+
+- [Department Highest Salary](https://leetcode.com/problems/department-highest-salary/description/)
+
+  - did it using 3 join with one of them as nested select
+  - can use IN clause since in mySQl we have use tuples
+
+- [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries/solution/)
+
+  - did it in a hard way
+  - [solution](https://leetcode.com/problems/department-top-three-salaries/solution/) is done in a much nicer way with a 3>(select....) in the where cndts
+
+- [Trips and Users](https://leetcode.com/problems/trips-and-users/description/)
+  - use [CASE WHEN](https://www.w3schools.com/sql/func_mysql_case.asp)
+  - use [BETWEEN](https://www.techonthenet.com/mysql/between.php)
+  - use [ROUND](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_truncate)
+  - [solution](https://leetcode.com/problems/trips-and-users/discuss/69151)
 
 ---
 
@@ -1524,7 +1990,7 @@
   - VVVVVVVVVVVIIIIIIIIIIIIPPPPPPPPPPPPPPPPPP
   - **STUDY THIS PROBLEM**
   - **Needs REVIEW**
-  - we used a try in order to try to fetch the opposite bit
+  - we used a trie in order to try to fetch the opposite bit
   - Build up 32 level deep trie tree.
     - Each level represents the bit value for each number.
   - iterate the trie for each num : nums to calculate the xor result.
@@ -1559,19 +2025,26 @@
 
 ---
 
-## Next Enumeration/Value
+## Next/Kth Enumeration/Value
 
 ### From Dictionary of words
 
 ### From given letters/digits
 
+- [K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/discuss/92242/ConciseEasy-to-understand-Java-5ms-solution-with-Explaination)
+
 #### Optimized by sorting
 
 - [Next Permutation](https://leetcode.com/problems/next-permutation/description/)
+  <a id="Next_Permutation"></a>
+
   - VVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPP
-  - __*VEERYYYYY HARDDDD*__
-  - __Practice this problem more__   
+  - **_VEERYYYYY HARDDDD_**
+  - **Practice this problem more**
   - [solution](https://leetcode.com/problems/next-permutation/solution/)
+
+- [Next Greater Element III](https://leetcode.com/problems/next-greater-element-iii/description/)
+  - similar to [Next Permutation](#Next_Permutation)
 
 ---
 
@@ -1602,6 +2075,7 @@
 **_Problems_**
 
 - [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/discuss/)
+
   - use preOrder traversal
   - can do it using [BFS](http://www.geeksforgeeks.org/level-order-tree-traversal/)
 
@@ -1615,14 +2089,8 @@
   - did it using preOrder Traversal
   - nice way to do it using [BFS](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/discuss/)
 
-- [Find Leaves of Binary Tree](https://www.programcreek.com/2014/07/leetcode-find-leaves-of-binary-tree-java/)
-  - this problem is similar to **Binary Tree Level Order Traversal problem** but in reverse leveling where leaf nodes have level 1
-  - use post order traversal to do it
-
 - [Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row/description/)
   - BFS
-
-
 
 ### Recursive
 
@@ -1633,12 +2101,55 @@
         - How we know: by passing a distance param in the method
         - What do we do:
           - check if current node's distance == k => add and return
-          - else pass distance + 1 to children 
+          - else pass distance + 1 to children
       - left child or right child
         - How we know: from the return distance value from the children
         - What do we do:
-          - check if current node's distance == k => add and return current node's distance 
+          - check if current node's distance == k => add and return current node's distance
           - revisit the child that doesnt have the target node in it's subtree
+
+* [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/solution/)
+
+  - did in a recursive way
+  - keep track of level and size of values inserted in array result
+  - visit at first right most before left most child
+
+* [Find Leaves of Binary Tree](https://www.programcreek.com/2014/07/leetcode-find-leaves-of-binary-tree-java/)
+
+  - use post order traversal to do it
+  - leaf nodes have level = 1
+  - inner nodes have level = Max(node.left.level, node.right.leve) + 1
+
+* [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
+
+  - used Post Order traversal where this recursion function at every node returns Math.max(root.val, root.val + leftSum, root.val + rightSum) as a value to its parent
+    which means it returns the Max value of a path from this current node to one of its child
+  - In addition to that it compares with the globalMaxValue if one of root.val, root.val + leftSum, root.val + rightSum, root.val + rightSum + leftSum is greater than globalMaxValue to set it as the new globalMaxValue. As you can see **root.val + rightSum + leftSum** is never returned by the function since we only return the value of a path going to **one subtree and not both**
+
+* [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/)
+  - <a id="List_To_BST"></a>
+  - **Needs REVIEW**
+  - VVVVIIIIIPPPPPPP
+  - its similar to the array but here if we have to get at first the mid point => the complexity will become O(n logn) so we can keep it O(n)?
+  - so the solution is to:
+    1.  We first count the number of nodes in the given Linked List. Let the count be n.
+    2.  After counting nodes, we take left n/2 nodes and recursively construct the left subtree.
+    3.  After left subtree is constructed, we allocate memory for root and link the left subtree with root.
+    4.  Finally, we recursively construct the right subtree and link it with root.
+  - The above algo doesn't need to have a pointer to the mid from the start it just need to know the index of the midpoint => O(n)
+  - basically we are using InOrder traversal
+  - [solution](http://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/)
+
+### Iterative
+
+- [Verify Preorder Sequence in Binary Search Tree](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
+  - VVVVVVVVIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP problem
+  - the trick here is to use the Iterative preOrder algo to solve it
+  - at first did it with an additional stack
+  - optimized it to use O(1) space
+  - check my code in intellij
+  - my solution can be refactored to become like [their solution](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
+
 ---
 
 ## Finding (in) Path
@@ -1661,37 +2172,21 @@
 
 ---
 
-## Serialization / Deserialization
+## Serialize / Deserialize BST
 
-**_Hints_**
+- [Serialization / Deserialization](#serialization--deserialization)
 
-- **StringJoiner** for serialization
-  - use a delimiter to **separate btw values** of nodes
-- **StringTokenizer** for deserialization
-- represent **null nodes** as "#"
+- [erialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/)
+  - if object is null => "$"
+  - use StringJoiner 
+  - use StringTokenizer
 
-**_Problems_**
+---
 
-- [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/)
+## Equality in BST
 
-  - VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
-  - **Needs REVIEW**
-  - **Practice this problem more**
-  - I used StringJoiner for serialization
-  - I used StringTokenizer for deserialization
-  - I did it using PreOrder traversal (DFS):
-    - Here we dont need InOrder traversal also like problem (build BST from Inorder and Preorder) since when we reach a null we put in the String as #
-      => we know when we reach null and we have to return
-    - Used StringJoiner to serialize BST and StringTokenizer to deserialize BST
-  - [BFS like LEETCODE OJ](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/74260/Recursive-DFS-Iterative-DFS-and-BFS)
-
-- [Serialize and Deserialize an N-ary Tree](http://massivealgorithms.blogspot.com/2015/10/serialize-and-deserialize-n-ary-tree.html)
-  - I used StringJoiner for serialization
-  - I used StringTokenizer for deserialization
-  - **since its an N-ary** =>
-    - when serializing **add the length of Children**
-    - when deserializing **use the length of children** to know how many children per node
-
+- [Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
+  - use a Map<String, Integer> where String is the String serialization of the current root and the Integer is the number of occurances that subtree has benn found
 ---
 
 ## Segment Tree / Fenwick
@@ -1700,7 +2195,23 @@
 
 ### Search for All intervals that contain a query point
 
+**_Hints_**
+
 - check oneNote segmant trees
+- We can implement segment tress using TreeMap
+
+**_Problems_**
+
+- [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals/description/)
+  <a id="data_stream_as_disjoint_intervals"></a>
+
+  - VVVVVVVVVVIIIIIIIPPPPPPPPPPP
+  - **Needs REVIEW**
+  - **Practice this problem more**
+  - In this problem we are implementing an **Interval Tree** => check **OneNote**
+  - we are using a TreeSet (and not a HashMap) to maintain the sorting order of the intervals
+  - the **Key** of the Tree is Interval.start which is sufficent to brin tree.lower(interval) and tree.higher(interval)
+  - [solution](https://leetcode.com/problems/data-stream-as-disjoint-intervals/discuss/120827/Java-solution-that-beats-95.58-using-a-simple-TreeSet)
 
 ---
 
@@ -1724,6 +2235,32 @@
 ### Range Minimum Query
 
 - check oneNote segmant trees
+
+---
+
+---
+
+---
+
+# Union-Find
+
+- [Data Stream as Disjoint Intervals](#data_stream_as_disjoint_intervals)
+  - this problem can also be done using UnionFind
+
+## Disjoint Sets
+
+### Number of diff Sets
+
+- [Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
+
+  - [**UNION FIND**](https://gist.github.com/drmalex07/3e6695025a1788e669cec7f8d93d98dc)
+  - basically this question is used to implement the union find algo
+  - read about it in recitation 3 course 2
+  - [solution](https://leetcode.com/problems/number-of-islands/solution/)
+
+- [Number Of Island II](http://buttercola.blogspot.com/2016/01/leetcode-number-of-islands-ii.html)
+  - this is a classic UNION-FIND DS
+  - check course 2 recitaion 3
 
 ---
 
