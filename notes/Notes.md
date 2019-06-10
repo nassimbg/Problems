@@ -184,6 +184,10 @@
 
 - [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
   - if value x found in array => then negate arr[x] 
+  
+- [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+   - similar
+
 
 ---
 
@@ -856,6 +860,16 @@
   - use traversal DP to solve this
   - O(n)
   - not necessary to use array[n] its sufficient to use only to variable (paintLikePrevious, dontPaintLikePrevious) => space: O(1)
+
+- [Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence/)
+  - here we have to count the number of combinations;
+  - [explanation](https://leetcode.com/problems/arithmetic-slices-ii-subsequence/discuss/92822/Detailed-explanation-for-Java-O(n2)-solution)
+  - My explanation:
+    - so for every value in the array we check the diff with preceding values and if the preceding valeus have the same diff with other values
+    - when we get a match => add the number of combination of the preciding values to the sum
+      - why at current value we add the combinations of the preceding values?
+        - since this combination value will actually be the number of combinations of the current value joind with the preceding values 
+
 
 #### TRUE / FALSE (think of Rec + Memo)
 

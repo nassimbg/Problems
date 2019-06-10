@@ -1,5 +1,6 @@
 public class WordSearch {
 
+
    public static boolean exist(char[][] board, String word) {
 
       for(int row = 0; row < board.length; ++row) {
