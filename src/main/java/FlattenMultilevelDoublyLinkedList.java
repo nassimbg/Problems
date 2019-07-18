@@ -1,9 +1,48 @@
 public class FlattenMultilevelDoublyLinkedList {
+
+
    public Node flatten(Node head) {
-      return flattenRec(head)[0];
+      flattenRec(head);
+
+      return head;
    }
 
-   public Node[] flattenRec(Node head) {
+   public Node flattenRec(Node head) {
+
+      Node current = head;
+      Node parent = head;
+
+      while (current != null) {
+
+         if (current.child != null) {
+
+            Node lastInChild = flattenRec(current.child);
+
+            Node next = current.next;
+            lastInChild.next = next;
+
+            if (next != null) {
+               next.prev = lastInChild;
+            }
+            current.next = current.child;
+            current.next.prev = current;
+
+            current.child = null;
+            current = lastInChild;
+         }
+
+         parent = current;
+         current = current.next;
+      }
+
+      return parent;
+   }
+
+   public Node flatten2(Node head) {
+      return flattenRec2(head)[0];
+   }
+
+   public Node[] flattenRec2(Node head) {
       Node dummy = new Node();
       Node currentNode = dummy;
 
@@ -14,7 +53,7 @@ public class FlattenMultilevelDoublyLinkedList {
          currentNode = head;
          head = head.next;
          if (currentNode.child != null) {
-            Node[] Flattened = flattenRec(currentNode.child);
+            Node[] Flattened = flattenRec2(currentNode.child);
             currentNode.child = null;
             currentNode.next = Flattened[0];
 
