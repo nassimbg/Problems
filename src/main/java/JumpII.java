@@ -1,5 +1,33 @@
 public class JumpII {
 
+
+   public int jump2(int[] nums) {
+      int numberOfJumps = 0;
+
+      int lastIndexWithCurrentJumps = 0;
+      int lastIndexWithNextJumps = lastIndexWithCurrentJumps;
+
+      for (int i = 0; i < nums.length -1; i++) {
+         if (i > lastIndexWithCurrentJumps) {
+            lastIndexWithCurrentJumps = lastIndexWithNextJumps;
+            lastIndexWithNextJumps++;
+            numberOfJumps++;
+         }
+
+         if (nums[i] + i > lastIndexWithNextJumps) {
+            lastIndexWithNextJumps = Math.max(lastIndexWithNextJumps, nums[i] + i);
+         }
+
+         if (lastIndexWithNextJumps >= nums.length - 1){
+            numberOfJumps++;
+            break;
+         }
+
+      }
+
+      return numberOfJumps;
+   }
+
    public int jump(int[] nums) {
       if(nums.length<2)return 0;
       int level=0,currentMax=0,i=0,nextMax=0;
