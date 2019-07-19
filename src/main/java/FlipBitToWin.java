@@ -1,4 +1,53 @@
 public class FlipBitToWin {
+   // following the left/right pointers pattern
+   private int flip3(int value){
+      String bits = Integer.toBinaryString(value);
+      int bitsCount = bits.length();
+
+      int numberOfZerosNeeded = 32 - bitsCount;
+
+      StringBuilder stringBuilder = new StringBuilder();
+      for (int i = 0; i < numberOfZerosNeeded; i++) {
+         stringBuilder.append('0');
+      }
+      bits = stringBuilder.append(bits).toString();
+      bitsCount = bits.length();
+
+      int accaptableFlips = 1;
+
+      int start = 0;
+      int end = -1;
+
+      int bestStart = 0;
+      int bestEnd = 0;
+
+      while (end < bitsCount - 1) {
+
+         while (end < bitsCount - 1&& accaptableFlips >= 0) {
+            char c = bits.charAt(++end);
+
+            if (c == '0') {
+               accaptableFlips--;
+            }
+         }
+
+         int temp = accaptableFlips < 0 ? end - 1 : end;
+         if (temp  - start > bestEnd - bestStart) {
+            bestEnd = temp;
+            bestStart = start;
+         }
+
+         while (start < end && accaptableFlips < 0) {
+            char c = bits.charAt(start++);
+
+            if (c == '0') {
+               accaptableFlips++;
+            }
+         }
+      }
+
+      return bestEnd - bestStart + 1;
+   }
 
    public static int flip(int n){
       int firstZero = -1;
