@@ -1,53 +1,53 @@
 # LeetCode Problems
 
-- [LeetCode Problems](#leetcode-problems)
-  - [Greedy](#greedy)
-    - [Hints](#hints)
-    - [Problems](#problems)
-      - [Priority Queue](#priority-queue)
-  - [BST](#bst)
-    - [Hints](#hints-1)
-    - [Problems](#problems-1)
-    - [Augmenting BST](#augmenting-bst)
-  - [Pointers / Linked List](#pointers--linked-list)
-    - [Tips](#tips)
-    - [Problems](#problems-2)
-  - [Arrays](#arrays)
-    - [Tips](#tips-1)
-    - [Problems](#problems-3)
-      - [K sum Problems](#k-sum-problems)
-      - [Maxima-Minima](#maxima-minima)
-  - [String](#string)
-    - [Problems](#problems-4)
-      - [Excel](#excel)
-      - [Decoding](#decoding)
-  - [D&G](#dg)
-  - [Data Structures](#data-structures)
-    - [Hints:](#hints)
-    - [This section is an important one to review](#this-section-is-an-important-one-to-review)
-      - [Union Find](#union-find)
-      - [Linked list](#linked-list)
-      - [Queue and Stack](#queue-and-stack)
-      - [Iterator](#iterator)
-      - [Randomization](#randomization)
-        - [RESERVOIR SAMPLING (Very Large Input)](#reservoir-sampling-very-large-input)
-  - [Design](#design)
-  - [Math](#math)
-    - [Hints](#hints-2)
-    - [Problems](#problems-5)
-  - [Bit Manipulation](#bit-manipulation)
-    - [Hints](#hints-3)
-    - [Problems](#problems-6)
-      - [Using Constants](#using-constants)
-- [General Information](#general-information)
-  - [Difference between ASCII, extended ASCII, UTF-8, UTF-16](#difference-between-ascii-extended-ascii-utf-8-utf-16)
-  - [Diff btw segmant Tree, Range Tree, Interval Tree:](#diff-btw-segmant-tree-range-tree-interval-tree)
-  - [How many ways to traverse a BST. We have 3 ways:](#how-many-ways-to-traverse-a-bst-we-have-3-ways)
-    - [Morris Traversal in BST](#morris-traversal-in-bst)
-  - [Trie Tree](#trie-tree)
-  - [Caching](#caching)
-  - [Boyer-Moore Majority Algorithm](#boyer-moore-majority-algorithm)
-- [TODO](#todo)
+- [LeetCode Problems](#LeetCode-Problems)
+  - [Greedy](#Greedy)
+    - [Hints](#Hints)
+    - [Problems](#Problems)
+      - [Priority Queue](#Priority-Queue)
+  - [BST](#BST)
+    - [Hints](#Hints-1)
+    - [Problems](#Problems-1)
+    - [Augmenting BST](#Augmenting-BST)
+  - [Pointers / Linked List](#Pointers--Linked-List)
+    - [Tips](#Tips)
+    - [Problems](#Problems-2)
+  - [Arrays](#Arrays)
+    - [Tips](#Tips-1)
+    - [Problems](#Problems-3)
+      - [K sum Problems](#K-sum-Problems)
+      - [Maxima-Minima](#Maxima-Minima)
+  - [String](#String)
+    - [Problems](#Problems-4)
+      - [Excel](#Excel)
+      - [Decoding](#Decoding)
+  - [D&G](#DG)
+  - [Data Structures](#Data-Structures)
+    - [Hints:](#Hints)
+    - [This section is an important one to review](#This-section-is-an-important-one-to-review)
+      - [Union Find](#Union-Find)
+      - [Linked list](#Linked-list)
+      - [Queue and Stack](#Queue-and-Stack)
+      - [Iterator](#Iterator)
+      - [Randomization](#Randomization)
+        - [RESERVOIR SAMPLING (Very Large Input)](#RESERVOIR-SAMPLING-Very-Large-Input)
+  - [Design](#Design)
+  - [Math](#Math)
+    - [Hints](#Hints-2)
+    - [Problems](#Problems-5)
+  - [Bit Manipulation](#Bit-Manipulation)
+    - [Hints](#Hints-3)
+    - [Problems](#Problems-6)
+      - [Using Constants](#Using-Constants)
+- [General Information](#General-Information)
+  - [Difference between ASCII, extended ASCII, UTF-8, UTF-16](#Difference-between-ASCII-extended-ASCII-UTF-8-UTF-16)
+  - [Diff btw segmant Tree, Range Tree, Interval Tree:](#Diff-btw-segmant-Tree-Range-Tree-Interval-Tree)
+  - [How many ways to traverse a BST. We have 3 ways:](#How-many-ways-to-traverse-a-BST-We-have-3-ways)
+    - [Morris Traversal in BST](#Morris-Traversal-in-BST)
+  - [Trie Tree](#Trie-Tree)
+  - [Caching](#Caching)
+  - [Boyer-Moore Majority Algorithm](#Boyer-Moore-Majority-Algorithm)
+- [TODO](#TODO)
 
 
 ## Greedy
@@ -369,9 +369,7 @@ ____
 
 
 
-- [Partition List](https://leetcode.com/problems/partition-list/description/)
-  * use a dummyHead and a dummyX where the values less than x put them children for dummyHead and values >= x but them as children for dummyX.
-  * at end link the last child in dummyHead to the first child in dummyX
+
 
 - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/discuss/)
   * Think like the problem of water container where you start from left and right.
@@ -557,12 +555,6 @@ _____
     * for every column do 1D find peak
     * time: O(logn * logm) 
 
-- [Maximum Gap](https://leetcode.com/problems/maximum-gap/solution/)
-  * I did it using [Radix sort](https://www.youtube.com/watch?v=YXFI4osELGU)
-  * they did it something similar to Bucket sort but modified they dont put all the number just the MAX and MIN
-  * check their solution VVVVVIIIIIPPPPPPPPP
-
-
 ____
 
 - [Rotate Array](https://leetcode.com/problems/rotate-array/description/)
@@ -607,10 +599,7 @@ ____
   * they are similar to each other
   * check my code for solutions or links above
 
-- [H Index](https://leetcode.com/problems/h-index)
-  * can solve it in two ways:
-    1. sort (O(n + d) bucket sort) then iterate in a Descending manner to reach an index where the (array.length - index) < arrays[index] (O(n))
-    2. no need to sort, create an count[n] array [check solution](https://leetcode.com/problems/h-index/discuss/70810/A-Clean-O(N)-Solution-in-Java)
+
 
 - [H Index II](https://leetcode.com/problems/h-index-ii/description/)
   * its similar to first way of H Index but now the array is sorted so we need to find a way less than O(n) => use Binary Search O(log n)
@@ -727,9 +716,6 @@ ____
   * use DFS to starting from the endWord in the the Pie adj list to reach the beginWord and take only the smallest paths 
 
 
-- [Group Shifted Strings](https://www.geeksforgeeks.org/group-shifted-string/)
-  * for every string generate a string that is the difference of every char with its next char in this string
-  * and search for the generated string in the map
 
 - [Reconstruct Original Digits from English](https://leetcode.com/problems/reconstruct-original-digits-from-english/description/)
   - did it in a very ugly way

@@ -2,10 +2,7 @@
 
 
 
-- [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/description/)
-  - At first sort the array bases on __(o1, o2) -> o1[0] == o2[0] ? o1[1] - o2[1] : o2[0] - o1[0]__
-  - Iterate over the sorted array and add the current person to a list in position = person[1] = number of people >=current height
-  - time: O(n^2) 
+
 
 - [Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle/description/)
   * VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
@@ -33,9 +30,6 @@
 
    ___
 
-- [Jump II](https://leetcode.com/problems/jump-game-ii/discuss/)
-  * resolve it or even solve [Jump](https://leetcode.com/problems/jump-game/description/)
-  * we can use a greedy algorithm to solve it no need for DP 
 
 - [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
   * this problem is a VVVVVVIIIIIPPPPPPP, should resolve it for practice.
@@ -158,11 +152,6 @@ ____
     3. assgine the nodes returned from left and right as children of the midpoint
 
 
-- [Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
-  * Pay attention that the **condition holds if we are on a leaf node and the sum == 0** and not when reaching a null node 
-  * since: 
-    * if we have only a null node as a root we shouldnt return anything
-    * if we may added the list twice (when reaching right child of leaf null and left child where both are null)
 
 - [Path Sum III](https://leetcode.com/problems/path-sum-iii/description/)
   - check note in order note.md in cummulative section
@@ -235,12 +224,6 @@ ____
 
 
 
-- [Binary Tree Longest Consecutive Sequence](https://www.geeksforgeeks.org/longest-consecutive-sequence-binary-tree/)
-  * do a preOrderTraversal
-  * __TRICK:__ to decide the length at every node do: return Math.max(leftLength, rightLength, __currentLength__).
-    -  we need to compare to currentLength since the children may reset the length since child.val != current.val + 1
-  * [my solution](http://buttercola.blogspot.com/2015/12/blog-post.html)
-
 - [Verify Preorder Serialization of a Binary Tree](https://leetcode.com/problems/verify-preorder-serialization-of-a-binary-tree/description/)
   * I did it based on normal preorder recusion
   * a nicer solution was proposed using: counting the (outdegrees of a nodes - indegrees of a node) at the end it should be = 0
@@ -259,11 +242,7 @@ ____
 
 
  
-- [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/)
-  * similar to above __Longest Increasing Subsequence__ problem using the __BST solution__
-  * instead of saving the max increasing subseq at every node we save the size of the subtree => upon inserting a node we can add the number of nodes less than the current
-  * in order to get the correct answer we must start iterating from the end of the array an insert every element upon iteration to retrieve the count of this element
-  * This problem uses the same Data Structure for the __ranking problem__
+
 
 - [Russian Doll Envelopes](https://leetcode.com/problems/russian-doll-envelopes/description/)
   * This problem is a DP problem:
@@ -276,9 +255,7 @@ ____
       - we can benefit from  __Longest Increasing Subsequence__ since we only care about the total number of envelopes inside each other => its the same problem as LIS
   * time: O(n logn), space: O(n) 
 
-- [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/description/)
-  * This problem uses the same Data Structure for the __ranking problem__
-  * augment the BST by the size of the subtree
+
 
 
 
@@ -493,10 +470,7 @@ _____
     * for every column do 1D find peak
     * time: O(logn * logm) 
 
-- [Maximum Gap](https://leetcode.com/problems/maximum-gap/solution/)
-  * I did it using [Radix sort](https://www.youtube.com/watch?v=YXFI4osELGU)
-  * they did it something similar to Bucket sort but modified they dont put all the number just the MAX and MIN
-  * check their solution VVVVVIIIIIPPPPPPPPP
+
 
 
 ____
@@ -523,11 +497,7 @@ ____
   * if: nums[i] == nums[i - 1] + 1 => assign localMax = nums[i]
   * else: add to result: localMin -> localMax and then re-initialize the variables
 
-- [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/discuss/)
-  * iterate from left to right to calculate the cumulative product
-  * then iterate from right to left to calculate the cumulative product
-  * time O(n), Space O(1)
-  * [solution](https://discuss.leetcode.com/topic/18864/simple-java-solution-in-o-n-without-extra-space)
+
 
 
 
@@ -570,10 +540,7 @@ ____
 
 
 
-  
-- [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/description/)
-  * did it using one array[10] => space O(1) and two passes => time O(n)
-  * another [solution with only one pass](https://leetcode.com/problems/bulls-and-cows/discuss/74621/One-pass-Java-solution)
+
 
 - [Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/description/)
   - simple iteration over the 2D array and we need to just check if we reached an X
@@ -682,19 +649,6 @@ ____
 
 **_Problems_**
 
-- [Permutations](https://leetcode.com/problems/permutations/description/)
-  - Can be done using Dynamic Programming
-  - did it in two ways second is just a refactoring of the first where first
-    - first I used: list<list<list<Integer>>> like in combination sum
-    - second I used: list<list<Integer>> only
-  - but I always have previous row answer and current row answer
-
-- [PermutationsII](https://leetcode.com/problems/permutations-ii/description/)
-  - similar to Permuations but added and if statement
-  - SORT Array to have duplicates beside each other => easier to work with
-  - this if statement checks if i dont have any value of the same number before the permutation index. Why would that work?
-    Since if i have [1,2,3',3,4] (after sorting the array) the second 3 will generate for ex: XX3XX and X3XXX if now im generating the permutations of the first 3' one of the options will be X3'3XX for the XX3XX and the other will be X33'XX for the X3XXX and we have to prevent this duplication. So if we used the if we wont consider X33'XX for the X3XXX since we are inserting it in index 2 and we have a 3 in index 1.
-  - [general solution - backtracking](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)
 
 - [Palindrome Permutation II](https://leetcode.com/articles/palindrome-permutation-ii/)
   - use the general permutation way (backtracking)
@@ -721,10 +675,6 @@ ____
   - used backtracking to get all combinations
   - trie to find the prefix in the previous words
     <a id="Word_Squares"/>
-
-- [Subsets](https://leetcode.com/problems/subsets/description/)
-  - we dont need duplicate values => use starting Index
-  - we need all lengths => at first create loop for length and then call dfs
 
 - [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/solution/)
   - **STUDY THIS PROBLEM**
@@ -783,9 +733,7 @@ ____
   - Do back tracking
   - if int is so large => keep them as String and do addition on the fly
 
-- [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
-  - here we need to output all combination that gives us a specific some
-  - follow algo as in OneNote
+
 ---
 
 
@@ -810,15 +758,7 @@ ____
 
 
 
-- [Combination Sum](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)
 
-  - KnapSack problem can be optimized to use only 1D array instead of 2D array check how you solved it.
-  - [geeksforgeeks](http://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/)
-
-- [Combination Sum2](https://leetcode.com/problems/combination-sum-ii/description/)
-
-  - how to remove duplicate values (sort and then check if the array you are creating is in the list of dp)
-  - read how others solved it
 
 - [Perfect Squares](https://leetcode.com/problems/perfect-squares/description/
 
@@ -912,12 +852,7 @@ ____
   - the modification is whenever you have a palindrome (even if its not the largest one) check the necessary on cntds on it!!!!!
   - It was so hard to solve it despite the solution was easy
 
-- [Sherlock and Cost](https://www.hackerrank.com/challenges/sherlock-and-cost/problem)
 
-  - looks a bit like the [House Robber problem](
-  - Algo gor guess:
-    - lowValue = Math.max(prevLowValue, Math.abs(B[index + 1] - 1) + highValue);
-    - highValue = Math.max(Math.abs(B[index] - 1) + prevLowValue, Math.abs(B[index] - B[index + 1]) + highValue);
 
 - [Integer Replacement](https://leetcode.com/problems/integer-replacement/description/)
 
@@ -942,12 +877,6 @@ ____
 
 
 
-- <a id="House_Robber"/> [House Robber](https://leetcode.com/problems/house-robber/description/)
-
-  - can be solved in a dp way with an array but we can optimize to use two fields (whether to rob current or not)
-  - its based on whether to rob current house or not:
-    - to rub current house = val[i] + dontRobPreviousHouse
-    - not to rob current house = max(to rob previous, not to rob previous)
 
 
 
@@ -1226,28 +1155,6 @@ ____
 
 
 
----
-
-
-
-- check oneNote segmant trees
-
----
-
-
-
-- check oneNote segmant trees
-
-- [Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/description/)
-
-  - VVVVVVVVVVVVVVIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPP
-  - **Needs REVIEW**
-  - **Practice this problem more**
-  - use Fenwick Tree (check OneNote)
-
-- [Range Sum Query - Mutable - 2D](https://www.youtube.com/watch?v=kKlZ9B3cS14)
-  - Segmant Tree of Segmant Tree
-  - oneNote for example
 
 
 - [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
@@ -1293,10 +1200,6 @@ ____
 
 
 
-- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
-  - create a hashMap to save Frequency per value
-  - sort the values according to frequency
-  - get first K (we can use PriorityQueue)
 
 
 ---
@@ -1315,24 +1218,7 @@ ____
   - similar to the problem in course2 lect 1
   - sort by finishing time
 
----
 
----
-
----
-
-
-
-**_Hints_**
-
-- Try to use **DummyHead**
-
-**_Problems_**
-
-- [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/)
-  - used DFS to recurse on children pointers
-  - returned head and tail when recursing
-  - used DummyHead
 
 ---
 
@@ -1662,38 +1548,6 @@ ____
       - if current file/dir is a file => longestLength = Math.max(longestLength, sizeOfCurrentFile);
     - continue until we reach input.size()
 
-- [Sentence Screen Fitting](http://shirleyisnotageek.blogspot.com/2016/10/sentence-screen-fitting.html)
-  - some [solutions](http://massivealgorithms.blogspot.com/2016/10/leetcode-418-sentence-screen-fitting.html)
-  - 2 ways:
-    1. A naive approach is to go through the screen and put each word in it. Whenever we find a word doesn't fit to the left cells, we switch to the next line.
-    2. approach:
-      - We first concatenate all strings together and add spaces between words. (This string is the actual length we need to fit the string)
-      - Now we have a pos variable that initializes to 0, this is the position in the All string. 
-      - Now for each row, we add cols to pos, this is the position in the All string that we can fit in the row. 
-      - If the pos in the All string is pointing to a white space, we know we have just fitted (at least partial) strings in it. pos increment by 1. 
-      - If its a letter, we know its in the middle of the word, so we need to decrease the pos to the start of the word.
-      
-        ```` java
-          public int wordsTyping(String[] sentence, int rows, int cols) {
-              String all = "";
-              for (String s : sentence) {
-                  all += s + " ";
-              }
-              int pos = 0;
-              int len = all.length();
-              for (int i = 0; i < rows; i++) {
-                  pos += cols;
-                  if (all.charAt(pos % len) == ' ') {
-                      pos++;
-                  } else {
-                      while (pos > 0 && all.charAt((pos - 1) % len) != ' ') {
-                          pos--;
-                      }
-                  }
-              }
-              return pos / len;
-          }
-        ```` 
 
 ____
 
@@ -1722,17 +1576,6 @@ ____
 
 
 
-- [LRU Cache](https://leetcode.com/problems/lru-cache/discuss/)
-  * can do it in a very simple way using LinkedHashTable (check the code I did)
-  * to do it in a [proper way](https://discuss.leetcode.com/topic/6613/java-hashtable-double-linked-list-with-a-touch-of-pseudo-nodes):
-    1. use normal Hash table to store the key as the key and as a value store a pointer     
-    2. this pointer points to the representing object of the key in the doubly linked list which is used to sort the LRU objects
-
-- [LFU Cache](https://leetcode.com/problems/lfu-cache/discuss/)
-  * used a HashMap to store the key to its place in a List
-  * used a List to store the Map<Key, Value> based on the key's frequency meaning that the first index in the list show all the key-value pair that have freq of 1 and second index means freq of 2 etc... (Like Bucket Sort)
-  * my solution is similar to [this](https://discuss.leetcode.com/topic/69402/c-list-with-hashmap-with-explanation)
-  * In order to achieve O(1) time we used 2 HashMaps and a List
 
 - [Min Stack](https://leetcode.com/problems/min-stack/description/)
   * desinged it using one stack and an array to keep track of the min value

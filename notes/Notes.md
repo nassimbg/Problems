@@ -1,108 +1,115 @@
-- [Amortization](#amortization)
-  - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
-    - [Next Greater / Max O(1)](#next-greater--max-o1)
-    - [Remove Smaller/Bigger elements O(1)](#remove-smallerbigger-elements-o1)
-- [Array](#array)
-  - [Inplace manipulation](#inplace-manipulation)
-    - [Find missing values in array size n and values 1< a[i] < n](#find-missing-values-in-array-size-n-and-values-1-ai--n)
-- [Bit Manipulation](#bit-manipulation)
+- [Amortization](#Amortization)
+  - [Remove unwanted Previous O(1) (using Linked List)](#Remove-unwanted-Previous-O1-using-Linked-List)
+    - [Next Greater / Max O(1)](#Next-Greater--Max-O1)
+    - [Remove Smaller/Bigger elements O(1)](#Remove-SmallerBigger-elements-O1)
+- [Array](#Array)
+  - [Swipe left + Swipe right](#Swipe-left--Swipe-right)
+  - [Inplace manipulation](#Inplace-manipulation)
+    - [Find missing values in array size n and values 1< a[i] < n](#Find-missing-values-in-array-size-n-and-values-1-ai--n)
+  - [Sorting](#Sorting)
+  - [Random Questions](#Random-Questions)
+- [Bit Manipulation](#Bit-Manipulation)
   - [use bits as states](#use-bits-as-states)
-- [Boyer-Moore Algo](#boyer-moore-algo)
-- [Cumulative Sum](#cumulative-sum)
-  - [Immutable](#immutable)
-- [Cycle](#cycle)
-  - [Floyd's Tortoise and Hare](#floyds-tortoise-and-hare)
-- [Design](#design)
-  - [Tic-Tac-Toe](#tic-tac-toe)
-- [DP](#dp)
-  - [**_1. Back-Tracking_**](#1-back-tracking)
-    - [Output All Combinations/Permutations](#output-all-combinationspermutations)
-    - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
-    - [DFS in Matrix](#dfs-in-matrix)
-  - [**_2. Normal DP_**](#2-normal-dp)
-    - [KnapSack Style](#knapsack-style)
-    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#suffix-xin--prefix-x0i--topo-sort)
-      - [MAX / MIN](#max--min)
-        - [Several Options/Item (ex: rob or dont rob)](#several-optionsitem-ex-rob-or-dont-rob)
-      - [COUNT](#count)
-      - [TRUE / FALSE (think of Rec + Memo)](#true--false-think-of-rec--memo)
-      - [Find all possible answers](#find-all-possible-answers)
-    - [SubString x[i:j]](#substring-xij)
-- [Greedy](#greedy)
-- [Graphs](#graphs)
-  - [BFS / DFS](#bfs--dfs)
-    - [Level Traversal](#level-traversal)
-  - [TOPO Sort / Dependency](#topo-sort--dependency)
-  - [Dijkstra](#dijkstra)
-  - [From START -> END state (state ex: word, char, number, fraction...)](#from-start---end-state-state-ex-word-char-number-fraction)
-- [Heap](#heap)
-  - [Kth smallest/Largest...](#kth-smallestlargest)
-- [Intervals](#intervals)
-  - [Greedy](#greedy-1)
-  - [Segmant/Interval Trees](#segmantinterval-trees)
-- [Iterator](#iterator)
-  - [Design](#design-1)
-- [Linked List](#linked-list)
-- [Math](#math)
-  - [Division](#division)
-  - [Prime](#prime)
-  - [Calculator](#calculator)
-  - [Pow / SQRT](#pow--sqrt)
-  - [Area](#area)
-  - [Counting](#counting)
-    - [Permutation](#permutation)
-      - [Find kth value](#find-kth-value)
-  - [Series / Sequence](#series--sequence)
-- [Pointers](#pointers)
-  - [Left / Right Pointers](#left--right-pointers)
-    - [Swaping Values](#swaping-values)
-    - [Sliding window](#sliding-window)
-      - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
-      - [Rabin-Karp](#rabin-karp)
-  - [Start / End Pointers](#start--end-pointers)
-    - [Calculate Value btw them](#calculate-value-btw-them)
-- [Regex](#regex)
-- [Search](#search)
-  - [Median](#median)
-  - [Mapping](#mapping)
-  - [D&G](#dg)
-    - [Quick Select](#quick-select)
-    - [Binary Search](#binary-search)
-  - [Other](#other)
-- [Serialization / Deserialization](#serialization--deserialization)
-- [Sorting](#sorting)
-  - [Merge Sort](#merge-sort)
-    - [K sorted lists](#k-sorted-lists)
-  - [Paitence Sort](#paitence-sort)
-  - [Tag Sort](#tag-sort)
-  - [Top X](#top-x)
-- [SQL](#sql)
-- [Trie](#trie)
-  - [Design](#design-2)
-  - [Prefix/Word Search](#prefixword-search)
-    - [Match Prefix/Word with DIFF](#match-prefixword-with-diff)
-  - [List Lexo order](#list-lexo-order)
-  - [Next/Kth Enumeration/Value](#nextkth-enumerationvalue)
-    - [From Dictionary of words](#from-dictionary-of-words)
-    - [From given letters/digits](#from-given-lettersdigits)
-      - [Optimized by sorting](#optimized-by-sorting)
-- [Tree](#tree)
-  - [Red/Black](#redblack)
-  - [Traversal](#traversal)
-    - [Level By Level](#level-by-level)
-    - [Recursive](#recursive)
-    - [Iterative](#iterative)
-  - [Finding (in) Path](#finding-in-path)
-  - [Serialize / Deserialize BST](#serialize--deserialize-bst)
-  - [Equality in BST](#equality-in-bst)
-  - [- use a Map<String, Integer> where String is the String serialization of the current root and the Integer is the number of occurances that subtree has benn found](#use-a-mapstring-integer-where-string-is-the-string-serialization-of-the-current-root-and-the-integer-is-the-number-of-occurances-that-subtree-has-benn-found)
-  - [Segment Tree / Fenwick](#segment-tree--fenwick)
-    - [Search for All intervals that contain a query point](#search-for-all-intervals-that-contain-a-query-point)
-    - [Sum of Given Range](#sum-of-given-range)
-    - [Range Minimum Query](#range-minimum-query)
-- [Union-Find](#union-find)
-  - [Disjoint Sets](#disjoint-sets)
-    - [Number of diff Sets](#number-of-diff-sets)
+- [Boyer-Moore Algo](#Boyer-Moore-Algo)
+- [Cumulative Sum](#Cumulative-Sum)
+  - [Immutable](#Immutable)
+- [Cycle](#Cycle)
+  - [Floyd's Tortoise and Hare](#Floyds-Tortoise-and-Hare)
+- [Design](#Design)
+  - [Tic-Tac-Toe](#Tic-Tac-Toe)
+- [DP](#DP)
+  - [**_1. Back-Tracking_**](#1-Back-Tracking)
+    - [Output All Combinations/Permutations](#Output-All-CombinationsPermutations)
+    - [Count/Answer using DFS (need to know all combinations)](#CountAnswer-using-DFS-need-to-know-all-combinations)
+    - [DFS in Matrix](#DFS-in-Matrix)
+  - [**_2. Normal DP_**](#2-Normal-DP)
+    - [KnapSack Style](#KnapSack-Style)
+    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#Suffix-xin--Prefix-x0i--Topo-Sort)
+      - [MAX / MIN](#MAX--MIN)
+        - [Several Options/Item (ex: rob or dont rob)](#Several-OptionsItem-ex-rob-or-dont-rob)
+      - [COUNT](#COUNT)
+      - [TRUE / FALSE (think of Rec + Memo)](#TRUE--FALSE-think-of-Rec--Memo)
+      - [Find all possible answers](#Find-all-possible-answers)
+    - [SubString x[i:j]](#SubString-xij)
+- [Greedy](#Greedy)
+- [Graphs](#Graphs)
+  - [BFS / DFS](#BFS--DFS)
+    - [Level Traversal](#Level-Traversal)
+  - [TOPO Sort / Dependency](#TOPO-Sort--Dependency)
+  - [Dijkstra](#Dijkstra)
+  - [From START -> END state (state ex: word, char, number, fraction...)](#From-START---END-state-state-ex-word-char-number-fraction)
+- [Hash Table](#Hash-Table)
+- [Heap](#Heap)
+  - [Kth smallest/Largest...](#Kth-smallestLargest)
+- [Intervals](#Intervals)
+  - [Greedy](#Greedy-1)
+  - [Segmant/Interval Trees](#SegmantInterval-Trees)
+- [Iterator](#Iterator)
+  - [Design](#Design-1)
+- [Linked List](#Linked-List)
+- [Math](#Math)
+  - [Division](#Division)
+  - [Prime](#Prime)
+  - [Calculator](#Calculator)
+  - [Pow / SQRT](#Pow--SQRT)
+  - [Area](#Area)
+  - [Counting](#Counting)
+    - [Permutation](#Permutation)
+      - [Find kth value](#Find-kth-value)
+  - [Series / Sequence](#Series--Sequence)
+- [Pointers](#Pointers)
+  - [Left / Right Pointers](#Left--Right-Pointers)
+    - [Swaping Values](#Swaping-Values)
+    - [Sliding window](#Sliding-window)
+      - [Longest/Shortest Sequence/String](#LongestShortest-SequenceString)
+      - [Rabin-Karp](#Rabin-Karp)
+  - [Start / End Pointers](#Start--End-Pointers)
+    - [Calculate Value btw them](#Calculate-Value-btw-them)
+- [Regex](#Regex)
+- [Search](#Search)
+  - [Median](#Median)
+  - [Mapping](#Mapping)
+  - [D&G](#DG)
+    - [Quick Select](#Quick-Select)
+    - [Binary Search](#Binary-Search)
+  - [Other](#Other)
+- [Serialization / Deserialization](#Serialization--Deserialization)
+- [Sorting](#Sorting-1)
+  - [Merge Sort](#Merge-Sort)
+    - [K sorted lists](#K-sorted-lists)
+  - [Paitence Sort](#Paitence-Sort)
+  - [Radix Sort](#Radix-Sort)
+  - [Tag Sort](#Tag-Sort)
+  - [Top X](#Top-X)
+- [String](#String)
+  - [Shifting](#Shifting)
+- [SQL](#SQL)
+- [Trie](#Trie)
+  - [Design](#Design-2)
+  - [Prefix/Word Search](#PrefixWord-Search)
+    - [Match Prefix/Word with DIFF](#Match-PrefixWord-with-DIFF)
+  - [List Lexo order](#List-Lexo-order)
+  - [Next/Kth Enumeration/Value](#NextKth-EnumerationValue)
+    - [From Dictionary of words](#From-Dictionary-of-words)
+    - [From given letters/digits](#From-given-lettersdigits)
+      - [Optimized by sorting](#Optimized-by-sorting)
+- [Tree](#Tree)
+  - [Red/Black](#RedBlack)
+  - [Augmented BST](#Augmented-BST)
+  - [Traversal](#Traversal)
+    - [Level By Level](#Level-By-Level)
+    - [Recursive](#Recursive)
+    - [Iterative](#Iterative)
+  - [Finding (in) Path](#Finding-in-Path)
+  - [Serialize / Deserialize BST](#Serialize--Deserialize-BST)
+  - [Equality in BST](#Equality-in-BST)
+  - [Segment Tree / Fenwick](#Segment-Tree--Fenwick)
+    - [Search for All intervals that contain a query point](#Search-for-All-intervals-that-contain-a-query-point)
+    - [Sum of Given Range](#Sum-of-Given-Range)
+    - [Range Minimum Query](#Range-Minimum-Query)
+- [Union-Find](#Union-Find)
+  - [Disjoint Sets](#Disjoint-Sets)
+    - [Number of diff Sets](#Number-of-diff-Sets)
 
 ---
 
@@ -178,6 +185,28 @@
 
 # Array
 
+## Swipe left + Swipe right
+
+- [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/discuss/)
+  * iterate from left to right to calculate the cumulative product
+  * then iterate from right to left to calculate the cumulative product
+  * time O(n), Space O(1)
+  * [solution](https://discuss.leetcode.com/topic/18864/simple-java-solution-in-o-n-without-extra-space)
+
+- [Minimum Moves to Equal Array Elements II](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/)
+  - At first sort in Asc order
+  - start by swipping from right to left
+    - the count of iterations to make all values nums[i + 1....n] = nums[i] is: 
+      - increments[index] = increments[index + 1] + (nums[index + 1] - nums[index]) * (nums.length -1 - index);
+      - this mean countOfIncrementInCurrentIndex = countOfIncrementInIndex+1 + (diff of values btw nums[index + 1] and nums[index]) * numberOfValuesOnRightSide
+  - now start swipping from left to right and do the same as previous step
+    - previousCount = previousCount + (nums[index] - nums[index - 1]) * index;
+  - for every index add the count of increment computed for this index from left side and from right side
+  - TIme: O(n logn , Space: O(n)) (I think we can optimize)
+
+
+---
+
 ## Inplace manipulation
 
 ### Find missing values in array size n and values 1< a[i] < n 
@@ -187,6 +216,64 @@
   
 - [Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
    - similar
+
+
+
+
+---
+
+## Sorting
+
+- [H Index](https://leetcode.com/problems/h-index)
+  * can solve it in two ways:
+    1. sort (O(n + d) bucket sort) then iterate in a Descending manner to reach an index where the (array.length - index) < arrays[index] (O(n))
+    2. no need to sort, create an count[n] array [check solution](https://leetcode.com/problems/h-index/discuss/70810/A-Clean-O(N)-Solution-in-Java)
+
+
+- [Queue Reconstruction by Height](https://leetcode.com/problems/queue-reconstruction-by-height/description/)
+  - At first sort the array bases on __(o1, o2) -> o1[0] == o2[0] ? o1[1] - o2[1] : o2[0] - o1[0]__
+  - Iterate over the sorted array and add the current person to a list in position = person[1] = number of people >=current height
+  - time: O(n^2) 
+
+
+
+---
+
+## Random Questions
+
+- [Sentence Screen Fitting](http://shirleyisnotageek.blogspot.com/2016/10/sentence-screen-fitting.html)
+  - some [solutions](http://massivealgorithms.blogspot.com/2016/10/leetcode-418-sentence-screen-fitting.html)
+  - 2 ways:
+    1. A naive approach is to go through the screen and put each word in it. Whenever we find a word doesn't fit to the left cells, we switch to the next line.
+    2. approach:
+      - We first concatenate all strings together and add spaces between words. (This string is the actual length we need to fit the string)
+      - Now we have a pos variable that initializes to 0, this is the position in the All string. 
+      - Now for each row, we add cols to pos, this is the position in the All string that we can fit in the row. 
+      - If the pos in the All string is pointing to a white space, we know we have just fitted (at least partial) strings in it. pos increment by 1. 
+      - If its a letter, we know its in the middle of the word, so we need to decrease the pos to the start of the word.
+      
+        ```` java
+          public int wordsTyping(String[] sentence, int rows, int cols) {
+              String all = "";
+              for (String s : sentence) {
+                  all += s + " ";
+              }
+              int pos = 0;
+              int len = all.length();
+              for (int i = 0; i < rows; i++) {
+                  pos += cols;
+                  if (all.charAt(pos % len) == ' ') {
+                      pos++;
+                  } else {
+                      while (pos > 0 && all.charAt((pos - 1) % len) != ' ') {
+                          pos--;
+                      }
+                  }
+              }
+              return pos / len;
+          }
+        ```` 
+
 
 
 ---
@@ -353,6 +440,19 @@
     - actually u dont need O(n^2)space u just need row[n] and col[n] and two ints for the diagonals
     - [check nice solution](https://www.programcreek.com/2014/05/leetcode-tic-tac-toe-java/)
 
+- [LRU Cache](https://leetcode.com/problems/lru-cache/discuss/)
+  * can do it in a very simple way using LinkedHashTable (check the code I did)
+  * to do it in a [proper way](https://discuss.leetcode.com/topic/6613/java-hashtable-double-linked-list-with-a-touch-of-pseudo-nodes):
+    1. use normal Hash table to store the key as the key and as a value store a pointer     
+    2. this pointer points to the representing object of the key in the doubly linked list which is used to sort the LRU objects
+
+- [LFU Cache](https://leetcode.com/problems/lfu-cache/discuss/)
+  * used a HashMap to store the key to its place in a List
+  * used a List to store the Map<Key, Value> based on the key's frequency meaning that the first index in the list show all the key-value pair that have freq of 1 and second index means freq of 2 etc... (Like Bucket Sort)
+  * my solution is similar to [this](https://discuss.leetcode.com/topic/69402/c-list-with-hashmap-with-explanation)
+  * In order to achieve O(1) time we used 2 HashMaps and a List
+
+
 ---
 
 ---
@@ -402,6 +502,7 @@
 ## **_1. [Back-Tracking](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)_**
 
 - if asked to find the next permutation => use **Trie**
+- **check oneNote on how to solve these kinds of questions**
 
 ### Output All Combinations/Permutations
 
@@ -493,8 +594,17 @@
 
 **_Problems_**
 
-- [Word Pattern II](https://www.programcreek.com/2014/07/leetcode-word-pattern-ii-java/)
 
+- [Combination Sum](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)
+  - backtracking with target
+  - [geeksforgeeks](http://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/)
+
+- [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
+  - how to remove duplicate values (sort and then check if i > index && nums[i] == nums[i - 1])
+  - here we need to output all combination that gives us a specific some
+  - follow algo as in OneNote
+  
+- [Word Pattern II](https://www.programcreek.com/2014/07/leetcode-word-pattern-ii-java/)
   - time complexity O(n ^ n)
   - use **Word Pattern** problem
   - use a bit from [Justifying para DP problem](https://leetcode.com/submissions/detail/124226772/)
@@ -534,9 +644,6 @@
   - Do back tracking
   - if int is so large => keep them as String and do addition on the fly
 
-- [Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
-  - here we need to output all combination that gives us a specific some
-  - follow algo as in OneNote
 
 ---
 
@@ -575,6 +682,13 @@
     - **DFS** to fetch a word in the TRIE by passing to the chars in the 2D array in a DFS pass
     - using a SET<String> to store the words that are found
       <a id="Word_Search_II"/>
+
+
+
+- [Island Perimeter](https://leetcode.com/problems/island-perimeter/)
+  - iterate over the matrix and when u reach the island do a DFS check the param
+  - To check the param, at avery box with 1 check if it has island neibours on each side if a side doesnt have => add the count or params
+  
 
 ---
 
@@ -816,7 +930,7 @@
     - The idea is similar to the problem Paint House I, for each house and each color, the minimum cost of painting the house with that color should be the minimum cost of painting previous houses, and make sure the previous house doesn't paint with the same color.
       - We can use min1 and min2 to track the indices of the 1st and 2nd smallest cost till previous house, if the current color's index is same as min1, then we have to go with min2, otherwise we can safely go with min1.
       - The code below modifies the value of costs[][] so we don't need extra space.
-
+  
 - <a id="House_Robber"/> [House Robber](https://leetcode.com/problems/house-robber/description/)
 
   - can be solved in a dp way with an array but we can optimize to use two fields (whether to rob current or not)
@@ -839,6 +953,13 @@
   - time: O(n), Space: O(1)
   - [solution](https://leetcode.com/articles/wiggle-subsequence/)
   - similar to **finding the number of alternating max. and min. peaks in the array**
+
+- [Sherlock and Cost](https://www.hackerrank.com/challenges/sherlock-and-cost/problem)
+
+  - looks a bit like the [House Robber problem](
+  - Algo gor guess:
+    - lowValue = Math.max(prevLowValue, Math.abs(B[index + 1] - 1) + highValue);
+    - highValue = Math.max(Math.abs(B[index] - 1) + prevLowValue, Math.abs(B[index] - B[index + 1]) + highValue);
 
 #### COUNT
 
@@ -869,6 +990,10 @@
     - when we get a match => add the number of combination of the preciding values to the sum
       - why at current value we add the combinations of the preceding values?
         - since this combination value will actually be the number of combinations of the current value joind with the preceding values 
+
+- [Jump II](https://leetcode.com/problems/jump-game-ii/discuss/)
+  * resolve it or even solve [Jump](https://leetcode.com/problems/jump-game/description/)
+  * we can use a greedy algorithm to solve it no need for DP 
 
 
 #### TRUE / FALSE (think of Rec + Memo)
@@ -1098,6 +1223,18 @@
 
 ---
 
+# Hash Table
+  
+- [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/description/)
+  * did it using one array[10] => space O(1) and two passes => time O(n)
+  * another [solution with only one pass](https://leetcode.com/problems/bulls-and-cows/discuss/74621/One-pass-Java-solution)
+
+---
+
+---
+
+---
+
 # Heap
 
 - [Rearrange String k Distance Apart](https://www.programcreek.com/2014/08/leetcode-rearrange-string-k-distance-apart-java/)
@@ -1130,6 +1267,11 @@
       - check minPair[0] < nums1.length - 1 && minPair[1] == 0 ? => add {minPair[0] + 1, minPair[1]} to minQueue
         - **why?** cz we need to make sure that pair {minPair[0] + 1, minPair[1] + 1} is less than {minPair[0] + 1, minPair[1]}
     - keep doing this until we reach size = k
+
+- [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/description/)
+  - create a hashMap to save Frequency per value
+  - sort the values according to frequency
+  - get first K (we can use PriorityQueue)
 
 ---
 
@@ -1244,6 +1386,10 @@
 
 - [Reorder List](https://leetcode.com/problems/reorder-list/description/)
   - partition list to two parts and use Reverse Linked List in this problem for the second part
+
+- [Partition List](https://leetcode.com/problems/partition-list/description/)
+  * use a dummyHead and a dummyX where the values less than x put them children for dummyHead and values >= x but them as children for dummyX.
+  * at end link the last child in dummyHead to the first child in dummyX
 
 ---
 
@@ -1476,6 +1622,58 @@
 
 #### Longest/Shortest Sequence/String
 
+**_Hints_**
+
+- Generic Pattern:
+  
+  ``` java
+
+    static int lengthOfLongestSubstringTwoDistinct(String s, int k) {
+      // do proper initialization as per the question
+      Map<Character, Integer> freq = new HashMap<>();
+      int maxSize = 0;
+
+      // start from zero in both left and right pointers
+      int start = 0;
+      int end = 0;
+      int length = s.length();
+      while (start < length && end < length) {
+
+         while (end < length && freq.size() <= k) {
+            char c = s.charAt(end);
+
+            // do question logic for what we need upon incrementing Right
+            // this part should be substituted with specific question logic
+            int currentFreq = freq.getOrDefault(c, 0);
+            freq.put(c, currentFreq + 1);
+
+            // check condition to get the answer
+            // this part could be the same across multiple question
+            // when asking about the maxSize we can get
+            if (freq.size() <= k) {
+               maxSize = Math.max(maxSize, end - start + 1);
+            }
+            end++;
+         }
+
+         while (start < end && freq.size() > k) {
+            char c = s.charAt(start++);
+            int currentFreq = freq.get(c);
+
+            // do question logic for what we need upon incrementing left
+            // this part should be substituted with specific question logic
+            if (currentFreq == 1) {
+               freq.remove(c);
+            } else {
+               freq.put(c, currentFreq - 1);
+            }
+         }
+      }
+
+      return maxSize;
+    }
+  ```
+
 **_Problems_**
 
 - [Minimum Window Substring](https://leetcode.com/submissions/detail/124633862/)
@@ -1560,6 +1758,20 @@
 
 * [Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
   - similar to **Flip bit to Win** problem
+
+- [Unique Substrings in Wraparound String](https://leetcode.com/problems/unique-substrings-in-wraparound-string/)
+  - here we have a left and right pointer
+  - right pointer will keep incrementing until we reach (p.charAt(rightPointer - 1) - 'a' + 1) % 26 == p.charAt(rightPointer) - 'a')
+    - this means that the my previous char isnt the my char - 1 (take into consideration the alphabatical cycle)
+  - when we stop the right pointer => calculate the possible combination btw left and right
+  - then memo the max length of substring, we have until now, starting from each char btw left and right 
+  - calculate the total number of combinations while memoing
+
+- [Jump II](https://leetcode.com/problems/jump-game-ii/discuss/)
+  - resolve it or even solve [Jump](https://leetcode.com/problems/jump-game/description/)
+  - we can use a greedy algorithm to solve it no need for DP
+  - to optimize do it using (left/right) pointers
+
 
 #### Rabin-Karp
 
@@ -1872,6 +2084,20 @@
 * [Increasing Triplet Subsequence](https://leetcode.com/problems/increasing-triplet-subsequence/discuss/)
   - its a specific case for [longest Increasing Subsequence](#longest_Increasing_Subsequence)
 
+
+
+
+---
+
+## Radix Sort
+
+
+- [Maximum Gap](https://leetcode.com/problems/maximum-gap/solution/)
+  * I did it using [Radix sort](https://www.youtube.com/watch?v=YXFI4osELGU)
+  * they did it something similar to Bucket sort but modified they dont put all the number just the MAX and MIN
+  * check their solution VVVVVIIIIIPPPPPPPPP
+
+
 ---
 
 ## Tag Sort
@@ -1896,6 +2122,21 @@
   - create a hashMap to save Frequency per value
   - sort the values according to frequency
   - get first K (we can use PriorityQueue)
+
+---
+
+---
+
+---
+
+# String
+
+## Shifting
+
+- [Group Shifted Strings](https://www.geeksforgeeks.org/group-shifted-string/)
+  * for every string generate a string that is the difference of every char with its next char in this string
+  * and search for the generated string in the map
+
 
 ---
 
@@ -2075,6 +2316,22 @@
 
 ---
 
+## Augmented BST
+
+- [Count of Smaller Numbers After Self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/)
+  * similar to above __Longest Increasing Subsequence__ problem using the __BST solution__
+  * instead of saving the max increasing subseq at every node we save the size of the subtree => upon inserting a node we can add the number of nodes less than the current
+  * in order to get the correct answer we must start iterating from the end of the array an insert every element upon iteration to retrieve the count of this element
+  * This problem uses the same Data Structure for the __ranking problem__
+
+
+- [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/description/)
+  * This problem uses the same Data Structure for the __ranking problem__
+  * augment the BST by the size of the subtree
+
+
+---
+
 ## Traversal
 
 ### Level By Level
@@ -2154,6 +2411,20 @@
   - basically we are using InOrder traversal
   - [solution](http://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/)
 
+
+- [Binary Tree Longest Consecutive Sequence](https://www.geeksforgeeks.org/longest-consecutive-sequence-binary-tree/)
+  * do a preOrderTraversal
+  * __TRICK:__ to decide the length at every node do: return Math.max(leftLength, rightLength, __currentLength__).
+    -  we need to compare to currentLength since the children may reset the length since child.val != current.val + 1
+  * [my solution](http://buttercola.blogspot.com/2015/12/blog-post.html)
+
+
+- [Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
+  * Pay attention that the **condition holds if we are on a leaf node and the sum == 0** and not when reaching a null node 
+  * since: 
+    * if we have only a null node as a root we shouldnt return anything
+    * if we may added the list twice (when reaching right child of leaf null and left child where both are null)
+  
 ### Iterative
 
 - [Verify Preorder Sequence in Binary Search Tree](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
@@ -2201,6 +2472,7 @@
 
 - [Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
   - use a Map<String, Integer> where String is the String serialization of the current root and the Integer is the number of occurances that subtree has benn found
+
 ---
 
 ## Segment Tree / Fenwick
