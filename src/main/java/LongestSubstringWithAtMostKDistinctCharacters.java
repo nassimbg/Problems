@@ -3,6 +3,49 @@ import java.util.Map;
 
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
+   public static String longest(String s, int k) {
+      if (s == null || s.isEmpty()) {
+         return s;
+      }
+
+      Map<Character, Integer> chars = new HashMap<>();
+
+      int bestLeft = 0;
+      int bestRight = 0;
+
+      int left = 0;
+      int right = -1;
+
+      while(right < s.length() - 1) {
+
+         while(right < s.length() - 1 && chars.size() <= k) {
+            char charAt = s.charAt(++right);
+
+            int count = chars.getOrDefault(charAt, 0);
+            chars.put(charAt, count + 1);
+         }
+
+         int temp = chars.size() > k ? right - 1 : right;
+         if (temp - left > bestRight - bestLeft) {
+            bestLeft = left;
+            bestRight = temp;
+         }
+
+         while (left < right && chars.size() > k) {
+            char charAt = s.charAt(left++);
+
+            int decrementedCount = chars.getOrDefault(charAt, 0) - 1;
+            if (decrementedCount == 0) {
+               chars.remove(charAt);
+            } else {
+               chars.put(charAt, decrementedCount);
+            }
+         }
+      }
+
+      return s.substring(bestLeft, bestRight + 1);
+   }
+
    static int lengthOfLongestSubstringTwoDistinct(String s, int k) {
       Map<Character, Integer> freq = new HashMap<>();
       int maxSize = 0;
@@ -14,8 +57,8 @@ public class LongestSubstringWithAtMostKDistinctCharacters {
 
          while (end < length && freq.size() <= k) {
             char c = s.charAt(end);
-            int currentFreq = freq.getOrDefault(c, 0);
 
+            int currentFreq = freq.getOrDefault(c, 0);
             freq.put(c, currentFreq + 1);
 
             if (freq.size() <= k) {
@@ -25,7 +68,7 @@ public class LongestSubstringWithAtMostKDistinctCharacters {
          }
 
          while (start < end && freq.size() > k) {
-            char c = s.charAt(start);
+            char c = s.charAt(start++);
             int currentFreq = freq.get(c);
 
             if (currentFreq == 1) {
@@ -33,7 +76,6 @@ public class LongestSubstringWithAtMostKDistinctCharacters {
             } else {
                freq.put(c, currentFreq - 1);
             }
-            start++;
          }
       }
 
