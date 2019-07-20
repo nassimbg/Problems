@@ -88,6 +88,7 @@
   - [Design](#Design-2)
   - [Prefix/Word Search](#PrefixWord-Search)
     - [Match Prefix/Word with DIFF](#Match-PrefixWord-with-DIFF)
+    - [Match Concatination of Words](#Match-Concatination-of-Words)
   - [List Lexo order](#List-Lexo-order)
   - [Next/Kth Enumeration/Value](#NextKth-EnumerationValue)
     - [From Dictionary of words](#From-Dictionary-of-words)
@@ -2265,6 +2266,17 @@
 - [Minimum Genetic Mutation](#Minimum_Genetic_Mutation)
   - use the trie even do we have diff char
   - => if we reach a diff char loop over all children in current TrieNode
+
+
+### Match Concatination of Words
+
+- [Concatenated Words](https://leetcode.com/problems/concatenated-words/)
+  - Sort the array on size of Strings
+  - create a Trie with the words
+  - using a Trie check if the word is a concatination:
+    - if we "catsdogcats" matchs "cats" in Trie, do the following until 1 of them returns True:
+      1. continue on the same Trie branch to see if we can continue matching
+      2. do a recursive call to search in another word in the Trie but continuing the Index reached  
 
 ---
 

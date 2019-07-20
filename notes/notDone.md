@@ -85,7 +85,8 @@
 - [Binary Tree PreOrder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
   * similar to above but we put the result.add() inside the second while loop
   * __Needs REVIEW__
-  * use stack and current pointer   * __STUDY THIS PROBLEM__
+  * use stack and current pointer   
+  * __STUDY THIS PROBLEM__
 
 - [Binary Tree Post Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/)
   * VVVVVVVIIIIIIPPPPPPPPPPPPP
