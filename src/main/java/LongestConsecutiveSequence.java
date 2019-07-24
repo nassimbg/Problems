@@ -1,10 +1,44 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @SuppressWarnings("Duplicates")
 public class LongestConsecutiveSequence {
+
+   public int longestConsecutive0(int[] nums) {
+
+      Set<Integer> values = new HashSet<>();
+      for (int num : nums) {
+         values.add(num);
+      }
+      Map<Integer, Integer> startNodes = new HashMap<>();
+      Map<Integer, Integer> endNodes = new HashMap<>();
+
+      int size = 0;
+      for (int num : values) {
+         Integer upperBoundEnd = startNodes.remove(num + 1);
+         Integer lowerBoundStart = endNodes.remove(num - 1);
+
+         if (upperBoundEnd == null) {
+            upperBoundEnd = num;
+         }
+
+         if (lowerBoundStart == null) {
+            lowerBoundStart = num;
+         }
+
+         endNodes.put(upperBoundEnd, lowerBoundStart);
+         startNodes.put(lowerBoundStart, upperBoundEnd);
+
+         size = Math.max(size, upperBoundEnd - lowerBoundStart + 1);
+
+      }
+
+      return size;
+   }
 
    public static int longestConsecutive(int[] nums) {
 

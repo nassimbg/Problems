@@ -12,4 +12,19 @@ public class ListNode {
    public String toString() {
       return val  + (next != null ? " -> " + next: "");
    }
+
+
+
+
+   public static ListNode generateListNode(int[] array) {
+      ListNode dummyH = new ListNode(-1);
+
+      ListNode current = dummyH;
+      for (int i : array) {
+         current.next = new ListNode(i);
+         current = current.next;
+      }
+
+      return dummyH.next;
+   }
 }
