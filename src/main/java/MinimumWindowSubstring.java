@@ -1,6 +1,84 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class MinimumWindowSubstring {
 
+
    public static String minWindow(String s, String t) {
+      Map<Character, Integer> countPerCharT = new HashMap<>();
+
+      for (int i = 0; i < t.length(); i++) {
+         char key = t.charAt(i);
+         int count = countPerCharT.getOrDefault(key, 0);
+         countPerCharT.put(key, count + 1);
+      }
+
+      Map<Character, Integer> countPerCharS = new HashMap<>();
+      int distinctCount = 0;
+      int left = 0;
+      int right = -1;
+
+      int bestLeft = 0;
+      int bestRight = Integer.MAX_VALUE;
+
+      while (right < s.length() - 1) {
+         while (right < s.length() - 1 && distinctCount < countPerCharT.size()) {
+            char c = s.charAt(++right);
+
+            int countInT = countPerCharT.getOrDefault(c, 0);
+            if (countInT > 0) {
+               int countInS = countPerCharS.getOrDefault(c, 0) + 1;
+               countPerCharS.put(c, countInS);
+
+               if (countInS == countInT) {
+                  distinctCount++;
+               }
+            }
+         }
+
+         if (distinctCount == countPerCharT.size()) {
+            if (bestRight - bestLeft > right - left) {
+               bestLeft = left;
+               bestRight = right;
+            }
+         }
+
+         boolean passedInLeft = false;
+         while (left <= right && distinctCount == countPerCharT.size()) {
+            passedInLeft = true;
+            char c = s.charAt(left++);
+
+            int countInT = countPerCharT.getOrDefault(c, 0);
+            if (countInT > 0) {
+               int countInS = countPerCharS.getOrDefault(c, 0);
+               if (countInS == countInT) {
+                  distinctCount--;
+               }
+
+               countPerCharS.put(c, countInS - 1);
+            }
+         }
+
+         if (passedInLeft && distinctCount + 1 == countPerCharT.size()) {
+            if (bestRight - bestLeft > right - (left - 1)) {
+               bestLeft = left - 1;
+               bestRight = right;
+            }
+         }
+      }
+
+
+
+      if (bestRight == Integer.MAX_VALUE) {
+         bestRight = 0;
+      } else if (bestRight < s.length()) {
+         bestRight++;
+      }
+
+      return s.substring(bestLeft,  bestRight);
+   }
+
+   public static String minWindow2(String s, String t) {
 
       if (s == null || s.equals("") || t == null || t.equals("")) {
          return "";
