@@ -2,7 +2,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SummaryRanges {
+
    public static List<String> summaryRanges(int[] nums) {
+      List<String> results = new ArrayList<>();
+
+      int left = 0;
+      int right = 1;
+
+      while(right <= nums.length) {
+
+         boolean passed = false;
+         while (right < nums.length && nums[right] == nums[right - 1] + 1) {
+            passed = true;
+            right++;
+         }
+
+         if (passed) {
+            results.add(nums[left] + "->" + nums[right - 1]);
+         } else if (right - 1 == left) {
+            results.add("" + nums[left]);
+         }
+
+         left = right;
+         right++;
+      }
+
+      return results;
+   }
+
+   public static List<String> summaryRanges2(int[] nums) {
 
       List<String> result = new ArrayList<>();
 
