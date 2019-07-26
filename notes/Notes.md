@@ -7,9 +7,11 @@
   - [Inplace manipulation](#Inplace-manipulation)
     - [Find missing values in array size n and values 1< a[i] < n](#Find-missing-values-in-array-size-n-and-values-1-ai--n)
   - [Sorting](#Sorting)
+  - [Traversing](#Traversing)
   - [Random Questions](#Random-Questions)
 - [Bit Manipulation](#Bit-Manipulation)
   - [use bits as states](#use-bits-as-states)
+  - [Bit Range Masking](#Bit-Range-Masking)
 - [Boyer-Moore Algo](#Boyer-Moore-Algo)
 - [Cumulative Sum](#Cumulative-Sum)
   - [Immutable](#Immutable)
@@ -17,16 +19,24 @@
   - [Floyd's Tortoise and Hare](#Floyds-Tortoise-and-Hare)
 - [Design](#Design)
   - [Tic-Tac-Toe](#Tic-Tac-Toe)
+  - [Cache](#Cache)
+  - [Iterator](#Iterator)
+  - [Amortization O(1)](#Amortization-O1)
 - [DP](#DP)
   - [**_1. Back-Tracking_**](#1-Back-Tracking)
     - [Output All Combinations/Permutations](#Output-All-CombinationsPermutations)
+      - [Which Value At index I (for I: start -> end)](#Which-Value-At-index-I-for-I-start---end)
+      - [Multiple choices for index I (ex: take or leave)](#Multiple-choices-for-index-I-ex-take-or-leave)
     - [Count/Answer using DFS (need to know all combinations)](#CountAnswer-using-DFS-need-to-know-all-combinations)
+      - [Multiple choices for index I (ex: take or leave) 2](#Multiple-choices-for-index-I-ex-take-or-leave-2)
     - [DFS in Matrix](#DFS-in-Matrix)
   - [**_2. Normal DP_**](#2-Normal-DP)
+    - [DFS + MEMO](#DFS--MEMO)
+      - [Matrix](#Matrix)
     - [KnapSack Style](#KnapSack-Style)
     - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#Suffix-xin--Prefix-x0i--Topo-Sort)
       - [MAX / MIN](#MAX--MIN)
-        - [Several Options/Item (ex: rob or dont rob)](#Several-OptionsItem-ex-rob-or-dont-rob)
+        - [Several Options/States (ex: rob or dont rob)](#Several-OptionsStates-ex-rob-or-dont-rob)
       - [COUNT](#COUNT)
       - [TRUE / FALSE (think of Rec + Memo)](#TRUE--FALSE-think-of-Rec--Memo)
       - [Find all possible answers](#Find-all-possible-answers)
@@ -44,9 +54,8 @@
 - [Intervals](#Intervals)
   - [Greedy](#Greedy-1)
   - [Segmant/Interval Trees](#SegmantInterval-Trees)
-- [Iterator](#Iterator)
-  - [Design](#Design-1)
 - [Linked List](#Linked-List)
+  - [Reverse](#Reverse)
 - [Math](#Math)
   - [Division](#Division)
   - [Prime](#Prime)
@@ -72,8 +81,9 @@
   - [D&G](#DG)
     - [Quick Select](#Quick-Select)
     - [Binary Search](#Binary-Search)
+      - [Rotated Sorted Arraay](#Rotated-Sorted-Arraay)
   - [Other](#Other)
-- [Serialization / Deserialization](#Serialization--Deserialization)
+- [Serialization / Deserialization / Decoding](#Serialization--Deserialization--Decoding)
 - [Sorting](#Sorting-1)
   - [Merge Sort](#Merge-Sort)
     - [K sorted lists](#K-sorted-lists)
@@ -85,7 +95,7 @@
   - [Shifting](#Shifting)
 - [SQL](#SQL)
 - [Trie](#Trie)
-  - [Design](#Design-2)
+  - [Design](#Design-1)
   - [Prefix/Word Search](#PrefixWord-Search)
     - [Match Prefix/Word with DIFF](#Match-PrefixWord-with-DIFF)
     - [Match Concatination of Words](#Match-Concatination-of-Words)
@@ -236,7 +246,28 @@
   - Iterate over the sorted array and add the current person to a list in position = person[1] = number of people >=current height
   - time: O(n^2) 
 
+- [Wiggle Sort](http://buttercola.blogspot.com/2015/09/leetcode-wiggle-sort.html)
+  *  reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
+  * only compare with the previous input
+  * if Index is even and nums[nums[i] > nums[i - 1]] => swap i with i -1
+    else if index is off and nums[i] <> nums[i - 1] => swap i with i-1
 
+
+- [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)   
+  * VVVVVVVVVVVVVVIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPP
+  *  __Needs REVIEW__
+  * __Practice this problem more__
+  * here its more difficult since we can have == number beside each other
+  * [perfect explanation](https://leetcode.com/problems/wiggle-sort-ii/discuss/77684/Summary-of-the-various-solutions-to-Wiggle-Sort-for-your-reference)
+  
+---
+
+## Traversing
+
+- [Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)
+  - Traverse the Matrix in a diagonal matter
+  - transform the logical explanation into the code
+  - check solution
 
 ---
 
@@ -276,6 +307,11 @@
         ```` 
 
 
+- [Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/description/)
+  - simple iteration over the 2D array and we need to just check if we reached an X
+    - if this X has a previous X:
+      - => if arry[row][col] = X and (arry[row - 1][col] || arry[row][col - 1]  ) = X 
+      - => dont add number of ships
 
 ---
 
@@ -317,6 +353,19 @@
 
   - check [this solution](https://leetcode.com/problems/game-of-life/discuss/73223/Easiest-JAVA-solution-with-explanation)
   - for the infinite board part we need only to take as input the list of Live Coordinates no need for the full board => [infinite board solution](https://leetcode.com/problems/game-of-life/discuss/73217/Infinite-board-solution)
+
+
+---
+
+## Bit Range Masking
+
+- [Number Complement](https://leetcode.com/problems/number-complement/submissions/)
+  - in order to flip the bits we can XOR the range of bits we want to flip with a Range of all 1s => num ^ mask
+  - Generating the mask to know which bits we can flip:
+    - ex: 5 = 101 => we need to flip these 3 bits and not all 32 bits in int
+    1. get position of highest 1 bit using Integer.highestOneBit(num)
+    2. then generate the mask = int mask = (highestOneBit << 1) - 1;
+    3. in order to flip the bits we can XOR the range of bits we want to flip with a Range of all 1s => num ^ mask
 
 ---
 
@@ -441,6 +490,8 @@
     - actually u dont need O(n^2)space u just need row[n] and col[n] and two ints for the diagonals
     - [check nice solution](https://www.programcreek.com/2014/05/leetcode-tic-tac-toe-java/)
 
+## Cache
+
 - [LRU Cache](https://leetcode.com/problems/lru-cache/discuss/)
   * can do it in a very simple way using LinkedHashTable (check the code I did)
   * to do it in a [proper way](https://discuss.leetcode.com/topic/6613/java-hashtable-double-linked-list-with-a-touch-of-pseudo-nodes):
@@ -453,6 +504,36 @@
   * my solution is similar to [this](https://discuss.leetcode.com/topic/69402/c-list-with-hashmap-with-explanation)
   * In order to achieve O(1) time we used 2 HashMaps and a List
 
+## Iterator
+
+
+**_Hints_**
+
+- Try to use actual **Iterator**
+
+**_Problems_**
+
+- [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/description/)
+
+  - in this problem we have 3 proposed solution:
+    1. solution1: use 2 stack (Stack<List<NestedInteger>>, Stack<Integer>) the first to save the stack and the second to save the index we are in for every list in the stack
+    2. solution2: optimize solution1 to use only one stack => use Stack<Iterator<NestedInteger>> instead of Stack<List<NestedInteger>>
+    - [solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80404/Simple-iterative-DFS-using-stack)
+    1. solution3: use only Stack<List<NestedInteger>> but also flatten every list
+    - [check solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80147/Simple-Java-solution-using-a-stack-with-explanation)
+  - I did the first 2 solutions
+
+- [Flatten 2D Vector](https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.10.html)
+  - implement an iterator
+  - check corner scenraio in my code
+  - [solution](http://buttercola.blogspot.com/2015/08/leetcode-flatten-2d-vector.html)
+
+- [Zigzag Iterator](http://buttercola.blogspot.com/2015/09/leetocode-zigzag-iterator.html)
+  * it look like the __Flatten 2D Vector problem__
+  * i did it with current vector and current index fields (check my code)
+  * other [solution used List<Iterator>](https://discuss.leetcode.com/topic/26654/simple-java-solution-for-k-vector)
+
+## Amortization O(1)
 
 ---
 
@@ -529,6 +610,8 @@
 
 **_Problems_**
 
+#### Which Value At index I (for I: start -> end)
+
 - [Permutations](https://leetcode.com/problems/permutations/description/)
 
   - Can be done using Dynamic Programming
@@ -585,6 +668,14 @@
   - we do backtracking where at every subproblem we **have two choices at index i its either '(' or ')'**
   - => **try both** until we reach close == n and open == n
 
+#### Multiple choices for index I (ex: take or leave)
+
+- [Generalized Abbreviation](https://gist.github.com/cangoal/bb57a4879a3c892566028b74f1ce50ec)
+
+  - did it in a backtracking way
+  - [solution](https://gist.github.com/cangoal/bb57a4879a3c892566028b74f1ce50ec)
+  - similar to solution 3 in the above link
+  
 ---
 
 ### Count/Answer using DFS (need to know all combinations)
@@ -623,12 +714,6 @@
 
   - this problem asks only for the count of the different combinations and not to output the combinations and still we do backtracking
 
-- [Generalized Abbreviation](https://gist.github.com/cangoal/bb57a4879a3c892566028b74f1ce50ec)
-
-  - did it in a backtracking way
-  - [solution](https://gist.github.com/cangoal/bb57a4879a3c892566028b74f1ce50ec)
-  - similar to solution 3 in the above link
-
 - [Minimum Unique Word Abbreviation](http://shirleyisnotageek.blogspot.com/2016/10/minimum-unique-word-abbreviation.html)
 
   - This is a combination of [Valid Word Abbreviation](http://shirleyisnotageek.blogspot.com/2016/10/valid-word-abbreviation.html) and [Generalized Abbreviation](https://gist.github.com/cangoal/bb57a4879a3c892566028b74f1ce50ec)
@@ -646,6 +731,11 @@
   - if int is so large => keep them as String and do addition on the fly
 
 
+#### Multiple choices for index I (ex: take or leave) 2
+
+- [Target Sum](https://leetcode.com/problems/target-sum/)
+  - here we have to options per index wether its +X or -X
+  
 ---
 
 ### DFS in Matrix
@@ -696,6 +786,23 @@
 ---
 
 ## **_2. Normal DP_**
+
+
+### DFS + MEMO
+
+#### Matrix
+
+- [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
+
+  - since its a 2D matrix => brute force solution is to do a backtracking algo
+  - but since they only need a max value => we can optimize the algo by doing **backtracking + memo** => DP solution O(nm) time
+  - [similar to my solution](<https://leetcode.com/problems/longest-increasing-path-in-a-matrix/discuss/78433/My-DP-solution-with-Explanation-Search-nearby-using-DFS.-O(MN)-Easy-to-read>)
+  - In my solution I added a visited 2D array in order to make sure not to visit a cell that is already in the visiting process (check backtracking algos)
+  - Some thoughts:
+    - I was thinking of doing it in a iterative way rather a recursive way
+
+
+---
 
 ### KnapSack Style
 
@@ -772,6 +879,9 @@
 
 ---
 
+
+---
+
 ### Suffix x[i:n] / Prefix x[0:i] / Topo Sort
 
 #### MAX / MIN
@@ -779,6 +889,9 @@
 - [Edit distance](https://leetcode.com/problems/edit-distance/)
 
   - DP problem which is similar to wildcard matching and Regular Expression Matching problems
+
+- [Rectangular Blocks]()
+  - check Recitation 5 DP course 2 
 
 - [One Edit Distance](http://www.geeksforgeeks.org/check-if-two-given-strings-are-at-edit-distance-one/)
 
@@ -838,15 +951,6 @@
   - Algo gor guess:
     - lowValue = Math.max(prevLowValue, Math.abs(B[index + 1] - 1) + highValue);
     - highValue = Math.max(Math.abs(B[index] - 1) + prevLowValue, Math.abs(B[index] - B[index + 1]) + highValue);
-
-- [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/description/)
-
-  - since its a 2D matrix => brute force solution is to do a backtracking algo
-  - but since they only need a max value => we can optimize the algo by doing **backtracking + memo** => DP solution O(nm) time
-  - [similar to my solution](<https://leetcode.com/problems/longest-increasing-path-in-a-matrix/discuss/78433/My-DP-solution-with-Explanation-Search-nearby-using-DFS.-O(MN)-Easy-to-read>)
-  - In my solution I added a visited 2D array in order to make sure not to visit a cell that is already in the visiting process (check backtracking algos)
-  - Some thoughts:
-    - I was thinking of doing it in a iterative way rather a recursive way
 
 - [Integer Replacement](https://leetcode.com/problems/integer-replacement/description/)
 
@@ -917,7 +1021,7 @@
 - [Super Ugly Number](https://leetcode.com/problems/super-ugly-number/description/)
   - the idea here we use counter for every prime in order to know which next value in the dp that we want to multiply it with
 
-##### Several Options/Item (ex: rob or dont rob)
+##### Several Options/States (ex: rob or dont rob)
 
 - [Paint House](https://www.programcreek.com/2014/05/leetcode-paint-house-java/)
 
@@ -961,6 +1065,9 @@
   - Algo gor guess:
     - lowValue = Math.max(prevLowValue, Math.abs(B[index + 1] - 1) + highValue);
     - highValue = Math.max(Math.abs(B[index] - 1) + prevLowValue, Math.abs(B[index] - B[index + 1]) + highValue);
+
+- [Counting Boolean Parenthesizations]()
+  - check Recitation 5 in DP course 2
 
 #### COUNT
 
@@ -1230,6 +1337,14 @@
   * did it using one array[10] => space O(1) and two passes => time O(n)
   * another [solution with only one pass](https://leetcode.com/problems/bulls-and-cows/discuss/74621/One-pass-Java-solution)
 
+
+- [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
+  * Description : Given an unsorted array of integers, find the length of the longest consecutive elements sequence
+  * did this problem in a hard way but you could do it in a much simpler way [my solution](https://discuss.leetcode.com/topic/6148/my-really-simple-java-o-n-solution-accepted)
+  * __Needs REVIEW__   
+  * __Practice this problem more__
+  * check this [solution](https://discuss.leetcode.com/topic/25493/simple-fast-java-solution-using-set)
+  
 ---
 
 ---
@@ -1273,6 +1388,15 @@
   - create a hashMap to save Frequency per value
   - sort the values according to frequency
   - get first K (we can use PriorityQueue)
+
+---
+
+
+- [Meeting Rooms II](https://www.programcreek.com/2014/05/leetcode-meeting-rooms-ii-java/)
+  * it looks the same as the greedy algo in [course 2 lecture 1 (interval scheduling)](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/lecture-notes/MIT6_046JS15_writtenlec1.pdf)
+  * can use Priority Queue to get earliest finish time
+  * [check weighted interval scheduling](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/recitation-notes/MIT6_046JS15_Recitation1.pdf)
+   if its weighted => DP is needed
 
 ---
 
@@ -1322,36 +1446,6 @@
 
 - [Data Stream as Disjoint Intervals](#data_stream_as_disjoint_intervals)
 
----
-
----
-
----
-
-# Iterator
-
-## Design
-
-**_Hints_**
-
-- Try to use actual **Iterator**
-
-**_Problems_**
-
-- [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/description/)
-
-  - in this problem we have 3 proposed solution:
-    1. solution1: use 2 stack (Stack<List<NestedInteger>>, Stack<Integer>) the first to save the stack and the second to save the index we are in for every list in the stack
-    2. solution2: optimize solution1 to use only one stack => use Stack<Iterator<NestedInteger>> instead of Stack<List<NestedInteger>>
-    - [solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80404/Simple-iterative-DFS-using-stack)
-    1. solution3: use only Stack<List<NestedInteger>> but also flatten every list
-    - [check solution](https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80147/Simple-Java-solution-using-a-stack-with-explanation)
-  - I did the first 2 solutions
-
-- [Flatten 2D Vector](https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.10.html)
-  - implement an iterator
-  - check corner scenraio in my code
-  - [solution](http://buttercola.blogspot.com/2015/08/leetcode-flatten-2d-vector.html)
 
 ---
 
@@ -1373,6 +1467,10 @@
 
 **_Problems_**
 
+
+- [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
+  * use two pointers with distance K
+
 - [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/description/)
 
   - used DFS to recurse on children pointers
@@ -1391,6 +1489,20 @@
 - [Partition List](https://leetcode.com/problems/partition-list/description/)
   * use a dummyHead and a dummyX where the values less than x put them children for dummyHead and values >= x but them as children for dummyX.
   * at end link the last child in dummyHead to the first child in dummyX
+
+- [Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/description/)
+   * __Practice this problem more__    
+   * nice soltuion to do it in O(n) time and O(1) space
+   * its all about how to manipulate the pointers to make this achieve complexity
+   * VVVVIIIIPPPPPPPPP
+
+## Reverse
+
+- [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/)
+  * at first reach node at length/2
+  * reverse next part of the list
+  * compare if the nodes are the same
+  * time: O(n), space O(1)
 
 ---
 
@@ -1625,7 +1737,11 @@
 
 **_Hints_**
 
-- Generic Pattern:
+- Generic Pattern 1 vs Generic Pattern 2:
+  - 1: end starts from 0; 
+  - 2: end start from -1
+
+- Generic Pattern 1: end starts from 0;
   
   ``` java
 
@@ -1638,8 +1754,12 @@
       int start = 0;
       int end = 0;
       int length = s.length();
+
+      // here make sure end < length
       while (start < length && end < length) {
 
+          // here make sure end < length 
+          // make sure u didnt reach the condition u want
          while (end < length && freq.size() <= k) {
             char c = s.charAt(end);
 
@@ -1675,6 +1795,63 @@
     }
   ```
 
+
+- Generic Pattern 2: end start from -1
+
+``` java
+
+   public int minSubArrayLen(int s, int[] nums) {
+     // do proper initialization as per the question
+      int bestLeft = 0;
+      int bestRight = Integer.MAX_VALUE;
+      int sum = 0;
+
+      // start from zero in left 
+      // start from -1 in right
+      int left = 0;
+      int right = -1;
+
+      // here make sure end < length  - 1
+      while(right < nums.length - 1) {
+
+          // here make sure end < length  - 1
+          // make sure u didnt reach the condition u want
+         while (right < nums.length - 1 && sum < s) {
+            sum += nums[++right];
+         }
+
+        // check condition to get the answer
+        // this part could be the same across multiple question
+        // when asking about the maxSize we can get
+         if (sum >= s) {
+            if (bestRight - bestLeft > right - left) {
+               bestRight = right;
+               bestLeft = left;
+            }
+         }
+
+         while (left <= right && sum >= s) {
+           // do question logic for what we need upon incrementing left
+            // this part should be substituted with specific question logic
+            if (bestRight - bestLeft > right - left) {
+               bestRight = right;
+               bestLeft = left;
+            }
+
+
+            sum -= nums[left++];
+         }
+      }
+
+      if (bestRight == Integer.MAX_VALUE) {
+         bestRight = -1;
+      }
+
+      return bestRight - bestLeft + 1;
+   }
+
+```
+
 **_Problems_**
 
 - [Minimum Window Substring](https://leetcode.com/submissions/detail/124633862/)
@@ -1686,6 +1863,20 @@
   - if they say its a charac then we are working with ascii then use int[128] to save ur data
   - look at this [generic form](https://leetcode.com/problems/minimum-window-substring/discuss/161215/Easy-Understand-Java-Solution)
 
+- [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
+  * time complexity O(n)
+  * did it in a greedy way like (__Max Subarray problem__) but kept a queue to try to remove the first element whenever the sum reached the needed limit
+  check [submission one](https://leetcode.com/submissions/detail/135521401/) but __SPACE__ complexity was O(n)
+  * found out that we can do it without a queue we just need to pointer (begining and end pointers) to manipulated the queue since the values in the queue will be contiguous btw beginning and end pointers
+  => __SPACE__ complexity is now O(1) [check solution]
+  * VVVVVVVVVVVVIIIIIIIPPPPPPPPPPPPPPP
+
+- [Summary Ranges](https://leetcode.com/problems/summary-ranges/description/)
+  * Given a sorted integer array without duplicates, return the summary of its ranges
+  * initialize two variables localMin, localMax
+  * if: nums[i] == nums[i - 1] + 1 => assign localMax = nums[i]
+  * else: add to result: localMin -> localMax and then re-initialize the variables
+  
 - [Longest Substring with At Most Two Distinct Characters](http://www.geeksforgeeks.org/find-the-longest-substring-with-k-unique-characters-in-a-given-string/)
 
   - its similar to [Longest Substring Without Repeating Characters](#Longest_Substring_Without_Repeating_Characters)
@@ -1707,15 +1898,6 @@
   - here we have to do like the Amortized HW in course 2 (queue with MIN in O(1) amortized)
   - use the same algo
   - check code or [solution](https://discuss.leetcode.com/topic/19055/java-o-n-solution-using-deque-with-explanation)
-
-* [Minimum Window Substring](https://leetcode.com/submissions/detail/124633862/)
-
-  - its similar to <a id="Longest_Substring_Without_Repeating_Characters">[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)</a>
-  - its a sliding window problem
-  - it will always contain a while loop and mostly the condition for the first while loop is (end < s.length>)
-  - in these types of problems we have to think about a sliding window where it has a beginning and end pointers => we compute the answer with O(n)
-  - if they say its a charac then we are working with ascii then use int[128] to save ur data
-  - look at this [generic form](https://leetcode.com/problems/minimum-window-substring/discuss/161215/Easy-Understand-Java-Solution)
 
 * [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/description/)
 
@@ -1790,6 +1972,14 @@
 - you may want to sort at first
 
 **_Problems_**
+
+
+- [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/description/)
+  * use two pointers to find the left and right vowel
+  * we u find them swap
+  * then ++left , --right => do this until left >right
+  * [solution](https://leetcode.com/problems/reverse-vowels-of-a-string/discuss/81225/Java-Standard-Two-Pointer-Solution) 
+
 
 - [Line Reflection](https://www.programcreek.com/2014/08/leetcode-line-reflection-java/)
 
@@ -1911,6 +2101,7 @@
 
 **_Problems_**
 
+
 - [H-Index II](https://leetcode.com/problems/h-index-ii/description/)
 
   - can be solved in binary search
@@ -1946,6 +2137,20 @@
           - else do two binary search
             - Binary search from start -> mid - 1 and Binary search from mid + 1 -> end
   - time: O(row log(column))
+
+
+#### Rotated Sorted Arraay
+
+- [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
+  * At first find the minimum in a Divide and Conquer way (like a binary search way but modified)
+  * After finding the minimum check:
+    * if the target <= nums[-1] => search for target in range between mini position and end of array
+    * else search in the range between 0 and mini position
+  * This is done in O(lg n)
+  
+- [Search In Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
+  * On average its ganna be O(lg n) but in some cases when value of min equals to value of last then we have to search the whole array to know where the minimum value starts(check cases in test)   
+  * So we can say that the runtime will be O(n) in worst case
 
 ---
 
@@ -1991,7 +2196,7 @@
 
 ---
 
-# Serialization / Deserialization
+# Serialization / Deserialization / Decoding
 
 **_Hints_**
 
@@ -2027,6 +2232,14 @@
   - the solution that i did is the same as in the link above
   - to encode the list<String> to string => for every String in the list we add at the end of it
 
+
+- [Decode String](https://leetcode.com/problems/decode-string/description/)
+  * if you reach a digit => try to build the number => this number is timesToRepeat upcoming chars inside '[]'
+  * if we reach a '[' => we need to call the deconding method recursively
+  * if we reach a ']' => we should return the method with a return value of the String that was build inside this method
+  * if we reach a __Char other than above__ => add it to String
+  * make the index iterating over the Original String as public field 
+  
 ---
 
 ---
@@ -2062,6 +2275,29 @@
 ---
 
 ## Paitence Sort
+
+**_Hints_**
+
+- Genaric Algo:
+``` java
+
+    public int lengthOfLIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+
+```
 
 - [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/description/)
 
@@ -2255,6 +2491,14 @@
 - [Word Search II](#Word_Search_II)
 
 - [Word Squares](#Word_Squares)
+
+- [Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs/discuss/79217/Accepted-short-Java-solution-using-HashMap)
+  * let n = size of array, k= size per string
+  * I did it in a naive way: O(n^2 k) time and O(1) space:
+    - double loop over the array
+    - on every pass i checked if it forms a string
+  * others did it in O(n k^2) and O(n) space using a __hashMap + suffix/prefix__:
+    - [solution](https://leetcode.com/problems/palindrome-pairs/discuss/79254/Java-naive-154-ms-O(nk2-+-r)-and-126-ms-O(nk-+-r)-Manacher-+-suffixesprefixes)
 
 ### Match Prefix/Word with DIFF
 

@@ -78,13 +78,6 @@ ___
   - VVVVIIIPPPPP check my solution to know how i did it
   - [other solutions did in in O(n) time](https://leetcode.com/problems/perfect-rectangle/discuss/87180/O(n)-solution-by-counting-corners-with-detailed-explaination)
 
-- [Meeting Rooms II](https://www.programcreek.com/2014/05/leetcode-meeting-rooms-ii-java/)
-  * it looks the same as the greedy algo in [course 2 lecture 1 (interval scheduling)](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/lecture-notes/MIT6_046JS15_writtenlec1.pdf)
-  * can use Priority Queue to get earliest finish time
-  * [check weighted interval scheduling](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/recitation-notes/MIT6_046JS15_Recitation1.pdf)
-   if its weighted => DP is needed
-
-
 
 - [Skyline Problem](https://leetcode.com/problems/the-skyline-problem/description/)
   * VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
@@ -94,10 +87,6 @@ ___
   * [great explanation](https://www.youtube.com/watch?v=GSBLe8cKu0s)
 
    ___
-
-- [Jump II](https://leetcode.com/problems/jump-game-ii/discuss/)
-  * resolve it or even solve [Jump](https://leetcode.com/problems/jump-game/description/)
-  * we can use a greedy algorithm to solve it no need for DP 
 
 - [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
   * this problem is a VVVVVVIIIIIPPPPPPP, should resolve it for practice.
@@ -374,12 +363,6 @@ ____
 - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/discuss/)
   * Think like the problem of water container where you start from left and right.
   
-- [Copy List With Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/description/)
-   * __Practice this problem more__    
-   * nice soltuion to do it in O(n) time and O(1) space
-   * its all about how to manipulate the pointers to make this achieve complexity
-   * VVVVIIIIPPPPPPPPP
-
 - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/solution/)
   * solved it with changing the next pointer of every node we iterate over to point to a dummy
   * Slow and fast solution is a [nice solution](http://web.archive.org/web/20160323172731/http://learningarsenal.info/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/)
@@ -395,11 +378,7 @@ ____
 - [Reorder List](https://leetcode.com/problems/reorder-list/description/)
   * partition list to two parts and use Reverse Linked List in this problem for the second part
 
-- [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/)
-  * at first reach node at length/2
-  * reverse next part of the list
-  * compare if the nodes are the same
-  * time: O(n), space O(1)
+
 
 - [The Celebrity Problem](https://www.geeksforgeeks.org/the-celebrity-problem/)
   * VVVVVVVVVVVVVVVVVIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
@@ -443,12 +422,6 @@ ____
     1. recursive
     2. reverse order + do addition + reverse again
 
-- [Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/description/)
-  * use two pointers to find the left and right vowel
-  * we u find them swap
-  * then ++left , --right => do this until left >right
-  * [solution](https://leetcode.com/problems/reverse-vowels-of-a-string/discuss/81225/Java-Standard-Two-Pointer-Solution) 
-
 ## Arrays
 
 ### Tips
@@ -487,7 +460,7 @@ ____
   * Algo:
     1. sort the array
     2. loop over the array to get i     3. then use a while loop with two pointers j and k where j starts from i+1 and k starts from array.length - 1
-    4. if we reach arr[i] + arr[j] + arr[k] < target => save total += k-j, ++j. Else --k
+    3. if we reach arr[i] + arr[j] + arr[k] < target => save total += k-j, ++j. Else --k
       we have ++j or --k since the array is sorted
   * time: O(n^2)
 
@@ -508,23 +481,6 @@ _____
   * solve it with O(1) space
 
 
-
-- [Search In Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
-  * At first find the minimum in a Divide and Conquer way (like a binary search way but modified)
-  * After finding the minimum check:
-    * if the target <= nums[-1] => search for target in range between mini position and end of array
-    * else search in the range between 0 and mini position
-  * This is done in O(lg n)
-
-- [Search In Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
-  * On average its ganna be O(lg n) but in some cases when value of min equals to value of last then we have to search the whole array to know where the minimum value starts(check cases in test)   * So we can say that the runtime will be O(n) in worst case
-
-- [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
-  * Description : Given an unsorted array of integers, find the length of the longest consecutive elements sequence
-  * did this problem in a hard way but you could do it in a much simpler way [my solution](https://discuss.leetcode.com/topic/6148/my-really-simple-java-o-n-solution-accepted)
-  * __Needs REVIEW__   * __Practice this problem more__
-  * check this [solution](https://discuss.leetcode.com/topic/25493/simple-fast-java-solution-using-set)
-
 - [Gas Station](https://leetcode.com/problems/gas-station/discuss/)
   * Didn't know how to solve it
   * __Needs REVIEW__   * __Practice this problem more__
@@ -538,14 +494,6 @@ _____
 - [Max Product Subarray](#Maximum_Product_Subarray)
   * similar to [Max Subarray](#Maximum_Sum_Subarray)
   * their notes are written in the DP section check them out
-  * VVVVVVVVVVVVIIIIIIIPPPPPPPPPPPPPPP
-
-- [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
-  * time complexity O(n)
-  * did it in a greedy way like (__Max Subarray problem__) but kept a queue to try to remove the first element whenever the sum reached the needed limit
-  check [submission one](https://leetcode.com/submissions/detail/135521401/) but __SPACE__ complexity was O(n)
-  * found out that we can do it without a queue we just need to pointer (begining and end pointers) to manipulated the queue since the values in the queue will be contiguous btw beginning and end pointers
-  => __SPACE__ complexity is now O(1) [check solution]
   * VVVVVVVVVVVVIIIIIIIPPPPPPPPPPPPPPP
 
 - [Find Peak Element](https://leetcode.com/problems/find-peak-element/description/)
@@ -573,11 +521,6 @@ ____
   * then if the index they have is valid
   * O(n) time and O(n) space
 
-- [Summary Ranges](https://leetcode.com/problems/summary-ranges/description/)
-  * Given a sorted integer array without duplicates, return the summary of its ranges
-  * initialize two variables localMin, localMax
-  * if: nums[i] == nums[i - 1] + 1 => assign localMax = nums[i]
-  * else: add to result: localMin -> localMax and then re-initialize the variables
 
 - [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/discuss/)
   * iterate from left to right to calculate the cumulative product
@@ -605,18 +548,6 @@ ____
   * its similar to first way of H Index but now the array is sorted so we need to find a way less than O(n) => use Binary Search O(log n)
   * [solution](https://leetcode.com/problems/h-index-ii/discuss/71063/Standard-binary-search)
 
-- [Wiggle Sort](http://buttercola.blogspot.com/2015/09/leetcode-wiggle-sort.html)
-  *  reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3]...
-  * only compare with the previous input
-  * if Index is even and nums[nums[i] > nums[i - 1]] => swap i with i -1
-    else if index is off and nums[i] <> nums[i - 1] => swap i with i-1
-
-- [Wiggle Sort II](https://leetcode.com/problems/wiggle-sort-ii/description/)   
-  * VVVVVVVVVVVVVVIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPP
-  *  __Needs REVIEW__
-  * __Practice this problem more__
-  * here its more difficult since we can have == number beside each other
-  * [perfect explanation](https://leetcode.com/problems/wiggle-sort-ii/discuss/77684/Summary-of-the-various-solutions-to-Wiggle-Sort-for-your-reference)
 
 - [Submission Detail](https://leetcode.com/problems/game-of-life/description/)
   * in order to solve it in-place we need to depend on the bits of every int in the array:
@@ -635,12 +566,6 @@ ____
 - [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/description/)
   * did it using one array[10] => space O(1) and two passes => time O(n)
   * another [solution with only one pass](https://leetcode.com/problems/bulls-and-cows/discuss/74621/One-pass-Java-solution)
-
-- [Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/description/)
-  - simple iteration over the 2D array and we need to just check if we reached an X
-    - if this X has a previous X:
-      - => if arry[row][col] = X and (arry[row - 1][col] || arry[row][col - 1]  ) = X 
-      - => dont add number of ships
 
 
 - [Nested List Weight Sum II](https://www.programcreek.com/2014/08/leetcode-nested-list-weight-sum-ii-java/)
@@ -741,21 +666,7 @@ ____
   * the solution that i did is the same as in the link above
   * to encode the list<String> to string => for ever String in the list we add at the end of it # and the length of that string
 
-- [Decode String](https://leetcode.com/problems/decode-string/description/)
-  * if you reach a digit => try to build the number => this number is timesToRepeat upcoming chars inside '[]'
-  * if we reach a '[' => we need to call the deconding method recursively
-  * if we reach a ']' => we should return the method with a return value of the String that was build inside this method
-  * if we reach a __Char other than above__ => add it to String
-  * make the index iterating over the Original String as public field 
 ____
-
-- [Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs/discuss/79217/Accepted-short-Java-solution-using-HashMap)
-  * let n = size of array, k= size per string
-  * I did it in a naive way: O(n^2 k) time and O(1) space:
-    - double loop over the array
-    - on every pass i checked if it forms a string
-  * others did it in O(n k^2) and O(n) space using a __hashMap + suffix/prefix__:
-    - [solution](https://leetcode.com/problems/palindrome-pairs/discuss/79254/Java-naive-154-ms-O(nk2-+-r)-and-126-ms-O(nk-+-r)-Manacher-+-suffixesprefixes)
 
 
 
@@ -797,38 +708,7 @@ ____
       - if current file/dir is a file => longestLength = Math.max(longestLength, sizeOfCurrentFile);
     - continue until we reach input.size()
 
-- [Sentence Screen Fitting](http://shirleyisnotageek.blogspot.com/2016/10/sentence-screen-fitting.html)
-  - some [solutions](http://massivealgorithms.blogspot.com/2016/10/leetcode-418-sentence-screen-fitting.html)
-  - 2 ways:
-    1. A naive approach is to go through the screen and put each word in it. Whenever we find a word doesn't fit to the left cells, we switch to the next line.
-    2. approach:
-      - We first concatenate all strings together and add spaces between words. (This string is the actual length we need to fit the string)
-      - Now we have a pos variable that initializes to 0, this is the position in the All string. 
-      - Now for each row, we add cols to pos, this is the position in the All string that we can fit in the row. 
-      - If the pos in the All string is pointing to a white space, we know we have just fitted (at least partial) strings in it. pos increment by 1. 
-      - If its a letter, we know its in the middle of the word, so we need to decrease the pos to the start of the word.
-      
-        ```` java
-          public int wordsTyping(String[] sentence, int rows, int cols) {
-              String all = "";
-              for (String s : sentence) {
-                  all += s + " ";
-              }
-              int pos = 0;
-              int len = all.length();
-              for (int i = 0; i < rows; i++) {
-                  pos += cols;
-                  if (all.charAt(pos % len) == ' ') {
-                      pos++;
-                  } else {
-                      while (pos > 0 && all.charAt((pos - 1) % len) != ' ') {
-                          pos--;
-                      }
-                  }
-              }
-              return pos / len;
-          }
-        ```` 
+
 
 ____
 
@@ -911,12 +791,6 @@ ____
 ____
 
 #### Iterator
-
-
-- [Zigzag Iterator](http://buttercola.blogspot.com/2015/09/leetocode-zigzag-iterator.html)
-  * it look like the __Flatten 2D Vector problem__
-  * i did it with current vector and current index fields (check my code)
-  * other [solution used List<Iterator>](https://discuss.leetcode.com/topic/26654/simple-java-solution-for-k-vector)
 
 - [Peeking Iterator](https://leetcode.com/problems/peeking-iterator/description/)
   * check code for best solution    * in the peek() do iterator.next() and save it in a variable (called peekValue)
