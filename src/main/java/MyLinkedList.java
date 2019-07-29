@@ -1,6 +1,6 @@
 import java.util.StringJoiner;
 
-public class LinkedList<T> {
+public class MyLinkedList<T> {
    LinkedNode<T> head;
    LinkedNode<T> tail;
    int size;

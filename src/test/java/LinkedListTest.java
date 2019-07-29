@@ -6,7 +6,7 @@ public class LinkedListTest {
 
    @Test
    public void add() {
-      LinkedList<Integer> list = new LinkedList<>();
+      MyLinkedList<Integer> list = new MyLinkedList<>();
       list.add(2);
       list.add(3);
 
@@ -16,7 +16,7 @@ public class LinkedListTest {
    @Test
    public void add1() {
 
-      LinkedList<Integer> list = new LinkedList<>();
+      MyLinkedList<Integer> list = new MyLinkedList<>();
       list.add(2);
       list.add(3);
       list.add(4);
@@ -28,7 +28,7 @@ public class LinkedListTest {
    @Test
    public void addI2() {
 
-      LinkedList<Integer> list = new LinkedList<>();
+      MyLinkedList<Integer> list = new MyLinkedList<>();
       list.add(2);
       list.add(3);
       list.add(4);
@@ -39,7 +39,7 @@ public class LinkedListTest {
 
    @Test
    public void remove() {
-      LinkedList<Integer> list = new LinkedList<>();
+      MyLinkedList<Integer> list = new MyLinkedList<>();
       list.add(0, 5);
 
       assertEquals("5", list.toString());
