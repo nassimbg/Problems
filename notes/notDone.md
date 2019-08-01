@@ -367,25 +367,6 @@ ____
 
 ____
 
-- [2 SUM](https://leetcode.com/problems/two-sum/description/)
-  * Do it in O(n) + HashTable or sort without using hash table O(n logn)
-  * [3 sum](https://leetcode.com/problems/3sum/discuss/) is (2 Sum) wrapped by a for loop => O(n * n)
-    * since its O(n^2) => sort array better than using hashtable
-  * [4 sum](https://leetcode.com/problems/4sum) is (3 sum)  wrapped by a for loop => O(n * n^2)
-    * since its O(n^3) => sort array better than using hashtable
-  * [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
-    * here its enough to do O(n) __no need for hash table__
-
-- [3Sum Smaller](https://kennyzhuang.gitbooks.io/leetcode-lock/content/259_3sum_smaller.html)
-  * the idea here is that we dont really care about the cnd 0 <= i < j < k < n as long we are counting the combination only once => any combination should be counted only once
-  * Algo:
-    1. sort the array
-    2. loop over the array to get i     3. then use a while loop with two pointers j and k where j starts from i+1 and k starts from array.length - 1
-    4. if we reach arr[i] + arr[j] + arr[k] < target => save total += k-j, ++j. Else --k
-      we have ++j or --k since the array is sorted
-  * time: O(n^2)
-
-_____
 
 
 `

@@ -1,126 +1,128 @@
-- [Amortization](#Amortization)
-  - [Remove unwanted Previous O(1) (using Linked List)](#Remove-unwanted-Previous-O1-using-Linked-List)
-    - [Next Greater / Max O(1)](#Next-Greater--Max-O1)
-    - [Remove Smaller/Bigger elements O(1)](#Remove-SmallerBigger-elements-O1)
-- [Array](#Array)
-  - [Swipe left + Swipe right](#Swipe-left--Swipe-right)
-  - [Inplace manipulation](#Inplace-manipulation)
-    - [Find missing values in array size n and values 1< a[i] < n](#Find-missing-values-in-array-size-n-and-values-1-ai--n)
-  - [Sorting](#Sorting)
-  - [Traversing](#Traversing)
-  - [Random Questions](#Random-Questions)
-- [Bit Manipulation](#Bit-Manipulation)
+- [Amortization](#amortization)
+  - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
+    - [Next Greater / Max O(1)](#next-greater--max-o1)
+    - [Remove Smaller/Bigger elements O(1)](#remove-smallerbigger-elements-o1)
+- [Array](#array)
+  - [Swipe left + Swipe right](#swipe-left--swipe-right)
+  - [Inplace manipulation](#inplace-manipulation)
+    - [Find missing values in array size n and values 1< a[i] < n](#find-missing-values-in-array-size-n-and-values-1-ai--n)
+    - [Min/Max of moves to make array values reach a cndt (ex: all values are equal)](#minmax-of-moves-to-make-array-values-reach-a-cndt-ex-all-values-are-equal)
+  - [Sorting](#sorting)
+      - [K sum Problems](#k-sum-problems)
+  - [Traversing](#traversing)
+  - [Random Questions](#random-questions)
+- [Bit Manipulation](#bit-manipulation)
   - [use bits as states](#use-bits-as-states)
-  - [Bit Range Masking](#Bit-Range-Masking)
-- [Boyer-Moore Algo](#Boyer-Moore-Algo)
-- [Cumulative Sum](#Cumulative-Sum)
-  - [Immutable](#Immutable)
-- [Cycle](#Cycle)
-  - [Floyd's Tortoise and Hare](#Floyds-Tortoise-and-Hare)
-- [Design](#Design)
-  - [Tic-Tac-Toe](#Tic-Tac-Toe)
-  - [Cache](#Cache)
-  - [Iterator](#Iterator)
-  - [Amortization O(1)](#Amortization-O1)
-- [DP](#DP)
-  - [**_1. Back-Tracking_**](#1-Back-Tracking)
-    - [Output All Combinations/Permutations](#Output-All-CombinationsPermutations)
-      - [Which Value At index I (for I: start -> end)](#Which-Value-At-index-I-for-I-start---end)
-      - [Multiple choices for index I (ex: take or leave)](#Multiple-choices-for-index-I-ex-take-or-leave)
-    - [Count/Answer using DFS (need to know all combinations)](#CountAnswer-using-DFS-need-to-know-all-combinations)
-      - [Multiple choices for index I (ex: take or leave) 2](#Multiple-choices-for-index-I-ex-take-or-leave-2)
-    - [DFS in Matrix](#DFS-in-Matrix)
-  - [**_2. Normal DP_**](#2-Normal-DP)
-    - [DFS + MEMO](#DFS--MEMO)
-      - [Matrix](#Matrix)
-    - [KnapSack Style](#KnapSack-Style)
-    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#Suffix-xin--Prefix-x0i--Topo-Sort)
-      - [MAX / MIN](#MAX--MIN)
-        - [Several Options/States (ex: rob or dont rob)](#Several-OptionsStates-ex-rob-or-dont-rob)
-      - [COUNT](#COUNT)
-      - [TRUE / FALSE (think of Rec + Memo)](#TRUE--FALSE-think-of-Rec--Memo)
-      - [Find all possible answers](#Find-all-possible-answers)
-    - [SubString x[i:j]](#SubString-xij)
-- [Greedy](#Greedy)
-- [Graphs](#Graphs)
-  - [BFS / DFS](#BFS--DFS)
-    - [Level Traversal](#Level-Traversal)
-  - [TOPO Sort / Dependency](#TOPO-Sort--Dependency)
-  - [Dijkstra](#Dijkstra)
-  - [From START -> END state (state ex: word, char, number, fraction...)](#From-START---END-state-state-ex-word-char-number-fraction)
-- [Hash Table](#Hash-Table)
-- [Heap](#Heap)
-  - [Kth smallest/Largest...](#Kth-smallestLargest)
-- [Intervals](#Intervals)
-  - [Greedy](#Greedy-1)
-  - [Segmant/Interval Trees](#SegmantInterval-Trees)
-- [Linked List](#Linked-List)
-  - [Reverse](#Reverse)
-- [Math](#Math)
-  - [Division](#Division)
-  - [Prime](#Prime)
-  - [Calculator](#Calculator)
-  - [Pow / SQRT](#Pow--SQRT)
-  - [Area](#Area)
-  - [Counting](#Counting)
-    - [Permutation](#Permutation)
-      - [Find kth value](#Find-kth-value)
-  - [Series / Sequence](#Series--Sequence)
-- [Pointers](#Pointers)
-  - [Left / Right Pointers](#Left--Right-Pointers)
-    - [Swaping Values](#Swaping-Values)
-    - [Sliding window](#Sliding-window)
-      - [Longest/Shortest Sequence/String](#LongestShortest-SequenceString)
-      - [Rabin-Karp](#Rabin-Karp)
-  - [Start / End Pointers](#Start--End-Pointers)
-    - [Calculate Value btw them](#Calculate-Value-btw-them)
-- [Regex](#Regex)
-- [Search](#Search)
-  - [Median](#Median)
-  - [Mapping](#Mapping)
-  - [D&G](#DG)
-    - [Quick Select](#Quick-Select)
-    - [Binary Search](#Binary-Search)
-      - [Rotated Sorted Arraay](#Rotated-Sorted-Arraay)
-  - [Other](#Other)
-- [Serialization / Deserialization / Decoding](#Serialization--Deserialization--Decoding)
-- [Sorting](#Sorting-1)
-  - [Merge Sort](#Merge-Sort)
-    - [K sorted lists](#K-sorted-lists)
-  - [Paitence Sort](#Paitence-Sort)
-  - [Radix Sort](#Radix-Sort)
-  - [Tag Sort](#Tag-Sort)
-  - [Top X](#Top-X)
-- [String](#String)
-  - [Shifting](#Shifting)
-- [SQL](#SQL)
-- [Trie](#Trie)
-  - [Design](#Design-1)
-  - [Prefix/Word Search](#PrefixWord-Search)
-    - [Match Prefix/Word with DIFF](#Match-PrefixWord-with-DIFF)
-    - [Match Concatination of Words](#Match-Concatination-of-Words)
-  - [List Lexo order](#List-Lexo-order)
-  - [Next/Kth Enumeration/Value](#NextKth-EnumerationValue)
-    - [From Dictionary of words](#From-Dictionary-of-words)
-    - [From given letters/digits](#From-given-lettersdigits)
-      - [Optimized by sorting](#Optimized-by-sorting)
-- [Tree](#Tree)
-  - [Red/Black](#RedBlack)
-  - [Augmented BST](#Augmented-BST)
-  - [Traversal](#Traversal)
-    - [Level By Level](#Level-By-Level)
-    - [Recursive](#Recursive)
-    - [Iterative](#Iterative)
-  - [Finding (in) Path](#Finding-in-Path)
-  - [Serialize / Deserialize BST](#Serialize--Deserialize-BST)
-  - [Equality in BST](#Equality-in-BST)
-  - [Segment Tree / Fenwick](#Segment-Tree--Fenwick)
-    - [Search for All intervals that contain a query point](#Search-for-All-intervals-that-contain-a-query-point)
-    - [Sum of Given Range](#Sum-of-Given-Range)
-    - [Range Minimum Query](#Range-Minimum-Query)
-- [Union-Find](#Union-Find)
-  - [Disjoint Sets](#Disjoint-Sets)
-    - [Number of diff Sets](#Number-of-diff-Sets)
+  - [Bit Range Masking](#bit-range-masking)
+- [Boyer-Moore Algo](#boyer-moore-algo)
+- [Cumulative Sum](#cumulative-sum)
+  - [Immutable](#immutable)
+- [Cycle](#cycle)
+  - [Floyd's Tortoise and Hare](#floyds-tortoise-and-hare)
+- [Design](#design)
+  - [Tic-Tac-Toe](#tic-tac-toe)
+  - [Cache](#cache)
+  - [Iterator](#iterator)
+  - [Amortization O(1)](#amortization-o1)
+- [DP](#dp)
+  - [**_1. Back-Tracking_**](#1-back-tracking)
+    - [Output All Combinations/Permutations](#output-all-combinationspermutations)
+      - [Which Value At index I (for I: start -> end)](#which-value-at-index-i-for-i-start---end)
+      - [Multiple choices for index I (ex: take or leave)](#multiple-choices-for-index-i-ex-take-or-leave)
+    - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
+      - [Multiple choices for index I (ex: take or leave) 2](#multiple-choices-for-index-i-ex-take-or-leave-2)
+    - [DFS in Matrix](#dfs-in-matrix)
+  - [**_2. Normal DP_**](#2-normal-dp)
+    - [DFS + MEMO](#dfs--memo)
+      - [Matrix](#matrix)
+    - [KnapSack Style](#knapsack-style)
+    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#suffix-xin--prefix-x0i--topo-sort)
+      - [MAX / MIN](#max--min)
+        - [Several Options/States (ex: rob or dont rob)](#several-optionsstates-ex-rob-or-dont-rob)
+      - [COUNT](#count)
+      - [TRUE / FALSE (think of Rec + Memo)](#true--false-think-of-rec--memo)
+      - [Find all possible answers](#find-all-possible-answers)
+    - [SubString x[i:j]](#substring-xij)
+- [Greedy](#greedy)
+- [Graphs](#graphs)
+  - [BFS / DFS](#bfs--dfs)
+    - [Level Traversal](#level-traversal)
+  - [TOPO Sort / Dependency](#topo-sort--dependency)
+  - [Dijkstra](#dijkstra)
+  - [From START -> END state (state ex: word, char, number, fraction...)](#from-start---end-state-state-ex-word-char-number-fraction)
+- [Hash Table](#hash-table)
+- [Heap](#heap)
+  - [Kth smallest/Largest...](#kth-smallestlargest)
+- [Intervals](#intervals)
+  - [Greedy](#greedy-1)
+  - [Segmant/Interval Trees](#segmantinterval-trees)
+- [Linked List](#linked-list)
+  - [Reverse](#reverse)
+- [Math](#math)
+  - [Division](#division)
+  - [Prime](#prime)
+  - [Calculator](#calculator)
+  - [Pow / SQRT](#pow--sqrt)
+  - [Area](#area)
+  - [Counting](#counting)
+    - [Permutation](#permutation)
+      - [Find kth value](#find-kth-value)
+  - [Series / Sequence](#series--sequence)
+- [Pointers](#pointers)
+  - [Left / Right Pointers](#left--right-pointers)
+    - [Swaping Values](#swaping-values)
+    - [Sliding window](#sliding-window)
+      - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
+      - [Rabin-Karp](#rabin-karp)
+  - [Start / End Pointers](#start--end-pointers)
+    - [Calculate Value btw them](#calculate-value-btw-them)
+- [Regex](#regex)
+- [Search](#search)
+  - [Median](#median)
+  - [Mapping](#mapping)
+  - [D&G](#dg)
+    - [Quick Select](#quick-select)
+    - [Binary Search](#binary-search)
+      - [Rotated Sorted Arraay](#rotated-sorted-arraay)
+  - [Other](#other)
+- [Serialization / Deserialization / Decoding](#serialization--deserialization--decoding)
+- [Sorting](#sorting-1)
+  - [Merge Sort](#merge-sort)
+    - [K sorted lists](#k-sorted-lists)
+  - [Paitence Sort](#paitence-sort)
+  - [Radix Sort](#radix-sort)
+  - [Tag Sort](#tag-sort)
+  - [Top X](#top-x)
+- [String](#string)
+  - [Shifting](#shifting)
+- [SQL](#sql)
+- [Trie](#trie)
+  - [Design](#design-1)
+  - [Prefix/Word Search](#prefixword-search)
+    - [Match Prefix/Word with DIFF](#match-prefixword-with-diff)
+    - [Match Concatination of Words](#match-concatination-of-words)
+  - [List Lexo order](#list-lexo-order)
+  - [Next/Kth Enumeration/Value](#nextkth-enumerationvalue)
+    - [From Dictionary of words](#from-dictionary-of-words)
+    - [From given letters/digits](#from-given-lettersdigits)
+      - [Optimized by sorting](#optimized-by-sorting)
+- [Tree](#tree)
+  - [Red/Black](#redblack)
+  - [Augmented BST](#augmented-bst)
+  - [Traversal](#traversal)
+    - [Level By Level](#level-by-level)
+    - [Recursive](#recursive)
+    - [Iterative](#iterative)
+  - [Finding (in) Path](#finding-in-path)
+  - [Serialize / Deserialize BST](#serialize--deserialize-bst)
+  - [Equality in BST](#equality-in-bst)
+  - [Segment Tree / Fenwick](#segment-tree--fenwick)
+    - [Search for All intervals that contain a query point](#search-for-all-intervals-that-contain-a-query-point)
+    - [Sum of Given Range](#sum-of-given-range)
+    - [Range Minimum Query](#range-minimum-query)
+- [Union-Find](#union-find)
+  - [Disjoint Sets](#disjoint-sets)
+    - [Number of diff Sets](#number-of-diff-sets)
 
 ---
 
@@ -149,8 +151,14 @@
   - this question is similar to the HW problem of **Min Queue** but the hw was harder since it depends on **_Amortization_**
 
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
-  - uses the same concept of **Min Queue**
+  - here they are asking about the Next Greater which means the __first elemnt to the right that is greater than the value at index i__
+  - uses the same concept of **Max Queue**
   - but here we have to do 2 passes the same way and leaving the same stack since we are dealing with a circular array
+
+- [Next Greater Node In Linked List](https://leetcode.com/problems/next-greater-node-in-linked-list/)
+   - here they are asking about the Next Greater which means the __first elemnt to the right that is greater than the value at index i__
+  - uses the same concept of **Max Queue** starting from the right => reverse the LinkedList
+  - 
 
 ### Remove Smaller/Bigger elements O(1)
 
@@ -186,6 +194,20 @@
 
         After we decided to use stack, the implementation becomes clearer. From the intuition, we know that we need to know if there are still remaining characters left or not. So we need to iterate the array and save how many each characters are there. A visited array is also required since we want unique character in the solution. The line while(!stack.isEmpty() && stack.peek() > c && count[stack.peek()-'a'] > 0) checks that the queued character should be removed or not, like the 'b' and 'c' in the previous example. After removing the previous characters,push in the new char and mark the visited array.
 
+
+- [132 Pattern](https://leetcode.com/problems/132-pattern/)
+  - Question: __ai, aj, ak such that i < j < k and ai < ak < aj__
+  - Can do it using merge/quick sort time:O(nlogn)
+  - prefer to do it in time: O(n)
+  - Explain:
+    - at first start swiping left to get the min value of {0... i - 1} for index i
+    - then start swiping right to have somthing like a __MaxStack__
+      - how to fill this stack?
+        - remove from stack if last objects are less than leftMinValue at this index in order to keep this part of condition i < j < k and ai < ak
+        - add to this stack if current value is less than last object in stack
+  - [solution](https://leetcode.com/problems/132-pattern/solution/)
+
+
 ---
 
 ---
@@ -215,7 +237,22 @@
   - for every index add the count of increment computed for this index from left side and from right side
   - TIme: O(n logn , Space: O(n)) (I think we can optimize)
 
+- [132 Pattern](https://leetcode.com/problems/132-pattern/)
+  - Question: __ai, aj, ak such that i < j < k and ai < ak < aj__
+  - Can do it using merge/quick sort time:O(nlogn)
+  - prefer to do it in time: O(n)
+  - Explain:
+    - at first start swiping left to get the min value of {0... i - 1} for index i
+    - then start swiping right to have somthing like a __MaxStack__
+      - how to fill this stack?
+        - remove from stack if last objects are less than leftMinValue at this index in order to keep this part of condition i < j < k and ai < ak
+        - add to this stack if current value is less than last object in stack
+  - [solution](https://leetcode.com/problems/132-pattern/solution/)
 
+- [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
+  - uses the same concept of **Min Queue**
+  - but here we have to do 2 passes the same way and leaving the same stack since we are dealing with a circular array
+  
 ---
 
 ## Inplace manipulation
@@ -229,7 +266,16 @@
    - similar
 
 
+---
 
+### Min/Max of moves to make array values reach a cndt (ex: all values are equal)
+
+- [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)
+  - We can do it in diff ways:
+    1. normal manipulation: O(n*count)
+    2. Math
+       - Time: O(n)
+       - [explanation](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/discuss/299009/Java-easy-with-detailed-explanation...)
 
 ---
 
@@ -260,6 +306,51 @@
   * here its more difficult since we can have == number beside each other
   * [perfect explanation](https://leetcode.com/problems/wiggle-sort-ii/discuss/77684/Summary-of-the-various-solutions-to-Wiggle-Sort-for-your-reference)
   
+
+- [Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/)
+  - count the frequencry for every char in a Map
+  - sort this map in deccending order
+  - then output the chars into a string
+
+
+
+---
+
+#### K sum Problems
+- [2 SUM](https://leetcode.com/problems/two-sum/description/)
+  * Do it in O(n) + HashTable or sort without using hash table O(n logn)
+  * [3 sum](https://leetcode.com/problems/3sum/discuss/) is (2 Sum) wrapped by a for loop => O(n * n)
+    * since its O(n^2) => sort array better than using hashtable
+  * [4 sum](https://leetcode.com/problems/4sum) is (3 sum)  wrapped by a for loop => O(n * n^2)
+    * since its O(n^3) => sort array better than using hashtable
+  * [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
+    * here its enough to do O(n) __no need for hash table__
+
+- [3Sum Smaller](https://kennyzhuang.gitbooks.io/leetcode-lock/content/259_3sum_smaller.html)
+  * the idea here is that we dont really care about the cnd 0 <= i < j < k < n as long we are counting the combination only once => any combination should be counted only once
+  * Algo:
+    1. sort the array
+    2. loop over the array to get i     3. then use a while loop with two pointers j and k where j starts from i+1 and k starts from array.length - 1
+    3. if we reach arr[i] + arr[j] + arr[k] < target => save total += k-j, ++j. Else --k
+      we have ++j or --k since the array is sorted
+  * time: O(n^2)
+
+
+- [3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+  * the idea here is that we dont really care about the cnd 0 <= i < j < k < n as long we are counting the combination only once => any combination should be counted only once
+  * Algo:
+    1. sort the array
+    2. loop over the array to get i     3. then use a while loop with two pointers j and k where j starts from i+1 and k starts from array.length - 1
+    3. if we reach arr[i] + arr[j] + arr[k] is closest to target
+  * time: O(n^2)
+
+- [4Sum II](https://leetcode.com/problems/4sum-ii/)
+  - Time: O(n^2)
+  - Space: O(n ^2)
+  - Here instead of sorting and array and using O(n^3) algo we dicided to:
+    - store all possible combinations btw C and D in a map X
+    - loop over A and B to check if we find  combinations in X
+
 ---
 
 ## Traversing
@@ -461,6 +552,53 @@
   - [link1](http://web.archive.org/web/20160323172731/http://learningarsenal.info/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/)
   - [link2](http://umairsaeed.com/blog/2011/06/23/finding-the-start-of-a-loop-in-a-circular-linked-list/)
 
+
+``` java
+    public static void isLoopPresent(ListNode nodeHead){
+
+        ListNode slowPointer,fastPointer;
+                 slowPointer = nodeHead;
+                 fastPointer = nodeHead;
+
+        boolean loopFound = false;
+
+        while(fastPointer != null){
+
+            fastPointer = fastPointer.next;
+
+            if(fastPointer != null){
+                fastPointer = fastPointer.next;
+                slowPointer = slowPointer.next;
+            }
+
+
+            if(fastPointer == slowPointer){
+               loopFound = true;
+               // we need to break otherwise it will go on forever
+               break; 
+             }
+        }
+
+    if(loopFound){
+        //move the slowPointer to the start of the list
+        slowPointer = nodeHead;
+
+        while(slowPointer != fastPointer){
+            // prgressively moving both pointers one node at a time
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next;
+        }
+
+        System.out.println("Start of loop is "+ slowPointer.data);
+
+    }else{
+         System.out.println("No Loop Found");
+      }
+
+    }
+
+```
+
 **_Problems_**
 
 ## Floyd's Tortoise and Hare
@@ -470,6 +608,9 @@
   - [my solution with Set](https://leetcode.com/problems/happy-number/discuss/56913)
   - [nice solution using Floyd cycle algo](https://leetcode.com/problems/happy-number/discuss/56917)
   - read more aboud Floyd Cycle in down in general info secion
+
+- [Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)
+  - normal Floyd's Tortoise in an Array
 
 ---
 
@@ -627,6 +768,25 @@
   - this if statement checks if i dont have any value of the same number before the permutation index. Why would that work?
     Since if i have [1,2,3',3,4] (after sorting the array) the second 3 will generate for ex: XX3XX and X3XXX if now im generating the permutations of the first 3' one of the options will be X3'3XX for the XX3XX and the other will be X33'XX for the X3XXX and we have to prevent this duplication. So if we used the if we wont consider X33'XX for the X3XXX since we are inserting it in index 2 and we have a 3 in index 1.
   - [general solution - backtracking](https://discuss.leetcode.com/topic/46161/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning)
+
+- [Increasing Subsequences](https://leetcode.com/problems/increasing-subsequences/)
+  - same as Combination Sum II problem
+  - we have duplicates but here we can order => we have to check if we passed a same value and did take it using a loop
+    - this for loop:k = start -> i
+      - why is it enough to check k from start and not before cz we already took start - 1?
+        - cz the last value we took was at startIndex - 1 => we want to check if we skipped same value in range [startIndex, i[
+          cz this is the only case if we did, we will have a duplicate
+  
+  ``` java
+    boolean checkIfPassedSameValue(int[] nums, int startIndex,int i) {
+      for (int k = startIndex; k < i; k++) {
+         if (nums[k] == nums[i]) {
+            return true;
+         }
+      }
+      return false;
+   }
+  ```
 
 - [Palindrome Permutation II](https://leetcode.com/articles/palindrome-permutation-ii/)
 
