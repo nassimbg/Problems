@@ -21,7 +21,7 @@ public class TTLCache<K, V> implements ICache<K, V>{
       lock = new ReentrantLock();
 
       this.timoutMilli = timoutSec * 1000;
-      ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+      ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
       Runnable cleaner = () -> {
          lock.lock();
          Iterator<Map.Entry<K, Value<V>>> iterator = cache.entrySet().iterator();
