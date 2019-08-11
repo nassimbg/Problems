@@ -14,6 +14,6 @@ public class ShortestDistanceFromAllBuildingsTest {
                 {0,0,0,0,0}
         };
 
-        assertEquals(7, ShortestDistanceFromAllBuildings.Solution(matrix));
+        assertEquals(7, ShortestDistanceFromAllBuildings.SolutionDFS(matrix));
     }
 }
