@@ -1,15 +1,15 @@
 package common;
 
-public class TrieNode {
-   public TrieNode[] children = new TrieNode[26];
+public class TrieAlphaNode {
+   public TrieAlphaNode[] children = new TrieAlphaNode[26];
    public boolean isLeaf = false;
    public int childrenSize = 0;
 
 
-   public TrieNode addChildIfNotExist(int index) {
+   public TrieAlphaNode addChildIfNotExist(int index) {
       ++childrenSize;
       if (children[index] == null) {
-         children[index] = new TrieNode();
+         children[index] = new TrieAlphaNode();
       }
 
       return children[index];

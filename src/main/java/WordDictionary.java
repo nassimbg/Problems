@@ -1,8 +1,8 @@
-import common.TrieNode;
+import common.TrieAlphaNode;
 
 public class WordDictionary {
 
-   private final TrieNode head = new TrieNode();
+   private final TrieAlphaNode head = new TrieAlphaNode();
 
    /**
     * Initialize your data structure here.
@@ -15,7 +15,7 @@ public class WordDictionary {
     * Adds a word into the data structure.
     */
    public void addWord(String word) {
-      TrieNode current = head;
+      TrieAlphaNode current = head;
       for (int i = 0; i < word.length(); i++) {
          int index = transformCharToInt(word.charAt(i));
          current = current.addChildIfNotExist(index);
@@ -31,7 +31,7 @@ public class WordDictionary {
       return searchRecursively(word, 0, head);
    }
 
-   private boolean searchRecursively(String word, int index, TrieNode current) {
+   private boolean searchRecursively(String word, int index, TrieAlphaNode current) {
 
       if (index >= word.length()) {
          return current.isLeaf;

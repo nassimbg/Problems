@@ -1,21 +1,21 @@
-import static common.TrieNode.transformCharToInt;
+import static common.TrieAlphaNode.transformCharToInt;
 
-import common.TrieNode;
+import common.TrieAlphaNode;
 
 public class Trie {
 
 
-   TrieNode head;
+   TrieAlphaNode head;
    /** Initialize your data structure here. */
    public Trie() {
-      head = new TrieNode();
+      head = new TrieAlphaNode();
 
    }
 
    /** Inserts a word into the trie. */
    public void insert(String word) {
 
-      TrieNode current = head;
+      TrieAlphaNode current = head;
 
       for (int i = 0; i < word.length(); i++) {
          int charAt = transformCharToInt(word.charAt(i));
@@ -30,7 +30,7 @@ public class Trie {
    /** Returns if the word is in the trie. */
    public boolean search(String word) {
 
-      TrieNode current = head;
+      TrieAlphaNode current = head;
 
       for (int i = 0; i < word.length(); i++) {
          int charAt = transformCharToInt(word.charAt(i));
@@ -47,7 +47,7 @@ public class Trie {
 
    /** Returns if there is any word in the trie that starts with the given prefix. */
    public boolean startsWith(String prefix) {
-      TrieNode current = head;
+      TrieAlphaNode current = head;
 
       for (int i = 0; i < prefix.length(); i++) {
          int charAt = transformCharToInt(prefix.charAt(i));
