@@ -95,6 +95,7 @@ public class NumberOfIslands {
             return false;
          }
 
+         //todo we should increment the size of the parent with the new subtree size
          if (repX.size > repY.size) {
             repY.parent = repX;
          } else {
