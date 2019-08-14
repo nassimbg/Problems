@@ -1,52 +1,50 @@
 # LeetCode Problems
 
-- [LeetCode Problems](#LeetCode-Problems)
-  - [Greedy](#Greedy)
-    - [Hints](#Hints)
-    - [Problems](#Problems)
-      - [Priority Queue](#Priority-Queue)
-  - [BST](#BST)
-    - [Hints](#Hints-1)
-    - [Problems](#Problems-1)
-    - [Augmenting BST](#Augmenting-BST)
-  - [Pointers / Linked List](#Pointers--Linked-List)
-    - [Tips](#Tips)
-    - [Problems](#Problems-2)
-  - [Arrays](#Arrays)
-    - [Tips](#Tips-1)
-    - [Problems](#Problems-3)
-      - [Maxima-Minima](#Maxima-Minima)
-  - [String](#String)
-    - [Problems](#Problems-4)
-      - [Excel](#Excel)
-      - [Decoding](#Decoding)
-  - [D&G](#DG)
-  - [Data Structures](#Data-Structures)
-    - [Hints:](#Hints)
-    - [This section is an important one to review](#This-section-is-an-important-one-to-review)
-      - [Union Find](#Union-Find)
-      - [Linked list](#Linked-list)
-      - [Queue and Stack](#Queue-and-Stack)
-      - [Iterator](#Iterator)
-      - [Randomization](#Randomization)
-        - [RESERVOIR SAMPLING (Very Large Input)](#RESERVOIR-SAMPLING-Very-Large-Input)
-  - [Design](#Design)
-  - [Math](#Math)
-    - [Hints](#Hints-2)
-    - [Problems](#Problems-5)
-  - [Bit Manipulation](#Bit-Manipulation)
-    - [Hints](#Hints-3)
-    - [Problems](#Problems-6)
-      - [Using Constants](#Using-Constants)
-- [General Information](#General-Information)
-  - [Difference between ASCII, extended ASCII, UTF-8, UTF-16](#Difference-between-ASCII-extended-ASCII-UTF-8-UTF-16)
-  - [Diff btw segmant Tree, Range Tree, Interval Tree:](#Diff-btw-segmant-Tree-Range-Tree-Interval-Tree)
-  - [How many ways to traverse a BST. We have 3 ways:](#How-many-ways-to-traverse-a-BST-We-have-3-ways)
-    - [Morris Traversal in BST](#Morris-Traversal-in-BST)
-  - [Trie Tree](#Trie-Tree)
-  - [Caching](#Caching)
-  - [Boyer-Moore Majority Algorithm](#Boyer-Moore-Majority-Algorithm)
-- [TODO](#TODO)
+- [LeetCode Problems](#leetcode-problems)
+  - [Greedy](#greedy)
+    - [Hints](#hints)
+    - [Problems](#problems)
+      - [Priority Queue](#priority-queue)
+  - [BST](#bst)
+    - [Hints](#hints-1)
+    - [Problems](#problems-1)
+    - [Augmenting BST](#augmenting-bst)
+  - [Pointers / Linked List](#pointers--linked-list)
+    - [Tips](#tips)
+    - [Problems](#problems-2)
+  - [Arrays](#arrays)
+    - [Tips](#tips-1)
+    - [Problems](#problems-3)
+      - [Maxima-Minima](#maxima-minima)
+  - [String](#string)
+    - [Problems](#problems-4)
+      - [Excel](#excel)
+      - [Decoding](#decoding)
+  - [D&G](#dg)
+  - [Data Structures](#data-structures)
+    - [Hints:](#hints)
+      - [Linked list](#linked-list)
+      - [Queue and Stack](#queue-and-stack)
+      - [Iterator](#iterator)
+      - [Randomization](#randomization)
+        - [RESERVOIR SAMPLING (Very Large Input)](#reservoir-sampling-very-large-input)
+  - [Design](#design)
+  - [Math](#math)
+    - [Hints](#hints-2)
+    - [Problems](#problems-5)
+  - [Bit Manipulation](#bit-manipulation)
+    - [Hints](#hints-3)
+    - [Problems](#problems-6)
+      - [Using Constants](#using-constants)
+- [General Information](#general-information)
+  - [Difference between ASCII, extended ASCII, UTF-8, UTF-16](#difference-between-ascii-extended-ascii-utf-8-utf-16)
+  - [Diff btw segmant Tree, Range Tree, Interval Tree:](#diff-btw-segmant-tree-range-tree-interval-tree)
+  - [How many ways to traverse a BST. We have 3 ways:](#how-many-ways-to-traverse-a-bst-we-have-3-ways)
+    - [Morris Traversal in BST](#morris-traversal-in-bst)
+  - [Trie Tree](#trie-tree)
+  - [Caching](#caching)
+  - [Boyer-Moore Majority Algorithm](#boyer-moore-majority-algorithm)
+- [TODO](#todo)
 
 
 ## Greedy
@@ -125,12 +123,6 @@ ___
 
 ### Problems
 
-- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
-  * VIPPPPPP Important way to solve it without recursion   * __Needs REVIEW__
-  * use stack and current pointer   * __STUDY THIS PROBLEM__
-  * check [solution](https://leetcode.com/articles/binary-tree-inorder-traversal/)
-  * VIPPPPPP Read about [__Threaded BST or Morris__](http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree-set-2-efficient/)
-  * [find successor in BST](https://www.quora.com/How-can-you-find-successors-and-predecessors-in-a-binary-search-tree-in-order)
 
 - [Binary Tree PreOrder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
   * similar to above but we put the result.add() inside the second while loop
@@ -717,33 +709,6 @@ ____
 ### Hints:
   - Think of using TreeSet or TreeMap
 
-### This section is an important one to review
-
-- [LRU Cache](https://leetcode.com/problems/lru-cache/discuss/)
-  * can do it in a very simple way using LinkedHashTable (check the code I did)
-  * to do it in a [proper way](https://discuss.leetcode.com/topic/6613/java-hashtable-double-linked-list-with-a-touch-of-pseudo-nodes):
-    1. use normal Hash table to store the key as the key and as a value store a pointer     
-    2. this pointer points to the representing object of the key in the doubly linked list which is used to sort the LRU objects
-
-- [LFU Cache](https://leetcode.com/problems/lfu-cache/discuss/)
-  * used a HashMap to store the key to its place in a List
-  * used a List to store the Map<Key, Value> based on the key's frequency meaning that the first index in the list show all the key-value pair that have freq of 1 and second index means freq of 2 etc... (Like Bucket Sort)
-  * my solution is similar to [this](https://discuss.leetcode.com/topic/69402/c-list-with-hashmap-with-explanation)
-  * In order to achieve O(1) time we used 2 HashMaps and a List
-
-
-
-____
-#### Union Find
-- [Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
-  * [__UNION FIND__](https://gist.github.com/drmalex07/3e6695025a1788e669cec7f8d93d98dc)
-  * basically this question is used to implement the union find algo
-  * read about it in recitation 3 course 2
-  * [solution](https://leetcode.com/problems/number-of-islands/solution/)
-
-- [Number Of Island II](http://buttercola.blogspot.com/2016/01/leetcode-number-of-islands-ii.html)
-  * this is a classic UNION-FIND DS
-  * check course 2 recitaion 3
 
 ____
 #### Linked list

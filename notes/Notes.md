@@ -20,6 +20,8 @@
 - [Cycle](#cycle)
   - [Floyd's Tortoise and Hare](#floyds-tortoise-and-hare)
 - [Design](#design)
+  - [Random Flip Matrix](#random-flip-matrix)
+  - [TinyURL](#tinyurl)
   - [Tic-Tac-Toe](#tic-tac-toe)
   - [Cache](#cache)
   - [Iterator](#iterator)
@@ -30,8 +32,9 @@
       - [Which Value At index I (for I: start -> end)](#which-value-at-index-i-for-i-start---end)
       - [Multiple choices for index I (ex: take or leave)](#multiple-choices-for-index-i-ex-take-or-leave)
     - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
+      - [Which Value At index I (for I: start -> end) 2](#which-value-at-index-i-for-i-start---end-2)
       - [Multiple choices for index I (ex: take or leave) 2](#multiple-choices-for-index-i-ex-take-or-leave-2)
-    - [DFS in Matrix](#dfs-in-matrix)
+    - [DFS/BFS in Matrix](#dfsbfs-in-matrix)
   - [**_2. Normal DP_**](#2-normal-dp)
     - [DFS + MEMO](#dfs--memo)
       - [Matrix](#matrix)
@@ -76,6 +79,7 @@
       - [Rabin-Karp](#rabin-karp)
   - [Start / End Pointers](#start--end-pointers)
     - [Calculate Value btw them](#calculate-value-btw-them)
+  - [Pointer for each String/Array](#pointer-for-each-stringarray)
 - [Regex](#regex)
 - [Search](#search)
   - [Median](#median)
@@ -95,6 +99,7 @@
   - [Top X](#top-x)
 - [String](#string)
   - [Shifting](#shifting)
+  - [Random](#random)
 - [SQL](#sql)
 - [Trie](#trie)
   - [Design](#design-1)
@@ -107,6 +112,7 @@
     - [From given letters/digits](#from-given-lettersdigits)
       - [Optimized by sorting](#optimized-by-sorting)
 - [Tree](#tree)
+  - [Functionality](#functionality)
   - [Red/Black](#redblack)
   - [Augmented BST](#augmented-bst)
   - [Traversal](#traversal)
@@ -277,6 +283,10 @@
        - Time: O(n)
        - [explanation](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/discuss/299009/Java-easy-with-detailed-explanation...)
 
+- [Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique/discuss?currentPage=1&orderBy=hot&query=)
+  - question asked by C
+
+
 ---
 
 ## Sorting
@@ -312,7 +322,13 @@
   - sort this map in deccending order
   - then output the chars into a string
 
-
+- [Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference/)
+  - Algo :
+    - Sort the values
+    - then get the time diff btw i and i - 1
+    - and at the end get diff btw n-1 and 0
+  - My solution was using a TreeSet
+  - [solution using sort](https://leetcode.com/problems/minimum-time-difference/discuss/354063/Easy-understanding-java-solution-using-sort)
 
 ---
 
@@ -325,6 +341,9 @@
     * since its O(n^3) => sort array better than using hashtable
   * [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
     * here its enough to do O(n) __no need for hash table__
+
+- [K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
+  - similar to 2sum in the concept where upon iteration we check if the diff is already in the hashTable and then we add the current value to the hashTable 
 
 - [3Sum Smaller](https://kennyzhuang.gitbooks.io/leetcode-lock/content/259_3sum_smaller.html)
   * the idea here is that we dont really care about the cnd 0 <= i < j < k < n as long we are counting the combination only once => any combination should be counted only once
@@ -359,6 +378,9 @@
   - Traverse the Matrix in a diagonal matter
   - transform the logical explanation into the code
   - check solution
+
+- [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)
+  - just did it in the dump way O(n^2)
 
 ---
 
@@ -620,6 +642,19 @@
 
 # Design
 
+## Random Flip Matrix
+
+- [Random Flip Matrix](https://leetcode.com/problems/random-flip-matrix/)
+  - dont generate all possible values in matrix, instead save the flipped ones
+  - use random to generate a value to flip btw [0, rows*cols[
+
+## TinyURL
+
+- [TinyURL](https://leetcode.com/problems/encode-and-decode-tinyurl/)
+  - check my solution its good
+  - we can do more optimization on my solution
+  - [solution](https://leetcode.com/problems/encode-and-decode-tinyurl/discuss/346421/Two-solutions-in-Java-base-62-and-random-generation)
+
 ## Tic-Tac-Toe
 
 - [Tic-Tac-Toe](https://www.programcreek.com/2014/05/leetcode-tic-tac-toe-java/)
@@ -644,6 +679,9 @@
   * used a List to store the Map<Key, Value> based on the key's frequency meaning that the first index in the list show all the key-value pair that have freq of 1 and second index means freq of 2 etc... (Like Bucket Sort)
   * my solution is similar to [this](https://discuss.leetcode.com/topic/69402/c-list-with-hashmap-with-explanation)
   * In order to achieve O(1) time we used 2 HashMaps and a List
+
+- [TTLCache](https://www.java-success.com/implement-an-in-memory-cache-in-java/)
+  - TTL cache is Time To Live cache which means upon reading the value its TTL will refresh
 
 ## Iterator
 
@@ -891,6 +929,15 @@
   - if int is so large => keep them as String and do addition on the fly
 
 
+#### Which Value At index I (for I: start -> end) 2
+
+- [Beautiful Arrangement](https://leetcode.com/problems/beautiful-arrangement/)
+  - its like the permutation question where here we need all the different combinations that works
+  - we can optimize this DFS a little by checking at every level the conditions that we have on the current Index
+    - if it works => take the value and continue recursing
+    - if not => skip this value
+  - [solution](https://leetcode.com/problems/beautiful-arrangement/solution/) 
+
 #### Multiple choices for index I (ex: take or leave) 2
 
 - [Target Sum](https://leetcode.com/problems/target-sum/)
@@ -898,7 +945,7 @@
   
 ---
 
-### DFS in Matrix
+### DFS/BFS in Matrix
 
 - [Shortest Distance from All Buildings](https://www.programcreek.com/2014/05/leetcode-shortest-distance-from-all-buildings-java/)
 
@@ -911,6 +958,8 @@
 - [Smallest Rectangle Enclosing Black Pixels](http://buttercola.blogspot.fr/2016/01/leetcode-smallest-rectangle-enclosing.html)
 
 - [Walls and Gates](http://buttercola.blogspot.com/2015/09/leetcode-walls-and-gates.html)
+  - I done 2 ways: DFS and BFS
+  - the above solution starts from the gates and finds the empty space, while my solution starts from the empty space and find the gate
 
 - [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/description/)
 
@@ -1037,6 +1086,10 @@
 - [Coin Change](https://leetcode.com/problems/coin-change/discuss/)
   - similar to **Subset Knapsack problem**
 
+- [Coin Change 2](https://leetcode.com/problems/coin-change-2/)
+  - similar to **Subset Knapsack problem**
+
+
 ---
 
 
@@ -1074,6 +1127,11 @@
   - **Needs REVIEW**
   - Find a way to do it in O(n) (DP)
   - It can be done using Divide and Conquer O(n lgn)
+
+- [Contiguous Array](https://leetcode.com/problems/contiguous-array/)
+  - we want to have a contigious array where 1s = 0s => 1s[i] - 1s[j] = 0s[i] - 0s[j] (j < i) => 1s[i] - 0s[i] = 1s[j] - 0s[j]
+  - => the memo of a dp here is a Map where key is 1s[i] - 0s[i] at index i and value is index i
+  - => at every index check if a diff saved in the map already => if yes take the length
 
 - [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
 
@@ -1375,6 +1433,14 @@
     - if it does => we fail
     - if it doesn't => its a tree
 
+- [Friend Circles](https://leetcode.com/problems/friend-circles/)
+  - normal DFS algo using AdjMatrix
+  - upon iterating on the nodes in the highest level:
+    - if this nodes isnt yet visited => it will be a new root node in its seperate graph => new circle of friendship
+  - This problem can also be solved in Union Find
+    - It looks similar to NumberOfIslands problem
+    - but here we are counting the number of friendships circles  
+
 ### Level Traversal
 
 **_Hints_**
@@ -1497,6 +1563,8 @@
   * did it using one array[10] => space O(1) and two passes => time O(n)
   * another [solution with only one pass](https://leetcode.com/problems/bulls-and-cows/discuss/74621/One-pass-Java-solution)
 
+- [K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
+  - similar to 2sum in the concept where upon iteration we check if the diff is already in the hashTable and then we add the current value to the hashTable 
 
 - [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
   * Description : Given an unsorted array of integers, find the length of the longest consecutive elements sequence
@@ -2166,6 +2234,43 @@
       => So we can start from two ends, fill the result array from end to start, for a < 0, fill the result array from start to end  
       (like the merge function in merge sort)
 
+
+
+
+---
+## Pointer for each String/Array
+
+- [Longest Word in Dictionary through Deleting](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/)
+  - it looks like DP (longest common subsequence) but here we dont want max of choices
+  - we want if s.charAt(i1) != s1.chatAt(i1) => assume its a delete else go to next chars
+  - Algo:
+    - iterate over each string in Dictionary
+    - and do this 2 pointer travesal algo
+    - then get the longest with the smallest lexo string
+  - [solution](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/solution/)
+
+``` java
+public class Solution {
+    public boolean isSubsequence(String x, String y) {
+        int j = 0;
+        for (int i = 0; i < y.length() && j < x.length(); i++)
+            if (x.charAt(j) == y.charAt(i))
+                j++;
+        return j == x.length();
+    }
+    public String findLongestWord(String s, List < String > d) {
+        String max_str = "";
+        for (String str: d) {
+            if (isSubsequence(str, s)) {
+                if (str.length() > max_str.length() || (str.length() == max_str.length() && str.compareTo(max_str) < 0))
+                    max_str = str;
+            }
+        }
+        return max_str;
+    }
+}
+```
+
 ---
 
 ---
@@ -2235,6 +2340,14 @@
   - All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
 
 ## D&G
+
+
+
+- [Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)
+  - time: O(log n)
+  - idea heare how to choose wether to go left or right
+    - go left :if the same value is in mid - 1 index => if the left part of array is even => the single element is in left part else in right
+    - go right : if the same value is in mid + 1 index => if the right part of array is even => the single element is in right part else in right
 
 ### Quick Select
 
@@ -2506,7 +2619,7 @@
     => used the trick (sorting + finding right interalv) of **weighted interval scheduling**
   - used the idea of indirect sorting (RTDB uses it) where we sort the indices of original array
     - use customized Comparator
-  - [solution](<https://leetcode.com/problems/find-right-interval/discuss/162162/Indirect-sorting-(use-indices-to-sort)-+-customized-Comparator>)
+  - [solution](https://leetcode.com/problems/find-right-interval/discuss/162162/Indirect-sorting-(use-indices-to-sort)-+-customized-Comparator)
   - Approach:
     - sort intervals based on starting point
     - traverse sorted intervals from n-1 -> 0
@@ -2534,6 +2647,13 @@
   * for every string generate a string that is the difference of every char with its next char in this string
   * and search for the generated string in the map
 
+---
+
+## Random
+
+- [Detect Capital](https://leetcode.com/problems/detect-capital/)
+  - start from index i: 1 -> s.length
+  - if current char is UpperCase and (s[i-1] || c[i+1]) is lower => we should fail
 
 ---
 
@@ -2725,6 +2845,14 @@
 
 # Tree
 
+## Functionality
+
+- [Inorder Successor in BST II](https://www.google.com/search?q=inorder+successor+in+bst+ii&rlz=1C1GCEU_enLB853LB853&oq=Inorder+Successor+in+BST+II&aqs=chrome.0.0l2.719j0j1&sourceid=chrome&ie=UTF-8)
+  - check the solution in link
+
+
+---
+
 ## Red/Black
 
 - join of 2 red/black trees
@@ -2778,6 +2906,13 @@
 
 - [Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row/description/)
   - BFS
+
+
+- [Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/)
+  - since we need the leftMost value in the last row 
+  - => we can traverse level by level an set the first value in every level as a left most until we reach the end
+  - why setting the first value?
+    - cz we are doing a BFS starting from left to right at every level
 
 ### Recursive
 
@@ -2840,7 +2975,15 @@
   * since: 
     * if we have only a null node as a root we shouldnt return anything
     * if we may added the list twice (when reaching right child of leaf null and left child where both are null)
-  
+
+- [Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum/)
+  - normal postOrder
+  - at every level we calculate the sum of the subtree and put add it to a map containing its freq
+
+- [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)
+  - traverse right -> me -> left in order to sum the values correctly
+
+
 ### Iterative
 
 - [Verify Preorder Sequence in Binary Search Tree](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
@@ -2850,6 +2993,21 @@
   - optimized it to use O(1) space
   - check my code in intellij
   - my solution can be refactored to become like [their solution](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
+
+- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+  * VIPPPPPP Important way to solve it without recursion   
+  * __Needs REVIEW__
+  * use stack and current pointer   
+  * __STUDY THIS PROBLEM__
+  * check [solution](https://leetcode.com/articles/binary-tree-inorder-traversal/)
+  * VIPPPPPP Read about [__Threaded BST or Morris__](http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree-set-2-efficient/)
+  * [find successor in BST](https://www.quora.com/How-can-you-find-successors-and-predecessors-in-a-binary-search-tree-in-order)
+ 
+- [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/)
+  - Question: find all the mode(s) (the most frequently occurred element) in the given BST
+  - If we are able to sort the elements => its easy to know the most occured
+    - how? just by iterating over the sorted elements and counting the occurence of each element by saying (if num[i] == num[i - 1] => occ++ => check if we put in list)
+  - In order to achieve this sorted order iteration we can do an inorder iterative Traversal 
 
 ---
 
@@ -2963,6 +3121,14 @@
 - [Number Of Island II](http://buttercola.blogspot.com/2016/01/leetcode-number-of-islands-ii.html)
   - this is a classic UNION-FIND DS
   - check course 2 recitaion 3
+
+- [Friend Circles](https://leetcode.com/problems/friend-circles/)
+  - normal DFS algo using AdjMatrix
+  - upon iterating on the nodes in the highest level:
+    - if this nodes isnt yet visited => it will be a new root node in its seperate graph => new circle of friendship
+  - This problem can also be solved in Union Find
+    - It looks similar to NumberOfIslands problem
+    - but here we are counting the number of friendships circles  
 
 ---
 

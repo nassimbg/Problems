@@ -67,16 +67,6 @@
 - Try to use TreeSet or TreeMap
 - Try to use In,Pre,Post for finding equality btw trees, and other purposes
 
-
-
-
-- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
-  * VIPPPPPP Important way to solve it without recursion   * __Needs REVIEW__
-  * use stack and current pointer   * __STUDY THIS PROBLEM__
-  * check [solution](https://leetcode.com/articles/binary-tree-inorder-traversal/)
-  * VIPPPPPP Read about [__Threaded BST or Morris__](http://www.geeksforgeeks.org/convert-binary-tree-threaded-binary-tree-set-2-efficient/)
-  * [find successor in BST](https://www.quora.com/How-can-you-find-successors-and-predecessors-in-a-binary-search-tree-in-order)
-
 - [Binary Tree PreOrder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
   * similar to above but we put the result.add() inside the second while loop
   * __Needs REVIEW__
@@ -638,16 +628,6 @@ ____
 
 
 ---
-
-
-
-- [Shortest Distance from All Buildings](https://www.programcreek.com/2014/05/leetcode-shortest-distance-from-all-buildings-java/)
-
-  - DFS in 2d Array
-  - similar to "walls and gates"
-  - typical DFS or BFS problem
-  - I did it using a DFS, try to do it using BFS
-  - pay attention to the trick (all building should reach the spot) i didnt implement that but its easy to do
 
 - [Smallest Rectangle Enclosing Black Pixels](http://buttercola.blogspot.fr/2016/01/leetcode-smallest-rectangle-enclosing.html)
 
