@@ -1,3 +1,4 @@
+
 - [Amortization](#amortization)
   - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
     - [Next Greater / Max O(1)](#next-greater--max-o1)
@@ -5,7 +6,7 @@
 - [Array](#array)
   - [Swipe left + Swipe right](#swipe-left--swipe-right)
   - [Inplace manipulation](#inplace-manipulation)
-    - [Find missing values in array size n and values 1< a[i] < n](#find-missing-values-in-array-size-n-and-values-1-ai--n)
+    - [Find missing values in array size n and values 1&lt; a[i] &lt; n (if t found then negate a[t] it means its marked)](#find-missing-values-in-array-size-n-and-values-1lt-ai-lt-n-if-t-found-then-negate-at-it-means-its-marked)
     - [Min/Max of moves to make array values reach a cndt (ex: all values are equal)](#minmax-of-moves-to-make-array-values-reach-a-cndt-ex-all-values-are-equal)
   - [Sorting](#sorting)
       - [K sum Problems](#k-sum-problems)
@@ -27,15 +28,15 @@
   - [Iterator](#iterator)
   - [Amortization O(1)](#amortization-o1)
 - [DP](#dp)
-  - [**_1. Back-Tracking_**](#1-back-tracking)
+  - [1. Back-Tracking](#1-back-tracking)
     - [Output All Combinations/Permutations](#output-all-combinationspermutations)
-      - [Which Value At index I (for I: start -> end)](#which-value-at-index-i-for-i-start---end)
+      - [Which Value At index I (for I: start -&gt; end)](#which-value-at-index-i-for-i-start--gt-end)
       - [Multiple choices for index I (ex: take or leave)](#multiple-choices-for-index-i-ex-take-or-leave)
     - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
-      - [Which Value At index I (for I: start -> end) 2](#which-value-at-index-i-for-i-start---end-2)
+      - [Which Value At index I (for I: start -&gt; end) 2](#which-value-at-index-i-for-i-start--gt-end-2)
       - [Multiple choices for index I (ex: take or leave) 2](#multiple-choices-for-index-i-ex-take-or-leave-2)
     - [DFS/BFS in Matrix](#dfsbfs-in-matrix)
-  - [**_2. Normal DP_**](#2-normal-dp)
+  - [2. Normal DP](#2-normal-dp)
     - [DFS + MEMO](#dfs--memo)
       - [Matrix](#matrix)
     - [KnapSack Style](#knapsack-style)
@@ -52,7 +53,7 @@
     - [Level Traversal](#level-traversal)
   - [TOPO Sort / Dependency](#topo-sort--dependency)
   - [Dijkstra](#dijkstra)
-  - [From START -> END state (state ex: word, char, number, fraction...)](#from-start---end-state-state-ex-word-char-number-fraction)
+  - [From START -&gt; END state (state ex: word, char, number, fraction...)](#from-start--gt-end-state-state-ex-word-char-number-fraction)
 - [Hash Table](#hash-table)
 - [Heap](#heap)
   - [Kth smallest/Largest...](#kth-smallestlargest)
@@ -84,7 +85,7 @@
 - [Search](#search)
   - [Median](#median)
   - [Mapping](#mapping)
-  - [D&G](#dg)
+  - [D&amp;G](#dampg)
     - [Quick Select](#quick-select)
     - [Binary Search](#binary-search)
       - [Rotated Sorted Arraay](#rotated-sorted-arraay)
@@ -129,7 +130,7 @@
 - [Union-Find](#union-find)
   - [Disjoint Sets](#disjoint-sets)
     - [Number of diff Sets](#number-of-diff-sets)
-
+  
 ---
 
 ---
@@ -263,7 +264,7 @@
 
 ## Inplace manipulation
 
-### Find missing values in array size n and values 1< a[i] < n 
+### Find missing values in array size n and values 1< a[i] < n (if t found then negate a[t] it means its marked)
 
 - [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
   - if value x found in array => then negate arr[x] 
@@ -941,7 +942,7 @@
 #### Multiple choices for index I (ex: take or leave) 2
 
 - [Target Sum](https://leetcode.com/problems/target-sum/)
-  - here we have to options per index wether its +X or -X
+  - here we have two options per index wether its +X or -X
   
 ---
 
@@ -1572,7 +1573,19 @@
   * __Needs REVIEW__   
   * __Practice this problem more__
   * check this [solution](https://discuss.leetcode.com/topic/25493/simple-fast-java-solution-using-set)
-  
+
+- [Brick Wall](https://leetcode.com/problems/brick-wall/)
+  - The idea is straightforward, 
+  - since each brick length is positive, we can record all the edge index (ending Index of a brick) in the wall and figure out which edge index is the most common. 
+  - We cut through that edge index, it will cross number of rows - most common edge count rows
+  - Use a Map to record the freq of bricks ending at index I
+  - [solution](https://leetcode.com/problems/brick-wall/discuss/137777/Java-Map-solution)
+
+- [Relative Ranks](https://leetcode.com/problems/relative-ranks/)
+  - sort then create hashTable
+  - remember BitSetWithRank code
+
+
 ---
 
 ---
@@ -1585,11 +1598,11 @@
   - I solved it like the solution
   - use a MaxQueue to store the char based on their current Frequency.
   - every time you use remove a char from the queue:
-    1- add it to the StringBuilder
-    2- decrement its freq
-    3- add it to a set (name it InWindow) of chars currently withen window K if its freq > 0
+    1. add it to the StringBuilder
+    2. decrement its freq
+    3. add it to a set (name it InWindow) of chars currently within window K if its freq > 0
     else throw it away
-    4- at the end try to remove the char of stringBuilder.charAt(length - k) from InWindow and add it again to the MaxQueue
+    1. at the end try to remove the char of stringBuilder.charAt(length - k) from InWindow and add it again to the MaxQueue
 
 ---
 
@@ -2061,6 +2074,7 @@
          while (left <= right && sum >= s) {
            // do question logic for what we need upon incrementing left
             // this part should be substituted with specific question logic
+            // this part can be omitted we are fetching for a max but since here w are fetching for a min => we need it
             if (bestRight - bestLeft > right - left) {
                bestRight = right;
                bestLeft = left;
@@ -2192,6 +2206,39 @@
 ---
 
 ## Start / End Pointers
+
+- [Beautiful Arrangement II](https://leetcode.com/problems/beautiful-arrangement-ii/)
+  - we want in the array k distinct value of the diff btw arr[i] and arr[i-1]
+  - => we can make smart decision by following:
+    - 1,n,2,n-1,3,n-2,4... ==> Diff: n-1, n-2, n-3, n-4, n-5...
+    - By following this pattern, k numbers will have k-1 distinct difference values;
+    - and all the rest numbers should have |ai - a_i-1| = 1;
+    - In total, we will have k-1+1 = k distinct values.
+  - This means that to get the first k-1 distinct value we do
+    - 1,n,2,n-1,3,n-2....
+  - and at the end we are left with 1 more ditict diff => we either
+    - if k is even we do small+1, small+2, small+3...
+    - or if k is odd we do large-1, large-2,large-3....
+
+``` java
+class Solution {
+    public int[] constructArray(int n, int k) {
+        if(k>=n) return null;
+        int[] arr = new int[n];
+        int i = 0, small = 1, large = n;        
+        while(i<k){ 
+            arr[i++] = small++;
+            if(i<k) arr[i++] = large--;
+        }        
+        if(k%2 == 0){ // k==2 ==> 1, 6, 5,4,3,2
+            while(i<arr.length) arr[i++] = large--;
+        } else { // k==3 ==> 1,6,2,3,4,5
+            while(i<arr.length) arr[i++] = small++;
+        }
+        return arr;
+    }
+}
+```
 
 ### Calculate Value btw them
 
@@ -2641,6 +2688,13 @@ public class Solution {
 
 # String
 
+**_Hints_**
+
+- **StringJoiner**
+- **StringTokenizer**
+
+**_Problems_**
+
 ## Shifting
 
 - [Group Shifted Strings](https://www.geeksforgeeks.org/group-shifted-string/)
@@ -2654,6 +2708,11 @@ public class Solution {
 - [Detect Capital](https://leetcode.com/problems/detect-capital/)
   - start from index i: 1 -> s.length
   - if current char is UpperCase and (s[i-1] || c[i+1]) is lower => we should fail
+
+
+- [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
+  - use String.split("\\s")
+  - and then use StringJoiner
 
 ---
 
