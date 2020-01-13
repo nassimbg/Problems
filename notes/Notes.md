@@ -96,11 +96,282 @@
     - [K sorted lists](#k-sorted-lists)
   - [Paitence Sort](#paitence-sort)
   - [Radix Sort](#radix-sort)
+  - [Random](#random)
   - [Tag Sort](#tag-sort)
   - [Top X](#top-x)
 - [String](#string)
   - [Shifting](#shifting)
+  - [Random](#random-1)
+- [SQL](#sql)
+- [Trie](#trie)
+  - [Design](#design-1)
+  - [Prefix/Word Search](#prefixword-search)
+    - [Match Prefix/Word with DIFF](#match-prefixword-with-diff)
+    - [Match Concatination of Words](#match-concatination-of-words)
+  - [List Lexo order](#list-lexo-order)
+  - [Next/Kth Enumeration/Value](#nextkth-enumerationvalue)
+    - [From Dictionary of words](#from-dictionary-of-words)
+    - [From given letters/digits](#from-given-lettersdigits)
+      - [Optimized by sorting](#optimized-by-sorting)
+- [Tree](#tree)
+  - [Functionality](#functionality)
+  - [Red/Black](#redblack)
+  - [Augmented BST](#augmented-bst)
+  - [Traversal](#traversal)
+    - [Level By Level](#level-by-level)
+    - [Recursive](#recursive)
+    - [Iterative](#iterative)
+  - [Finding (in) Path](#finding-in-path)
+  - [Serialize / Deserialize BST](#serialize--deserialize-bst)
+  - [Equality in BST](#equality-in-bst)
+  - [Segment Tree / Fenwick](#segment-tree--fenwick)
+    - [Search for All intervals that contain a query point](#search-for-all-intervals-that-contain-a-query-point)
+    - [Sum of Given Range](#sum-of-given-range)
+    - [Range Minimum Query](#range-minimum-query)
+- [Union-Find](#union-find)
+  - [Disjoint Sets](#disjoint-sets)
+    - [Number of diff Sets](#number-of-diff-sets)
+<li>[Reshape the Matrix]</li>
+</ul>](#ul-lireshape-the-matrixli-ul)
+  - [Random Questions](#random-questions)
+- [Amortization](#amortization)
+  - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
+    - [Next Greater / Max O(1)](#next-greater--max-o1)
+    - [Remove Smaller/Bigger elements O(1)](#remove-smallerbigger-elements-o1)
+- [Array](#array)
+  - [Swipe left + Swipe right](#swipe-left--swipe-right)
+  - [Inplace manipulation](#inplace-manipulation)
+    - [Find missing values in array size n and values 1&lt; a[i] &lt; n (if t found then negate a[t] it means its marked)](#find-missing-values-in-array-size-n-and-values-1lt-ai-lt-n-if-t-found-then-negate-at-it-means-its-marked)
+    - [Min/Max of moves to make array values reach a cndt (ex: all values are equal)](#minmax-of-moves-to-make-array-values-reach-a-cndt-ex-all-values-are-equal)
+  - [Sorting](#sorting)
+      - [K sum Problems](#k-sum-problems)
+  - [Traversing](#traversing)
+  - [Random Questions](#random-questions)
+- [Bit Manipulation](#bit-manipulation)
+  - [use bits as states](#use-bits-as-states)
+  - [Bit Range Masking](#bit-range-masking)
+- [Boyer-Moore Algo](#boyer-moore-algo)
+- [Cumulative Sum](#cumulative-sum)
+  - [Immutable](#immutable)
+- [Cycle](#cycle)
+  - [Floyd's Tortoise and Hare](#floyds-tortoise-and-hare)
+- [Design](#design)
+  - [Random Flip Matrix](#random-flip-matrix)
+  - [TinyURL](#tinyurl)
+  - [Tic-Tac-Toe](#tic-tac-toe)
+  - [Cache](#cache)
+  - [Iterator](#iterator)
+  - [Amortization O(1)](#amortization-o1)
+- [DP](#dp)
+  - [1. Back-Tracking](#1-back-tracking)
+    - [Output All Combinations/Permutations](#output-all-combinationspermutations)
+      - [Which Value At index I (for I: start -&gt; end)](#which-value-at-index-i-for-i-start--gt-end)
+      - [Multiple choices for index I (ex: take or leave)](#multiple-choices-for-index-i-ex-take-or-leave)
+    - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
+      - [Which Value At index I (for I: start -&gt; end) 2](#which-value-at-index-i-for-i-start--gt-end-2)
+      - [Multiple choices for index I (ex: take or leave) 2](#multiple-choices-for-index-i-ex-take-or-leave-2)
+    - [DFS/BFS in Matrix](#dfsbfs-in-matrix)
+  - [2. Normal DP](#2-normal-dp)
+    - [DFS + MEMO](#dfs--memo)
+      - [Matrix](#matrix)
+    - [KnapSack Style](#knapsack-style)
+    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#suffix-xin--prefix-x0i--topo-sort)
+      - [MAX / MIN](#max--min)
+        - [Several Options/States (ex: rob or dont rob)](#several-optionsstates-ex-rob-or-dont-rob)
+      - [COUNT](#count)
+      - [TRUE / FALSE (think of Rec + Memo)](#true--false-think-of-rec--memo)
+      - [Find all possible answers](#find-all-possible-answers)
+    - [SubString x[i:j]](#substring-xij)
+- [Greedy](#greedy)
+- [Graphs](#graphs)
+  - [BFS / DFS](#bfs--dfs)
+    - [Level Traversal](#level-traversal)
+  - [TOPO Sort / Dependency](#topo-sort--dependency)
+  - [Dijkstra](#dijkstra)
+  - [From START -&gt; END state (state ex: word, char, number, fraction...)](#from-start--gt-end-state-state-ex-word-char-number-fraction)
+- [Hash Table](#hash-table)
+- [Heap](#heap)
+  - [Kth smallest/Largest...](#kth-smallestlargest)
+- [Intervals](#intervals)
+  - [Greedy](#greedy-1)
+  - [Segmant/Interval Trees](#segmantinterval-trees)
+- [Linked List](#linked-list)
+  - [Reverse](#reverse)
+- [Math](#math)
+  - [Division](#division)
+  - [Prime](#prime)
+  - [Calculator](#calculator)
+  - [Pow / SQRT](#pow--sqrt)
+  - [Area](#area)
+  - [Counting](#counting)
+    - [Permutation](#permutation)
+      - [Find kth value](#find-kth-value)
+  - [Series / Sequence](#series--sequence)
+- [Pointers](#pointers)
+  - [Left / Right Pointers](#left--right-pointers)
+    - [Swaping Values](#swaping-values)
+    - [Sliding window](#sliding-window)
+      - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
+      - [Rabin-Karp](#rabin-karp)
+  - [Start / End Pointers](#start--end-pointers)
+    - [Calculate Value btw them](#calculate-value-btw-them)
+  - [Pointer for each String/Array](#pointer-for-each-stringarray)
+- [Regex](#regex)
+- [Search](#search)
+  - [Median](#median)
+  - [Mapping](#mapping)
+  - [D&amp;G](#dampg)
+    - [Quick Select](#quick-select)
+    - [Binary Search](#binary-search)
+      - [Rotated Sorted Arraay](#rotated-sorted-arraay)
+  - [Other](#other)
+- [Serialization / Deserialization / Decoding](#serialization--deserialization--decoding)
+- [Sorting](#sorting-1)
+  - [Merge Sort](#merge-sort)
+    - [K sorted lists](#k-sorted-lists)
+  - [Paitence Sort](#paitence-sort)
+  - [Radix Sort](#radix-sort)
   - [Random](#random)
+  - [Tag Sort](#tag-sort)
+  - [Top X](#top-x)
+- [String](#string)
+  - [Shifting](#shifting)
+  - [Random](#random-1)
+- [SQL](#sql)
+- [Trie](#trie)
+  - [Design](#design-1)
+  - [Prefix/Word Search](#prefixword-search)
+    - [Match Prefix/Word with DIFF](#match-prefixword-with-diff)
+    - [Match Concatination of Words](#match-concatination-of-words)
+  - [List Lexo order](#list-lexo-order)
+  - [Next/Kth Enumeration/Value](#nextkth-enumerationvalue)
+    - [From Dictionary of words](#from-dictionary-of-words)
+    - [From given letters/digits](#from-given-lettersdigits)
+      - [Optimized by sorting](#optimized-by-sorting)
+- [Tree](#tree)
+  - [Functionality](#functionality)
+  - [Red/Black](#redblack)
+  - [Augmented BST](#augmented-bst)
+  - [Traversal](#traversal)
+    - [Level By Level](#level-by-level)
+    - [Recursive](#recursive)
+    - [Iterative](#iterative)
+  - [Finding (in) Path](#finding-in-path)
+  - [Serialize / Deserialize BST](#serialize--deserialize-bst)
+  - [Equality in BST](#equality-in-bst)
+  - [Segment Tree / Fenwick](#segment-tree--fenwick)
+    - [Search for All intervals that contain a query point](#search-for-all-intervals-that-contain-a-query-point)
+    - [Sum of Given Range](#sum-of-given-range)
+    - [Range Minimum Query](#range-minimum-query)
+- [Union-Find](#union-find)
+  - [Disjoint Sets](#disjoint-sets)
+    - [Number of diff Sets](#number-of-diff-sets)
+<li>Reshape the Matrix</li>
+</ul>](#ul-lireshape-the-matrixli-ul)
+  - [Random Questions](#random-questions)
+- [Amortization](#amortization)
+  - [Remove unwanted Previous O(1) (using Linked List)](#remove-unwanted-previous-o1-using-linked-list)
+    - [Next Greater / Max O(1)](#next-greater--max-o1)
+    - [Remove Smaller/Bigger elements O(1)](#remove-smallerbigger-elements-o1)
+- [Array](#array)
+  - [Swipe left + Swipe right](#swipe-left--swipe-right)
+  - [Inplace manipulation](#inplace-manipulation)
+    - [Find missing values in array size n and values 1&lt; a[i] &lt; n (if t found then negate a[t] it means its marked)](#find-missing-values-in-array-size-n-and-values-1lt-ai-lt-n-if-t-found-then-negate-at-it-means-its-marked)
+    - [Min/Max of moves to make array values reach a cndt (ex: all values are equal)](#minmax-of-moves-to-make-array-values-reach-a-cndt-ex-all-values-are-equal)
+  - [Sorting](#sorting)
+      - [K sum Problems](#k-sum-problems)
+  - [Traversing](#traversing)
+  - [Random Questions](#random-questions)
+- [Bit Manipulation](#bit-manipulation)
+  - [use bits as states](#use-bits-as-states)
+  - [Bit Range Masking](#bit-range-masking)
+- [Boyer-Moore Algo](#boyer-moore-algo)
+- [Cumulative Sum](#cumulative-sum)
+  - [Immutable](#immutable)
+- [Cycle](#cycle)
+  - [Floyd's Tortoise and Hare](#floyds-tortoise-and-hare)
+- [Design](#design)
+  - [Random Flip Matrix](#random-flip-matrix)
+  - [TinyURL](#tinyurl)
+  - [Tic-Tac-Toe](#tic-tac-toe)
+  - [Cache](#cache)
+  - [Iterator](#iterator)
+  - [Amortization O(1)](#amortization-o1)
+- [DP](#dp)
+  - [1. Back-Tracking](#1-back-tracking)
+    - [Output All Combinations/Permutations](#output-all-combinationspermutations)
+      - [Which Value At index I (for I: start -&gt; end)](#which-value-at-index-i-for-i-start--gt-end)
+      - [Multiple choices for index I (ex: take or leave)](#multiple-choices-for-index-i-ex-take-or-leave)
+    - [Count/Answer using DFS (need to know all combinations)](#countanswer-using-dfs-need-to-know-all-combinations)
+      - [Which Value At index I (for I: start -&gt; end) 2](#which-value-at-index-i-for-i-start--gt-end-2)
+      - [Multiple choices for index I (ex: take or leave) 2](#multiple-choices-for-index-i-ex-take-or-leave-2)
+    - [DFS/BFS in Matrix](#dfsbfs-in-matrix)
+  - [2. Normal DP](#2-normal-dp)
+    - [DFS + MEMO](#dfs--memo)
+      - [Matrix](#matrix)
+    - [KnapSack Style](#knapsack-style)
+    - [Suffix x[i:n] / Prefix x[0:i] / Topo Sort](#suffix-xin--prefix-x0i--topo-sort)
+      - [MAX / MIN](#max--min)
+        - [Several Options/States (ex: rob or dont rob)](#several-optionsstates-ex-rob-or-dont-rob)
+      - [COUNT](#count)
+      - [TRUE / FALSE (think of Rec + Memo)](#true--false-think-of-rec--memo)
+      - [Find all possible answers](#find-all-possible-answers)
+    - [SubString x[i:j]](#substring-xij)
+- [Greedy](#greedy)
+- [Graphs](#graphs)
+  - [BFS / DFS](#bfs--dfs)
+    - [Level Traversal](#level-traversal)
+  - [TOPO Sort / Dependency](#topo-sort--dependency)
+  - [Dijkstra](#dijkstra)
+  - [From START -&gt; END state (state ex: word, char, number, fraction...)](#from-start--gt-end-state-state-ex-word-char-number-fraction)
+- [Hash Table](#hash-table)
+- [Heap](#heap)
+  - [Kth smallest/Largest...](#kth-smallestlargest)
+- [Intervals](#intervals)
+  - [Greedy](#greedy-1)
+  - [Segmant/Interval Trees](#segmantinterval-trees)
+- [Linked List](#linked-list)
+  - [Reverse](#reverse)
+- [Math](#math)
+  - [Division](#division)
+  - [Prime](#prime)
+  - [Calculator](#calculator)
+  - [Pow / SQRT](#pow--sqrt)
+  - [Area](#area)
+  - [Counting](#counting)
+    - [Permutation](#permutation)
+      - [Find kth value](#find-kth-value)
+  - [Series / Sequence](#series--sequence)
+- [Pointers](#pointers)
+  - [Left / Right Pointers](#left--right-pointers)
+    - [Swaping Values](#swaping-values)
+    - [Sliding window](#sliding-window)
+      - [Longest/Shortest Sequence/String](#longestshortest-sequencestring)
+      - [Rabin-Karp](#rabin-karp)
+  - [Start / End Pointers](#start--end-pointers)
+    - [Calculate Value btw them](#calculate-value-btw-them)
+  - [Pointer for each String/Array](#pointer-for-each-stringarray)
+- [Regex](#regex)
+- [Search](#search)
+  - [Median](#median)
+  - [Mapping](#mapping)
+  - [D&amp;G](#dampg)
+    - [Quick Select](#quick-select)
+    - [Binary Search](#binary-search)
+      - [Rotated Sorted Arraay](#rotated-sorted-arraay)
+  - [Other](#other)
+- [Serialization / Deserialization / Decoding](#serialization--deserialization--decoding)
+- [Sorting](#sorting-1)
+  - [Merge Sort](#merge-sort)
+    - [K sorted lists](#k-sorted-lists)
+  - [Paitence Sort](#paitence-sort)
+  - [Radix Sort](#radix-sort)
+  - [Random](#random)
+  - [Tag Sort](#tag-sort)
+  - [Top X](#top-x)
+- [String](#string)
+  - [Shifting](#shifting)
+  - [Random](#random-1)
 - [SQL](#sql)
 - [Trie](#trie)
   - [Design](#design-1)
@@ -380,8 +651,44 @@
   - transform the logical explanation into the code
   - check solution
 
+- [Longest Line of Consecutive One in Matrix](http://shibaili.blogspot.com/2018/11/562-longest-line-of-consecutive-one-in.html)
+  - can do it in O(n^2) instead of O(n^3)
+
 - [Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)
   - just did it in the dump way O(n^2)
+
+- [Array Nesting](https://leetcode.com/problems/array-nesting/)
+  - its easy to do it in O(n ^2) but the idea here is how to do it in O(n)
+  - [check explanation](https://leetcode.com/problems/array-nesting/solution/)
+  - How I solved the problem:
+    - In the given it shows that all the values in the array are distinct since array contains values from 0 -> N-1
+    - When u notice the above then u can notice that the only duplication u could reach is when u jump from one value to another until u reach the value where u started ur jump
+    - Then u can save everytime u reached to an index a flag it as visited
+      - =>  __VIP Note:__ **u dont need to revisit this index again. Why?**
+        - cz this already visited index if u start the jump from it u will reach the same length when u initially visited it since it would be a cycle
+    - => time: O(n)
+
+- [Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix/)
+  - [solution](https://leetcode.com/problems/reshape-the-matrix/solution/)
+    ``` java
+        public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int[][] res = new int[r][c];
+        if (nums.length == 0 || r * c != nums.length * nums[0].length)
+            return nums;
+        int rows = 0, cols = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[0].length; j++) {
+                res[rows][cols] = nums[i][j];
+                cols++;
+                if (cols == c) {
+                    rows++;
+                    cols = 0;
+                }
+            }
+        }
+        return res;
+    }
+    ```
 
 ---
 
@@ -537,6 +844,9 @@
     - upon every index try to find diff = currentCummulaticeSum - k if it exists. If yes fint the length of the subarray that sums to k
     - I used ideas from **Range Sum Query - Immutable**
   - time: O(n) space: O(n)
+
+- [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+  - same as **Maximum Size Subarray Sum Equals k**
 
 - [Max Sum of Rectangle No Larger Than K](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/description/)
 
@@ -1974,6 +2284,12 @@
     - skip(val) = (u - val _ (a^(|u| - 1) mod p) mod p = ((u mod p) - val _ (a^(|u| - 1) mod p)) mod p
   - [Knuth-Morris-Pratt](https://www.youtube.com/watch?v=D6dCOa_gMoY)
 
+- [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+  - keep to pointers left and right 
+  - keep on incrementing the right until the cum >= k
+    - then start incrementing the left until u reach cum < k || left == right
+  - [solution](https://leetcode.com/problems/subarray-product-less-than-k/solution/)
+
 #### Longest/Shortest Sequence/String
 
 **_Hints_**
@@ -2654,6 +2970,13 @@ public class Solution {
   * they did it something similar to Bucket sort but modified they dont put all the number just the MAX and MIN
   * check their solution VVVVVIIIIIPPPPPPPPP
 
+---
+
+## Random
+
+- [Array Partition I](https://leetcode.com/problems/array-partition-i/)
+  - in order to calculate the min btw pairs the algo is a greedy solution where every time u try to take always the greatest min u could ever take btw 2 values
+  - => in order to do so sort the array in asc and let the pairs be adjecent numbers 
 
 ---
 
@@ -2713,6 +3036,12 @@ public class Solution {
 - [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
   - use String.split("\\s")
   - and then use StringJoiner
+
+
+- [Student Attendance Record I](https://leetcode.com/problems/student-attendance-record-i/)
+  - its just a normal iteration over the string
+  - and checking the condition need so that the student is not rewareded 
+    - Cond: "A student could be rewarded if his attendance record doesn't contain more than one 'A' (absent) or more than two continuous 'L' (late)."
 
 ---
 
@@ -3042,6 +3371,14 @@ public class Solution {
 - [Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)
   - traverse right -> me -> left in order to sum the values correctly
 
+- [Quad Tree Intersection](https://leetcode.com/problems/quad-tree-intersection/)
+  - its a simple recursion of the children nodes
+  - its like a Tree with 4 children
+
+- [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/)
+  - used Post order traversal
+  - at every level i take the max depth of my children and add by 1
+  - similar to **Binary Tree Maximum Path Sum**
 
 ### Iterative
 
