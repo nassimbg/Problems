@@ -22,7 +22,7 @@
       - [Decoding](#decoding)
   - [D&G](#dg)
   - [Data Structures](#data-structures)
-    - [Hints:](#hints)
+    - [Hints:](#hints-2)
       - [Linked list](#linked-list)
       - [Queue and Stack](#queue-and-stack)
       - [Iterator](#iterator)
@@ -30,10 +30,10 @@
         - [RESERVOIR SAMPLING (Very Large Input)](#reservoir-sampling-very-large-input)
   - [Design](#design)
   - [Math](#math)
-    - [Hints](#hints-2)
+    - [Hints](#hints-3)
     - [Problems](#problems-5)
   - [Bit Manipulation](#bit-manipulation)
-    - [Hints](#hints-3)
+    - [Hints](#hints-4)
     - [Problems](#problems-6)
       - [Using Constants](#using-constants)
 - [General Information](#general-information)
@@ -157,11 +157,6 @@ ___
   * __use Morris Traversal__
 
 ____
-
-- [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
-  * I used the stack based Algo with some modifications
-  * check the code I wrote with its comments
-  * NICE question
 
 - [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
   * VVVVVVVVIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP problem
@@ -641,29 +636,6 @@ ____
   * to encode the list<String> to string => for ever String in the list we add at the end of it # and the length of that string
 
 ____
-
-
-
-- [Remove Duplicate Letters](https://leetcode.com/problems/remove-duplicate-letters/description/)
-  * VVVVVVVVVVIIIIIIIPPPPPPPPPPP
-  *  __Needs REVIEW__
-  * __Practice this problem more__
-  * This problem use a small idea from the __*Min Stack* DS problem__ which is:
-      - when u insert you check:
-        1. if the inserted char is smaller than the head of the stack
-        2. if the char in the head of stack exists in the string after the inserted char (to garanty that the head will be present in the result)
-
-        - if yes => pop head from stack
-        - if no => push the current char
-      - above cnd is in a while()
-
-  * Time: O(n), Space: O(n)      
-  * Explanation:
-                First, given "bcabc", the solution should be "abc". If we think about this problem intuitively, you would sort of go from the beginning of the string and start removing one if there is still the same character left and a smaller character is after it. Given "bcabc", when you see a 'b', keep it and continue with the search, then keep the following 'c', then we see an 'a'. Now we get a chance to get a smaller lexi order, you can check if after 'a', there is still 'b' and 'c' or not. We indeed have them and "abc" will be our result.
-
-        Come to the implementation, we need some data structure to store the previous characters 'b' and 'c', and we need to compare the current character with previous saved ones, and if there are multiple same characters, we prefer left ones. This calls for a stack.
-
-        After we decided to use stack, the implementation becomes clearer. From the intuition, we know that we need to know if there are still remaining characters left or not. So we need to iterate the array and save how many each characters are there. A visited array is also required since we want unique character in the solution. The line while(!stack.isEmpty() && stack.peek() > c && count[stack.peek()-'a'] > 0) checks that the queued character should be removed or not, like the 'b' and 'c' in the previous example. After removing the previous characters,push in the new char and mark the visited array.
 
 
 - [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/description/)

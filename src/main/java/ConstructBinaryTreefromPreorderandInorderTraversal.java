@@ -1,8 +1,47 @@
 import java.util.ArrayDeque;
+import java.util.Deque;
 
 import common.TreeNode;
 
 public class ConstructBinaryTreefromPreorderandInorderTraversal {
+
+
+   public TreeNode buildTree2(int[] inorder, int[] preorder) {
+
+      TreeNode current = null;
+      TreeNode root = null;
+      Deque<TreeNode> stack = new ArrayDeque<>();
+
+      int indexInOrder = 0;
+      int indexPreOrder = 0;
+      while(indexPreOrder < preorder.length || !stack.isEmpty()) {
+         while(indexPreOrder < preorder.length && ( indexPreOrder == 0 || preorder[indexPreOrder - 1] != inorder[indexInOrder])) {
+            //do something for preOrder
+            TreeNode temp = new TreeNode(preorder[indexPreOrder]);
+            if (current != null) {
+               current.left = temp;
+            } else {
+               root = temp;
+            }
+            current = temp;
+            stack.addLast(current);
+            indexPreOrder++;
+         }
+
+         while(!stack.isEmpty() && inorder[indexInOrder] == stack.peekLast().val) {
+            indexInOrder++;
+            current = stack.pollLast();
+         }
+
+         if (indexPreOrder < preorder.length) {
+            current = current.right = new TreeNode(preorder[indexPreOrder++]);
+            stack.addLast(current);
+         }
+      }
+
+      return root;
+   }
+
    public static TreeNode buildTree(int[] preorder, int[] inorder) {
 
       if (preorder.length == 0 || inorder.length == 0) {
