@@ -695,11 +695,6 @@ ____
 
   - simpler version of Edit Distance which only takes O(n + m) time
 
-- [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/description/)
-
-  - check [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) which was solved using recursion
-  - solved this problem using topo sort
-  - its a DP similar to Edit Distance with some modifications
 
 - [N-Queens](https://leetcode.com/problems/n-queens/)
 

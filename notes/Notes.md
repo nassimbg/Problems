@@ -1400,11 +1400,18 @@
   - somehow we have to find dp[n] = max(min(...), min(....))
   - [solution](https://leetcode.com/problems/nim-game/discuss/134338/Formal-way-of-dynamic-programming-(DP))
 
-* [Frog Jump](https://leetcode.com/problems/frog-jump/description/)
+- [Frog Jump](https://leetcode.com/problems/frog-jump/description/)
   - Iterative DP
   - **prefix problem x[0: i]**
   - Time: O(n^2) space O(n^2)
   - we iterate over every stone and then look at all previous stones to check if we can reach current stone from previous one (under cnd newK [oldK - 1, oldK + 1])
+
+- [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/description/)
+
+  - check [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) which was solved using recursion
+  - solved this problem using topo sort
+  - its a DP similar to Edit Distance with some modifications
+
 
 #### Find all possible answers
 
