@@ -349,10 +349,6 @@ ____
 - [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/discuss/)
   * Think like the problem of water container where you start from left and right.
   
-- [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/solution/)
-  * solved it with changing the next pointer of every node we iterate over to point to a dummy
-  * Slow and fast solution is a [nice solution](http://web.archive.org/web/20160323172731/http://learningarsenal.info/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/)
-
 - [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/discuss/)
   * __*VEERYYYYY HARDDDD*__
   * __Practice this problem more__   
@@ -399,8 +395,8 @@ ____
 - [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/solution/)
   * My solution :     
   1. get the min lenght of two lists
-    2. start both lists from this length away from the end of list
-    3. then start iterating over both lists => the point they intersect is the intersection way
+    1. start both lists from this length away from the end of list
+    2. then start iterating over both lists => the point they intersect is the intersection way
   * Their solution: looks like __Linked List Cycle II__ problem [check it out](https://leetcode.com/problems/intersection-of-two-linked-lists/solution/)
 
 - [Plus One Linked List](https://www.programcreek.com/2014/08/leetcode-plus-one-linked-list-java/)

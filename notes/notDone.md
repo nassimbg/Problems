@@ -270,9 +270,6 @@ ____
   * at end link the last child in dummyHead to the first child in dummyX
 
 
-- [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/solution/)
-  * solved it with changing the next pointer of every node we iterate over to point to a dummy
-  * Slow and fast solution is a [nice solution](http://web.archive.org/web/20160323172731/http://learningarsenal.info/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/)
 
 - [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/discuss/)
   * __*VEERYYYYY HARDDDD*__
@@ -923,15 +920,6 @@ ____
   - => if we reach a diff char loop over all children in current TrieNode
 
 
-- [Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/description/)
-  - VVVVVVVVVVVIIIIIIIIIIIIPPPPPPPPPPPPPPPPPP
-  - **STUDY THIS PROBLEM**
-  - **Needs REVIEW**
-  - I used DFS to implement a TRIE in order to solve the problem
-  - it uses the [Trie tree](
-  - why Trie? since as mentioned in its definition **a Trie is used to enumerate a set of string according to their Lexi order**
-
-
 
 - [Course Schedule](https://leetcode.com/problems/course-schedule/description/
 
@@ -1345,29 +1333,6 @@ ____
 
 ---
 
-
-
-**_Hints_**
-
-- pay attention when calculating the mid (from **overflow**)
-  - do **int mid = start + ((end-start) /2)**
-
-**_Problems_**
-
-- [Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/description/)
-  - its a normal binary search
-  - the trick here is to watch for __overflow__ when calculating the mid
-    - so dont write int mid = (start + end)/2
-    - u should write  int mid = start + ((end-start) /2);
-  - [solution](https://leetcode.com/articles/guess-number-higher-or-lower/)
-
----
-
----
-
----
-
----
 
 
 

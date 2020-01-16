@@ -1155,7 +1155,7 @@
 
 - [Edit distance](https://leetcode.com/problems/edit-distance/)
 
-  - DP problem which is similar to wildcard matching and Regular Expression Matching problems
+  - DP problem which is similar to  and Regular Expression Matching problems
 
 - [Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)
   - **similar to Edit distance**
@@ -1167,7 +1167,7 @@
 
   - simpler version of Edit Distance which only takes O(n + m) time
 
-- [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/description/)
+- [](https://leetcode.com/problems/wildcard-matching/description/)
 
   - check [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) which was solved using recursion
   - solved this problem using topo sort
@@ -1406,7 +1406,7 @@
   - Time: O(n^2) space O(n^2)
   - we iterate over every stone and then look at all previous stones to check if we can reach current stone from previous one (under cnd newK [oldK - 1, oldK + 1])
 
-- [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/description/)
+- [](https://leetcode.com/problems/wildcard-matching/description/)
 
   - check [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/) which was solved using recursion
   - solved this problem using topo sort
@@ -1648,6 +1648,27 @@
   - sort then create hashTable
   - remember BitSetWithRank code
 
+- [Longest Harmonious Subsequence](https://leetcode.com/problems/longest-harmonious-subsequence/)
+  - I did it in O(n) with hashtable but their solution is much simpler
+    - their Algo:
+      - they just saved the freq per val in the map
+      - and then check for map.get(num) + map.get(num + 1) or map.get(num) + map.get(num - 1)
+  - [solution](https://leetcode.com/problems/longest-harmonious-subsequence/solution/)
+  ``` java
+    public int findLHS(int[] nums) {
+        HashMap < Integer, Integer > map = new HashMap < > ();
+        int res = 0;
+        for (int num: nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            if (map.containsKey(num + 1))
+                res = Math.max(res, map.get(num) + map.get(num + 1));
+            if (map.containsKey(num - 1))
+                res = Math.max(res, map.get(num) + map.get(num - 1));
+        }
+        return res;
+    }
+  
+  ```
 
 ---
 
@@ -1799,6 +1820,11 @@
    * nice soltuion to do it in O(n) time and O(1) space
    * its all about how to manipulate the pointers to make this achieve complexity
    * VVVVIIIIPPPPPPPPP
+
+- [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/solution/)
+  * solved it with changing the next pointer of every node we iterate over to point to a dummy
+  * Slow and fast solution is a [nice solution](http://web.archive.org/web/20160323172731/http://learningarsenal.info/index.php/2015/08/24/detecting-start-of-a-loop-in-singly-linked-list/)
+
 
 ## Reverse
 
@@ -2484,8 +2510,10 @@ public class Solution {
 
 **_Hints_**
 
-- pay attention when calculating the mid (from **overflow**)
-  - do **int mid = (start + end) >>> 1**
+- pay attention when calculating the mid (from **overflow**) use **int mid = low + ((high - low) / 2)**
+  - do **int mid = (start + end) >>> 1** __if its values are position__
+  - => if values may be negative => use **int mid = low + ((high - low) / 2)**
+    - since it will break https://stackoverflow.com/questions/19106350/explanation-of-the-safe-average-of-two-numbers
 - check oneNote for explanation
 
 **_Problems_**
