@@ -2866,15 +2866,12 @@ public class Solution {
   - [tutorial](http://fellowtuts.com/mysql/query-to-obtain-rank-function-in-mysql/)
 
 - [Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers/discuss/)
-
   - 3 consecutive Numbers should be the same => use 3 joins
 
 - [Employees Earning More Than Their Managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/discuss/)
-
   - join table with itself
 
 - [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/description/)
-
   - use having to get count > 1
 
 - [Customers Who Never Order](https://leetcode.com/problems/customers-who-never-order/description/)
@@ -2898,6 +2895,12 @@ public class Solution {
   - use [BETWEEN](https://www.techonthenet.com/mysql/between.php)
   - use [ROUND](https://dev.mysql.com/doc/refman/5.7/en/mathematical-functions.html#function_truncate)
   - [solution](https://leetcode.com/problems/trips-and-users/discuss/69151)
+
+-[Managers with at Least 5 Direct Reports](https://leetcode.com/articles/managers-with-at-least-5-direct-reports/)
+  - its a normal join with the join condition containing count(*) >= 5
+
+- [Winning Candidate](https://leetcode.com/articles/winning-candidate/)
+  - use join with count(*)
 
 ---
 
