@@ -1670,6 +1670,11 @@
   
   ```
 
+- [Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists/)
+  - iterate over the smaller list to build from it a hash table mapping the restaurant name to its index in the list
+  - then iterate over the larger list to find if a restaurant exist in the map and then add their indexes
+  - [solution](https://leetcode.com/problems/minimum-index-sum-of-two-lists/solution/)
+
 ---
 
 ---
@@ -2901,6 +2906,10 @@ public class Solution {
 
 - [Winning Candidate](https://leetcode.com/articles/winning-candidate/)
   - use join with count(*)
+
+- [Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students/)
+  - use __having count(distinct student) >= 5__
+  - [solution](https://leetcode.com/problems/classes-more-than-5-students/solution/)
 
 ---
 
