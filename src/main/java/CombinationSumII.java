@@ -48,7 +48,7 @@ public class CombinationSumII {
     * SOlved using Backtracking (Output all Comb (Output array size DONT matter) Algo 2)
     * check oneNote for more info
     */
-   public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+   public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
       List<List<Integer>> results = new ArrayList<>();
       Arrays.sort(candidates);
       dfs(candidates, target, 0, new ArrayDeque<>(), new boolean[candidates.length], results);

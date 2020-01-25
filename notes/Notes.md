@@ -2650,7 +2650,6 @@ public class Solution {
     - when deserializing **use the length of children** to know how many children per node
 
 * [Encode and Decode Strings](http://buttercola.blogspot.com/2015/09/leetcode-encode-and-decode-strings.html)
-
   - the solution that i did is the same as in the link above
   - to encode the list<String> to string => for every String in the list we add at the end of it
 
@@ -2851,6 +2850,7 @@ public class Solution {
 - DATE FUNCTIONS:
 - [DATE_SUB](https://w3resource.com/mysql/date-and-time-functions/mysql-date_sub-function.php),
 - [DATEDIFF](https://w3resource.com/mysql/date-and-time-functions/mysql-datediff-function.php)
+- **UNION ALL**
 
 **_Problems_**
 
@@ -2910,6 +2910,46 @@ public class Solution {
 - [Classes More Than 5 Students](https://leetcode.com/problems/classes-more-than-5-students/)
   - use __having count(distinct student) >= 5__
   - [solution](https://leetcode.com/problems/classes-more-than-5-students/solution/)
+
+- [Human Traffic of Stadium](https://leetcode.com/problems/human-traffic-of-stadium/)
+  - they want: display the records which have 3 or more consecutive rows and the amount of people more than 100(inclusive).
+  - [their solution](https://leetcode.com/problems/human-traffic-of-stadium/solution/)
+    - I think their solution is better than mine cz they just used 3 joins
+  - my solution
+    ``` sql
+    select id, visit_date, people
+    from stadium A
+    where A.people >= 100 and 
+      ( 
+        2 = (
+              select count(*)
+              from stadium B
+              where (A.id = B.id + 1 or A.id = B.id + 2) and B.people >= 100
+          )
+          or 
+          2 = (
+              select count(*)
+              from stadium B
+              where (A.id = B.id + 1 or A.id = B.id - 1) and B.people >= 100
+          )
+          or 
+          2 = (
+              select count(*)
+              from stadium B
+              where (A.id = B.id -1 or A.id = B.id -2) and B.people >= 100
+          )
+      )
+    ```
+
+- [Consecutive Available Seats](https://nifannn.github.io/2017/10/25/SQL-Notes-Leetcode-603-Consecutive-Available-Seats/)
+  - similar to **Human Traffic of Stadium**
+
+- [Friend Requests II: Who Has Most Friend?](https://leetcode.com/articles/friend-requests-ii-who-has-most-friend/)
+  - they used **UNION ALL**
+  - I solved it instead using Join
+  
+- [Tree Node](https://leetcode.com/articles/tree-node/)
+  - did it exactly like the most optimized solution in the above article using CASE WHEN
 
 ---
 
@@ -3094,6 +3134,13 @@ public class Solution {
   - => we can traverse level by level an set the first value in every level as a left most until we reach the end
   - why setting the first value?
     - cz we are doing a BFS starting from left to right at every level
+
+- [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+  * do it in O(n) time and O(1) space (no need for recursion)
+  * perform the algo level by level, so when you finish a level with filling their next pointers go to the next level and do the same until you finish all the level from the root to the leaves' level
+  * VVVVVVVVIIIIIIIIIIIPPPPPPP check explanation in code(intellij) and check pic in the problem for more understanding
+  * __Practice this problem more__ [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
+
 
 ### Recursive
 

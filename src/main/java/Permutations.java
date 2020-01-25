@@ -7,7 +7,7 @@ public class Permutations {
    /**
     * backtracking solution
     */
-   public List<List<Integer>> permute(int[] nums) {
+   public static List<List<Integer>> permute(int[] nums) {
       List<List<Integer>> results = new ArrayList<>();
       dfs(nums, 0,  new ArrayDeque<>(), results, new boolean[nums.length]);
       return results;

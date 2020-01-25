@@ -19,7 +19,6 @@
   - [String](#string)
     - [Problems](#problems-4)
       - [Excel](#excel)
-      - [Decoding](#decoding)
   - [D&G](#dg)
   - [Data Structures](#data-structures)
     - [Hints:](#hints-2)
@@ -207,11 +206,6 @@ ____
   * Did it in a recursive way (check my solution)
   * __VERY NICE SOLUTION__ others did it in an iterative way with O(1) space
 
-- [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
-  * do it in O(n) time and O(1) space (no need for recursion)
-  * perform the algo level by level, so when you finish a level with filling their next pointers go to the next level and do the same until you finish all the level from the root to the leaves' level
-  * VVVVVVVVIIIIIIIIIIIPPPPPPP check explanation in code(intellij) and check pic in the problem for more understanding
-  * __Practice this problem more__ [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
 
 - [Binary Tree Upside Down](http://bangbingsyb.blogspot.com/2014/11/leetcode-binary-tree-upside-down.html)
   * this question is locked in LeetCode
@@ -624,12 +618,6 @@ ____
 
 - [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number/)
   * similar to __Excel Sheet Column Title__
-____
-
-#### Decoding
-- [Encode and Decode Strings](http://buttercola.blogspot.com/2015/09/leetcode-encode-and-decode-strings.html)
-  * the solution that i did is the same as in the link above
-  * to encode the list<String> to string => for ever String in the list we add at the end of it # and the length of that string
 
 ____
 
