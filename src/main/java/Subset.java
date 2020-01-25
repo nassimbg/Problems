@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class Subset {
@@ -24,6 +26,26 @@ public class Subset {
             container.remove(container.size() - 1);
          }
 
+      }
+   }
+
+
+   public List<List<Integer>> subsets2(int[] nums) {
+      List<List<Integer>> results = new ArrayList<>();
+      dfs2(nums, 0, new ArrayDeque<>(), results);
+      return results;
+   }
+
+   private static void dfs2(int[] nums, int index, Deque<Integer> currentResult, List<List<Integer>> results) {
+      if (index == nums.length) {
+         results.add(new ArrayList<>(currentResult));
+      } else {
+         for (int i = index; i < nums.length; i++) {
+            currentResult.addLast(nums[i]);
+            dfs2(nums, i + 1, currentResult, results);
+            currentResult.pollLast();
+            dfs2(nums, i + 1, currentResult, results);
+         }
       }
    }
 }

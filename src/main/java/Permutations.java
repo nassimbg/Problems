@@ -1,9 +1,35 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class Permutations {
+   /**
+    * backtracking solution
+    */
+   public List<List<Integer>> permute(int[] nums) {
+      List<List<Integer>> results = new ArrayList<>();
+      dfs(nums, 0,  new ArrayDeque<>(), results, new boolean[nums.length]);
+      return results;
+   }
 
-   public static List<List<Integer>> permute(int[] nums) {
+   private static void dfs(int[] nums, int start, Deque<Integer> currentResult, List<List<Integer>> results, boolean[] taken) {
+      if (currentResult.size() == nums.length) {
+         results.add(new ArrayList<>(currentResult));
+      } else {
+         for (int i = start; i < nums.length; i++) {
+            if (!taken[i]) {
+               taken[i] = true;
+               currentResult.addLast(nums[i]);
+               dfs(nums, i+1, currentResult, results, taken);
+               currentResult.pollLast();
+               taken[i] = false;
+            }
+         }
+      }
+   }
+
+   public static List<List<Integer>> permute2(int[] nums) {
       List<List<Integer>> rightList = new ArrayList<>(nums.length);
       List<Integer> emptyPermutation = new ArrayList<>(nums.length);
       for (int i = 0; i < nums.length; i++) {
