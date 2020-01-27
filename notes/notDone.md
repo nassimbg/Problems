@@ -127,14 +127,6 @@ ____
 
 
 
-- [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/)
-  * this could be done in O(n) recursively
-  * its done in a D&C way
-    1. we get the mid point (O(1)) like binary search algo
-    2. recurse to the left and right
-    3. assgine the nodes returned from left and right as children of the midpoint
-
-
 
 - [Path Sum III](https://leetcode.com/problems/path-sum-iii/description/)
   - check note in order note.md in cummulative section
@@ -384,19 +376,6 @@ ____
     * for every column do 1D find peak
     * time: O(logn * logm) 
 
-
-
-
-____
-
-- [Rotate Array](https://leetcode.com/problems/rotate-array/description/)
-  * many solution to solve this problem
-  * VVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
-  * One interesting solution which is not intuative:
-    - reverse all array
-    - reverse 0...k-1
-    - reverse k...array.lenght -1
-  * check [solution](https://leetcode.com/problems/rotate-array/solution/)
 
 - [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/description/)
   * find indices absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k

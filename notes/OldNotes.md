@@ -185,12 +185,6 @@ ____
   * check my code in intellij
   * my solution can be refactored to become like [their solution](https://kennyzhuang.gitbooks.io/leetcode-lock/content/255_verify_preordersequence_in_binary_search_tree.html)
 
-- [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/)
-  * this could be done in O(n) recursively
-  * its done in a D&C way
-    1. we get the mid point (O(1)) like binary search algo
-    2. recurse to the left and right
-    3. assgine the nodes returned from left and right as children of the midpoint
 
 - [Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
   * Pay attention that the **condition holds if we are on a leaf node and the sum == 0** and not when reaching a null node 
@@ -464,14 +458,7 @@ _____
 
 ____
 
-- [Rotate Array](https://leetcode.com/problems/rotate-array/description/)
-  * many solution to solve this problem
-  * VVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
-  * One interesting solution which is not intuative:
-    - reverse all array
-    - reverse 0...k-1
-    - reverse k...array.lenght -1
-  * check [solution](https://leetcode.com/problems/rotate-array/solution/)
+
 
 - [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/description/)
   * find indices absolute difference between nums[i] and nums[j] is at most t and the absolute difference between i and j is at most k

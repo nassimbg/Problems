@@ -264,6 +264,16 @@
 
 ## Inplace manipulation
 
+
+- [Rotate Array](https://leetcode.com/problems/rotate-array/description/)
+  * many solution to solve this problem
+  * VVVVVVVVVVVVVVVIIIIIIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPP
+  * One interesting solution which is not intuative:
+    - reverse all array
+    - reverse 0...k-1
+    - reverse k...array.lenght -1
+  * check [solution](https://leetcode.com/problems/rotate-array/solution/)
+
 ### Find missing values in array size n and values 1< a[i] < n (if t found then negate a[t] it means its marked)
 
 - [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
@@ -2523,7 +2533,6 @@ public class Solution {
 
 **_Problems_**
 
-
 - [H-Index II](https://leetcode.com/problems/h-index-ii/description/)
 
   - can be solved in binary search
@@ -3144,6 +3153,12 @@ public class Solution {
 
 ### Recursive
 
+- [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/)
+  * this could be done in O(n) recursively
+  * its done in a D&C way
+    1. we get the mid point (O(1)) like binary search algo
+    2. recurse to the left and right
+    3. assgine the nodes returned from left and right as children of the midpoint
 
 - [N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)
   - normal pre order traversal
