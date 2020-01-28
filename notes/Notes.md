@@ -2088,10 +2088,11 @@
 
 **_Hints_**
 
-- Generic Pattern 1 vs Generic Pattern 2:
+- Generic Pattern 1 vs Generic Pattern 2: (**VVVIIIPPPPPP** check **Minimum Window Substring** problem to see the diff btw the 2 patterns)
   - 1: end starts from 0; 
   - 2: end start from -1
 
+ 
 - Generic Pattern 1: end starts from 0;
   
   ``` java

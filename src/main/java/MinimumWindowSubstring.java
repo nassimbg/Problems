@@ -3,8 +3,74 @@ import java.util.Map;
 
 public class MinimumWindowSubstring {
 
+   public String minWindow(String s, String t) {
 
-   public static String minWindow(String s, String t) {
+      Map<Character, Integer> freqPerChar = new HashMap<>();
+      int length = t.length();
+      for (int index = 0; index < length; index++) {
+         freqPerChar.compute(t.charAt(index), (k, v) -> v == null ? 1 : v + 1);
+      }
+
+      int totalNumberOfCharsNeeded = t.length();
+
+      int bestLeft = 0;
+      int bestRight = Integer.MAX_VALUE;
+
+      int leftIndexS = 0;
+      int rightIndexS = 0;
+      int numberOfCharsTook = 0;
+      Map<Character, Integer> currentCharsTook = new HashMap<>();
+
+      int sLength = s.length();
+      while (leftIndexS < sLength && rightIndexS < sLength) {
+
+         while (rightIndexS < sLength && numberOfCharsTook < totalNumberOfCharsNeeded) {
+            char c = s.charAt(rightIndexS);
+            int freqInT = freqPerChar.getOrDefault(c, 0);
+
+            if (freqInT != 0) {
+               int freqInCurrent = currentCharsTook.getOrDefault(c, 0);
+               currentCharsTook.put(c, freqInCurrent + 1);
+
+               if (freqInCurrent < freqInT) {
+                  numberOfCharsTook++;
+               }
+            }
+
+            if (numberOfCharsTook == totalNumberOfCharsNeeded && (rightIndexS - leftIndexS) < (bestRight - bestLeft)) {
+               bestRight = rightIndexS;
+               bestLeft = leftIndexS;
+            }
+            rightIndexS++;
+         }
+
+
+         while (leftIndexS < sLength && leftIndexS <= rightIndexS && numberOfCharsTook == totalNumberOfCharsNeeded) {
+            char c = s.charAt(leftIndexS++);
+            int freqInT = freqPerChar.getOrDefault(c, 0);
+
+            if (freqInT != 0) {
+               int freqInCurrent = currentCharsTook.getOrDefault(c, 0);
+               currentCharsTook.put(c, freqInCurrent - 1);
+
+               if (freqInCurrent <= freqInT) {
+                  numberOfCharsTook--;
+               }
+            }
+
+            if (numberOfCharsTook == totalNumberOfCharsNeeded && (rightIndexS - 1 - leftIndexS) < (bestRight - bestLeft)) {
+               bestRight = rightIndexS - 1;
+               bestLeft = leftIndexS;
+            }
+         }
+
+      }
+
+      return bestLeft > bestRight || bestRight == Integer.MAX_VALUE ? "" : s.substring(bestLeft, bestRight + 1);
+   }
+
+
+   public static String minWindowStartingFromMinus1(String s, String t) {
       Map<Character, Integer> countPerCharT = new HashMap<>();
 
       for (int i = 0; i < t.length(); i++) {
@@ -77,78 +143,4 @@ public class MinimumWindowSubstring {
 
       return s.substring(bestLeft,  bestRight);
    }
-
-   public static String minWindow2(String s, String t) {
-
-      if (s == null || s.equals("") || t == null || t.equals("")) {
-         return "";
-      }
-
-      int[] window = new int[128];
-      boolean[] exist = new boolean[128];
-      int distinctChars = 0;
-      for (int index = 0; index < t.length(); ++index) {
-         int charAt = t.charAt(index);
-
-         ++window[charAt];
-         exist[charAt] = true;
-         if(window[charAt] == 1) {
-            ++distinctChars;
-         }
-      }
-
-      int numberOfDistinctCharsReachedFreq = 0;
-
-      int startIndex = 0;
-      int endIndex = -1;
-      while (endIndex < s.length() - 1 && numberOfDistinctCharsReachedFreq < distinctChars) {
-         int endIndexChar = s.charAt(++endIndex);
-
-         if (exist[endIndexChar]) {
-            int value = --window[endIndexChar];
-            if (value == 0) {
-               ++numberOfDistinctCharsReachedFreq;
-            }
-         }
-      }
-
-      if (numberOfDistinctCharsReachedFreq < distinctChars) {
-         return "";
-      }
-
-      int bestStart = startIndex;
-      int bestEnd = endIndex;
-
-      while (true) {
-         int charAtStart = s.charAt(startIndex);
-         while(!exist[charAtStart] || window[charAtStart] != 0) {
-
-            if (exist[charAtStart]) {
-               ++window[charAtStart];
-            }
-            ++startIndex;
-            charAtStart = s.charAt(startIndex);
-         }
-
-         if (endIndex - startIndex < bestEnd - bestStart) {
-            bestEnd = endIndex;
-            bestStart = startIndex;
-         }
-
-         if (endIndex == s.length() - 1) {
-            return s.substring(bestStart, bestEnd + 1);
-         }
-
-         int charAtEndIndex = Integer.MIN_VALUE;
-
-         while (endIndex < s.length() - 1 && charAtEndIndex != charAtStart) {
-            charAtEndIndex = s.charAt(++endIndex);
-            if(exist[charAtEndIndex]) {
-               --window[charAtEndIndex];
-            }
-         }
-      }
-   }
-
-
 }
