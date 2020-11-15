@@ -3,6 +3,42 @@ import java.util.Map;
 
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
+
+   public static String longe(String s, int k) {
+      if (s == null || s.isEmpty()) {
+         return s;
+      }
+
+      int bestLeft = 0;
+      int bestRight = 0;
+      int left = 0;
+
+      Map<Character, Integer> chars = new HashMap<>();
+
+      for (int right = 0; right < s.length(); right++) {
+         final char ch = s.charAt(right);
+         chars.compute(ch, (ke, v) -> v == null ? 1 : v + 1);
+
+         if (chars.size() <= k && (bestRight - bestLeft) < (right - left))  {
+            bestLeft = left;
+            bestRight = right;
+         }
+
+         while (chars.size() > k) {
+            final char charAtLeft = s.charAt(left++);
+
+            chars.compute(charAtLeft, (ke, v) -> v == 1 ? null : v - 1);
+         }
+
+         if ((bestRight - bestLeft) < (right - left))  {
+            bestLeft = left;
+            bestRight = right;
+         }
+      }
+
+      return s.substring(bestLeft, bestRight + 1);
+   }
+
    public static String longest(String s, int k) {
       if (s == null || s.isEmpty()) {
          return s;
