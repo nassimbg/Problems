@@ -627,6 +627,10 @@
   - and every time find if we have a countOfDiff = map.get(currentSum - sum)
   - if we find => add countOfDiff to the count
 
+- [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
+  - you need to get the max cummulative sum between index i and i-k
+
+
 ---
 
 ---
