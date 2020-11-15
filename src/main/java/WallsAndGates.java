@@ -5,6 +5,44 @@ import common.Point;
 
 public class WallsAndGates {
 
+   static void fillVersion2(int[][] grid) {
+      if (grid.length == 0) {
+         return;
+      }
+      boolean[][] passed = new boolean[grid.length][ grid[0].length];
+      for (int i = 0; i < grid.length; i++) {
+         for (int j = 0; j < grid[0].length; j++) {
+            if (grid[i][j] == 0) {
+               fillDist(grid, passed, i, j, 0);
+            }
+         }
+      }
+   }
+
+   private static void fillDist(int[][] grid, boolean[][] passed, int i, int j, int dist) {
+      if (i < 0
+          || i >= grid.length
+          || j < 0
+          || j >= grid[i].length
+          || grid[i][j] == -1
+          || (grid[i][j] == 0 && dist > 0)
+          ||passed[i][j]) {
+         return;
+      }
+
+      if (grid[i][j] != 0) {
+         grid[i][j] = Math.min(dist, grid[i][j]);
+      }
+
+      passed[i][j] = true;
+      fillDist(grid, passed, i + 1, j, dist + 1);
+      fillDist(grid, passed, i - 1, j, dist + 1);
+      fillDist(grid, passed, i, j + 1, dist + 1);
+      fillDist(grid, passed, i, j - 1, dist + 1);
+      passed[i][j] = false;
+   }
+
+
    static void fillGridUsingBFS(int[][] grid) {
 
       for (int row = 0; row < grid.length; row++) {

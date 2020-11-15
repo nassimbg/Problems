@@ -22,7 +22,7 @@ public class WallsAndGatesTest {
         {0, -1, 3, 4}
       };
 
-      WallsAndGates.fillGridUsingBFS(matrix);
+      WallsAndGates.fillVersion2(matrix);
 
       assertArrayEquals(ex, matrix);
 
