@@ -161,6 +161,7 @@
   - Use **Amortized Max Queue** to save get the next greater value in nums 2 and for each value in nums2 save its corresponding next greater value in a map
   - then iterate over nums1 and search the corresponding value in the saved map
   - time: O(n)
+  
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
   - here they are asking about the Next Greater which means the __first elemnt to the right that is greater than the value at index i__
   - uses the same concept of **Max Queue**
@@ -3248,6 +3249,8 @@ public class Solution {
   - at every node we see if its equal to T's root => do a special recursion to see if every node equal to every node in other tree
   - [solution](https://leetcode.com/problems/subtree-of-another-tree/solution/)
 
+- [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)
+  - normal preorder traversal
 
 ### Iterative
 
