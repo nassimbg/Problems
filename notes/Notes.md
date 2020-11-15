@@ -447,6 +447,49 @@
 
     - Then, we traverse over numsnums and determine the correct position of minmin and maxmax by comparing these elements with the other array elements. e.g. To determine the correct position of minmin, we know the initial portion of numsnums is already sorted. Thus, we need to find the first element which is just larger than minmin. Similarly, for maxmax's position, we need to find the first element which is just smaller than maxmax searching in numsnums backwards.
 
+- [Partition Array into Disjoint Intervals](https://leetcode.com/problems/partition-array-into-disjoint-intervals/)
+  - Time: O(N), Space: O(N)
+  - Explain
+  
+        - Intuition
+
+          Instead of checking whether all(L <= R for L in left for R in right), let's check whether max(left) <= min(right).
+
+        - Algorithm
+
+          Let's try to find max(left) for subarrays left = A[:1], left = A[:2], left = A[:3], ... etc. Specifically, maxleft[i] will be the maximum of subarray A[:i]. They are related to each other: max(A[:4]) = max(max(A[:3]), A[3]), so maxleft[4] = max(maxleft[3], A[3]).
+
+          Similarly, min(right) for every possible right can be found in linear time.
+
+          After we have a way to query max(left) and min(right) quickly, the solution is straightforward.
+  
+```java
+class Solution {
+    public int partitionDisjoint(int[] A) {
+        int N = A.length;
+        int[] maxleft = new int[N];
+        int[] minright = new int[N];
+
+        int m = A[0];
+        for (int i = 0; i < N; ++i) {
+            m = Math.max(m, A[i]);
+            maxleft[i] = m;
+        }
+
+        m = A[N-1];
+        for (int i = N-1; i >= 0; --i) {
+            m = Math.min(m, A[i]);
+            minright[i] = m;
+        }
+
+        for (int i = 1; i < N; ++i)
+            if (maxleft[i-1] <= minright[i])
+                return i;
+
+        throw null;
+    }
+}
+```
 ---
 
 ## Random Questions
