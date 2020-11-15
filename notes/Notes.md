@@ -120,6 +120,7 @@
   - [Traversal](#traversal)
     - [Level By Level](#level-by-level)
     - [Recursive](#recursive)
+      - [Ancestor](#ancestor)
     - [Iterative](#iterative)
   - [Finding (in) Path](#finding-in-path)
   - [Serialize / Deserialize BST](#serialize--deserialize-bst)
@@ -3258,6 +3259,13 @@ public class Solution {
 
 - [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)
   - normal preorder traversal
+
+#### Ancestor
+
+- [Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
+  - do a normal postOrdering
+  - when traversing down calculate the depth for each node
+  - in the post order process get some metadata from the children and check if you are a common ancestor for the deepest level
 
 ### Iterative
 
