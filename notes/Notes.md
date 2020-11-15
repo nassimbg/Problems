@@ -629,6 +629,7 @@
 
 - [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
   - you need to get the max cummulative sum between index i and i-k
+  - my solution can be optimized by just saving the cummulative sum of 2 values i and i-k
 
 
 ---
@@ -3160,6 +3161,8 @@ public class Solution {
   * VVVVVVVVIIIIIIIIIIIPPPPPPP check explanation in code(intellij) and check pic in the problem for more understanding
   * __Practice this problem more__ [Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
 
+- [Average of Levels in Binary Tree](https://leetcode.com/problems/average-of-levels-in-binary-tree/)
+  - normal level by level and on each level calculate the average value of it
 
 ### Recursive
 
