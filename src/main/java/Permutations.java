@@ -4,25 +4,24 @@ import java.util.Deque;
 import java.util.List;
 
 public class Permutations {
-   /**
-    * backtracking solution
-    */
+
    public static List<List<Integer>> permute(int[] nums) {
       List<List<Integer>> results = new ArrayList<>();
-      dfs(nums, 0,  new ArrayDeque<>(), results, new boolean[nums.length]);
+
+      bk(nums, results, new ArrayDeque<>(), new boolean[nums.length]);
       return results;
    }
 
-   private static void dfs(int[] nums, int start, Deque<Integer> currentResult, List<List<Integer>> results, boolean[] taken) {
-      if (currentResult.size() == nums.length) {
-         results.add(new ArrayList<>(currentResult));
+   private static void bk(int[] nums, List<List<Integer>> results, Deque<Integer> values, boolean[] taken) {
+      if (values.size() == nums.length) {
+         results.add(new ArrayList<>(values));
       } else {
-         for (int i = start; i < nums.length; i++) {
+         for (int i = 0; i < nums.length; i++) {
             if (!taken[i]) {
                taken[i] = true;
-               currentResult.addLast(nums[i]);
-               dfs(nums, i+1, currentResult, results, taken);
-               currentResult.pollLast();
+               values.addLast(nums[i]);
+               bk(nums, results, values, taken);
+               values.pollLast();
                taken[i] = false;
             }
          }
