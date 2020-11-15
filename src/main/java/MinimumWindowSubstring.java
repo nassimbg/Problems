@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class MinimumWindowSubstring {
 
-   public String minWindow(String s, String t) {
+   public static String minWindow(String s, String t) {
 
       Map<Character, Integer> freqPerChar = new HashMap<>();
       int length = t.length();

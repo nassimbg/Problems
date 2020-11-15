@@ -157,6 +157,10 @@
   - desinged it using one stack and an array to keep track of the min value
   - this question is similar to the HW problem of **Min Queue** but the hw was harder since it depends on **_Amortization_**
 
+- [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)
+  - Use **Amortized Max Queue** to save get the next greater value in nums 2 and for each value in nums2 save its corresponding next greater value in a map
+  - then iterate over nums1 and search the corresponding value in the saved map
+  - time: O(n)
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
   - here they are asking about the Next Greater which means the __first elemnt to the right that is greater than the value at index i__
   - uses the same concept of **Max Queue**
