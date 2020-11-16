@@ -2645,7 +2645,7 @@ public class Solution {
 - [Elimination Game](https://leetcode.com/problems/elimination-game/description/)
 
   - it was hard to figure out the solution but I was approaching it
-  - [explanation](<https://leetcode.com/problems/elimination-game/discuss/87119/JAVA:-Easiest-solution-O(logN)-with-explanation>)
+  - [explanation](https://leetcode.com/problems/elimination-game/discuss/87119/JAVA:-Easiest-solution-O(logN)-with-explanation)
   - solution:
     - The list is a arithmetic progression.
     - It can be represent by a vector v = (S, N, D).
@@ -2676,6 +2676,37 @@ public class Solution {
    }
   ```
 
+- [Last Man Standing]()
+  - Check in OneNote Soto Questions
+  - check SotiQuestionsTest for my code
+
+```java
+public int lastManStanding2(int input1, int input2) {
+    boolean[] removed = new boolean[input1];
+
+    int countOfRemoved = 0;
+
+    int index = 0;
+    int count = 1;
+    while (countOfRemoved < input1) {
+
+      while (removed[index]) {
+        index = (index + 1) % input1;
+      }
+
+      if (count == input2 || countOfRemoved == input1 - 1) {
+        count = 1;
+        removed[index] = true;
+        countOfRemoved++;
+      } else {
+        count++;
+        index = (index + 1) % input1;
+      }
+    }
+
+    return index + 1;
+  }
+```
 ---
 
 ---

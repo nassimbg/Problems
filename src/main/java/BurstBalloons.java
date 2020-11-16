@@ -1,6 +1,8 @@
 public class BurstBalloons {
    public static int maxCoins(int[] nums) {
 
+      if(nums.length == 0)
+         return 0;
       int[][] dp = new int[nums.length][nums.length];
 
       for (int left = nums.length - 1; left >= 0; left--) {
