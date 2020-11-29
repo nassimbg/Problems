@@ -2788,6 +2788,17 @@ public int lastManStanding2(int input1, int input2) {
   - similar to **Merge k Sorted Lists**
   - VVVVVIIIIIIIIIIIIPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
 
+- [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
+  - We can use here an algo similar to **Merge k Sorted Lists**
+  - Explaination: 
+    - We create a PriorityQeueue per index in the outputted virtual array and every PriorityQeueue is a Max Queue based on the frequency per task.
+    - Initialize all the nodes and add them in the PriorityQeueue at index Zero
+    - We create a main PriorityQeueue where every node represents the index of PriorityQeueues in the virtual array
+      - this pq contains queues only with index i <= current index in virtual array
+    - Upon interation from count = 0 -> n (where n is the last index of the virtual array built)
+      - we check if we have a PriorityQeueue in the map that is equal to the current iteration Index in order to take it's values into consideration
+      - we poll from the main PriorityQeueue, if the task still has more counts, you add this task to the PriorityQeueue where its expected to be available next
+
 ---
 
 ## Paitence Sort
