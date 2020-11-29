@@ -3345,6 +3345,10 @@ public int lastManStanding2(int input1, int input2) {
 - [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/)
   - normal preorder traversal
 
+- [Add One Row to Tree](https://leetcode.com/problems/add-one-row-to-tree/)
+  - normal recursive traversal
+  - however here if we reach the depth we need => do the change and then return directly
+
 #### Ancestor
 
 - [Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
