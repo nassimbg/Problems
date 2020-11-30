@@ -1450,6 +1450,12 @@ class Solution {
   * resolve it or even solve [Jump](https://leetcode.com/problems/jump-game/description/)
   * we can use a greedy algorithm to solve it no need for DP 
 
+- [Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain/)
+  - we are doing suffex dp here
+  - subproblems: we have n subproblems where n is length of array => subproblems: O(n)
+  - choices: for every subproblem i we have from i+1 -> n choices => choices: O(n)
+  - => time : O(nˆ2)
+  - However they did a [greedy solution](https://leetcode.com/problems/maximum-length-of-pair-chain/solution/)
 
 #### TRUE / FALSE (think of Rec + Memo)
 
