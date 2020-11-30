@@ -26,6 +26,7 @@
   - [Tic-Tac-Toe](#tic-tac-toe)
   - [Cache](#cache)
   - [Iterator](#iterator)
+  - [Deque](#deque)
   - [Amortization O(1)](#amortization-o1)
 - [DP](#dp)
   - [**_1. Back-Tracking_**](#1-back-tracking)
@@ -828,6 +829,13 @@ class Solution {
   * i did it with current vector and current index fields (check my code)
   * other [solution used List<Iterator>](https://discuss.leetcode.com/topic/26654/simple-java-solution-for-k-vector)
 
+
+## Deque
+
+- [Design Circular Deque](https://leetcode.com/problems/design-circular-deque/)
+  - use two pointers:
+    - first and last pointer
+  
 ## Amortization O(1)
 
 ---
