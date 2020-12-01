@@ -103,6 +103,7 @@
 - [String](#string)
   - [Shifting](#shifting)
   - [Random](#random-1)
+  - [Palindrom](#palindrom)
 - [SQL](#sql)
 - [Trie](#trie)
   - [Design](#design-1)
@@ -2947,6 +2948,35 @@ public int lastManStanding2(int input1, int input2) {
   - its just a normal iteration over the string
   - and checking the condition need so that the student is not rewareded 
     - Cond: "A student could be rewarded if his attendance record doesn't contain more than one 'A' (absent) or more than two continuous 'L' (late)."
+
+
+## Palindrom
+- [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+  - counting the palidrom within a string
+
+```java
+    public int countSubstrings(String s) {
+      int count = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+      count += numberOfPalindorms(s, i) + 1;
+    }
+    return count;
+  }
+
+  private static int numberOfPalindorms(String s, int index) {
+    return numberOfPalindorms(s, index - 1, index) //palindrom with even length
+        + numberOfPalindorms(s, index - 1, index + 1);//palindrom with odd length => center is current index
+  }
+
+  private static int numberOfPalindorms(final String s, int left, int right) {
+    int count = 0;
+    while (left >=0 && right < s.length() && s.charAt(left--) == s.charAt(right++)) {
+      count++;
+    }
+    return count;
+  }
+```
 
 ---
 
