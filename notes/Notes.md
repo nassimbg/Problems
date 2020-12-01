@@ -3121,6 +3121,9 @@ public int lastManStanding2(int input1, int input2) {
   * others did it in O(n k^2) and O(n) space using a __hashMap + suffix/prefix__:
     - [solution](https://leetcode.com/problems/palindrome-pairs/discuss/79254/Java-naive-154-ms-O(nk2-+-r)-and-126-ms-O(nk-+-r)-Manacher-+-suffixesprefixes)
 
+- [Replace Words](https://leetcode.com/problems/replace-words/)
+  - normal trie
+  
 ### Match Prefix/Word with DIFF
 
 - [Add and Search Word](https://leetcode.com/problems/add-and-search-word-data-structure-design/description/)
