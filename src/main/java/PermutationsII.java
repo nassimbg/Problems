@@ -1,10 +1,39 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 import java.util.Objects;
 
 public class PermutationsII {
    public static List<List<Integer>> permute(int[] nums) {
+      List<List<Integer>> results = new ArrayList<>();
+      Arrays.sort(nums);
+      dfs(nums, results, new boolean[nums.length], new ArrayDeque<>());
+      return results;
+   }
+
+   private static void dfs(int[] nums, List<List<Integer>> results, boolean[] taken, Deque<Integer> values) {
+      if (values.size() == nums.length) {
+         results.add(new ArrayList<>(values));
+      } else {
+         for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1] && !taken[i - 1]) {
+               continue;
+            }
+
+            if (!taken[i]) {
+               taken[i] = true;
+               values.addLast(nums[i]);
+               dfs(nums, results, taken, values);
+               values.pollLast();
+               taken[i] = false;
+            }
+         }
+      }
+   }
+
+   public static List<List<Integer>> permuteOld(int[] nums) {
 
       Arrays.sort(nums);
       List<List<Integer>> rightList = new ArrayList<>(nums.length);
