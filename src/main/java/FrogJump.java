@@ -1,8 +1,48 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class FrogJump {
+
+   public boolean canCrossOptimized(int[] stones) {
+
+      if (stones.length == 0) {
+         return false;
+      }
+
+      if (stones.length < 2) {
+         return true;
+      }
+
+
+      Map<Integer, Set<Integer>> reached = new HashMap<>();
+      reached.computeIfAbsent(stones[0] + 1, k -> new HashSet<>()).add(1);
+      for (int i = 1; i < stones.length - 1; i++) {
+
+         int stonePosition = stones[i];
+
+         final Set<Integer> jumpsNeeded = reached.get(stonePosition);
+
+         if (jumpsNeeded != null) {
+            for (final Integer currentJumpNeeded : jumpsNeeded) {
+               reached.computeIfAbsent(stonePosition + currentJumpNeeded, ky -> new HashSet<>()).add(currentJumpNeeded);
+
+               if (currentJumpNeeded > 1) {
+                  reached.computeIfAbsent(stonePosition + currentJumpNeeded - 1, ky -> new HashSet<>())
+                      .add(currentJumpNeeded - 1);
+               }
+               reached.computeIfAbsent(stonePosition + currentJumpNeeded + 1, ky -> new HashSet<>()).add(currentJumpNeeded + 1);
+            }
+         }
+      }
+
+      return reached.containsKey(stones[stones.length - 1]);
+   }
+
    public static boolean canCross(int[] stones) {
       if (stones.length == 0) {
          return false;
