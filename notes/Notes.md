@@ -267,7 +267,7 @@
 - [Next Greater Element II](https://leetcode.com/problems/next-greater-element-ii/description/)
   - uses the same concept of **Min Queue**
   - but here we have to do 2 passes the same way and leaving the same stack since we are dealing with a circular array
-  
+ 
 ---
 
 ## Inplace manipulation
@@ -2112,6 +2112,12 @@ class Solution {
 # Pointers
 
 ## Left / Right Pointers
+
+
+- [Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
+  - use binary search to find x's postion in array
+  - then use left and right pointer to add to result until we reach result size = k
+
 
 ### Swaping Values
 
