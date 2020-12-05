@@ -1772,6 +1772,11 @@ class Solution {
     else throw it away
     1. at the end try to remove the char of stringBuilder.charAt(length - k) from InWindow and add it again to the MaxQueue
 
+- [Split Array into Consecutive Subsequences](https://leetcode.com/problems/split-array-into-consecutive-subsequences/)
+  - create a map to store the end of a sequence at every point of iteration (key is the value of last element in sequ and value in the size of the seq)
+  - Actually the value of the map is a priorityqueue that stores a list of size of sequences that end with the key value
+  - time: O(n logn)
+
 ---
 
 ## Kth smallest/Largest...
