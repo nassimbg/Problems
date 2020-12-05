@@ -1,7 +1,9 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,8 +12,8 @@ public class CombinationSumTest {
    @Test
    public void combinationSum1() throws Exception {
       List<List<Integer>> expected = new ArrayList<>();
-      expected.add(Arrays.asList(7));
       expected.add(Arrays.asList(2,2,3));
+      expected.add(Arrays.asList(7));
 
       assertEquals(expected, CombinationSum.combinationSum(new int[]{2, 3, 6, 7}, 7));
    }

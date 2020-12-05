@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -20,6 +22,27 @@ import java.util.List;
  *
  */
 public class CombinationSum {
+
+   public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+      final ArrayList<List<Integer>> results = new ArrayList<>();
+      dfs(results, candidates, target, new ArrayDeque<>(), 0);
+
+      return results;
+   }
+
+   private static void dfs(List<List<Integer>> results, int[] candidates, int target, Deque<Integer> values, int index) {
+      if (target == 0) {
+         results.add(new ArrayList<>(values));
+      } else if (index == candidates.length || target < 0) {
+         return;
+      } else {
+         for (int i = index; i < candidates.length; i++) {
+            values.addLast(candidates[i]);
+            dfs(results, candidates, target - candidates[i], values, i);
+            values.pollLast();
+         }
+      }
+   }
 
    public static List<List<Integer>> combinationSumOriginal(int[] candidates, int target) {
 
@@ -60,7 +83,7 @@ public class CombinationSum {
    }
 
 
-   public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+   public static List<List<Integer>> combinationSumOld(int[] candidates, int target) {
 
       // initialize the dp array
       List<List<List<Integer>>> dp = new ArrayList<>(target + 1);
