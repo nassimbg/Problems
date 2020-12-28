@@ -39,12 +39,12 @@ public class UnionFind<K> {
       return node;
    }
 
-   public void union(K k1, K k2) {
+   public boolean union(K k1, K k2) {
       Node<K> rootOfK1 = findRootNodeOfSet(k1);
       Node<K> rootOfK2 = findRootNodeOfSet(k2);
 
       if (rootOfK1 == rootOfK2) {
-         return;
+         return false;
       }
 
       sizeOFDisjointSets--;
@@ -55,13 +55,15 @@ public class UnionFind<K> {
          rootOfK1.parent = rootOfK2;
          rootOfK2.size += rootOfK1.size;
       }
+
+      return true;
    }
 
    public int numberOfDistjointSets() {
       return sizeOFDisjointSets;
    }
 
-   private final class Node<K> {
+   private static final class Node<K> {
       private final K key;
       private int size;
       private Node<K> parent;

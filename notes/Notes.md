@@ -743,6 +743,8 @@ class Solution {
 
 ## Floyd's Tortoise and Hare
 
+**check code of main Algo above**
+
 - [Happy Number](https://leetcode.com/problems/happy-number/description/)
   - [explanation](https://leetcode.com/problems/happy-number/discuss/56919)
   - [my solution with Set](https://leetcode.com/problems/happy-number/discuss/56913)
