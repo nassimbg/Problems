@@ -1,14 +1,34 @@
 public class GasStation {
    public static int canCompleteCircuit(int[] gas, int[] cost) {
-      int n = gas.length;
-      int total = 0, subsum = Integer.MAX_VALUE, start = 0;
-      for(int i = 0; i < n; ++i){
-         total += gas[i] - cost[i];
-         if(total < subsum) {
-            subsum = total;
-            start = i + 1;
+      if (gas == null || cost == null) {
+         return -1;
+      }
+
+      int startingStation = 0;
+      int reachedStation = 0;
+
+      int currentRemainingGas = 0;
+
+      while (startingStation < gas.length) {
+         while (currentRemainingGas >= 0) {
+            currentRemainingGas += (gas[reachedStation] - cost[reachedStation]);
+            reachedStation = (reachedStation + 1) % gas.length;
+
+            if (reachedStation == startingStation) {
+               break;
+            }
+         }
+
+         if (reachedStation == startingStation && currentRemainingGas >= 0) {
+            return startingStation;
+         }
+
+         while (currentRemainingGas < 0 && startingStation < gas.length) {
+            currentRemainingGas -= (gas[startingStation] - cost[startingStation]);
+            startingStation++;
          }
       }
-      return (total < 0) ?  -1 : (start%n);
+
+      return -1;
    }
 }

@@ -1,4 +1,4 @@
-
+# These notes are already written in Notes.md but not yet practiced
 
 
 
@@ -509,9 +509,6 @@ ____
 
 **_Problems_**
 
-
-- [Palindrome Permutation II](https://leetcode.com/articles/palindrome-permutation-ii/)
-  - use the general permutation way (backtracking)
 
 - [Factor Combinations](https://kennyzhuang.gitbooks.io/leetcode-lock/content/254_factor_combinations.html)
   - did it in DFS

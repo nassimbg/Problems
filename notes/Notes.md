@@ -649,6 +649,7 @@ class Solution {
 
 - [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
   - same as **Maximum Size Subarray Sum Equals k**
+  - Asked by **Talabat**
 
 - [Max Sum of Rectangle No Larger Than K](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/description/)
 
@@ -2166,10 +2167,14 @@ class Solution {
     - then start incrementing the left until u reach cum < k || left == right
   - [solution](https://leetcode.com/problems/subarray-product-less-than-k/solution/)
 
+- [GasStation](https://leetcode.com/problems/gas-station/discuss/)
+  - algo is similar to [Generic Sliding Window Pattern](#generic_sliding_window_pattern)
+
 #### Longest/Shortest Sequence/String
 
 **_Hints_**
 
+<a id="generic_sliding_window_pattern"></a>
 - Generic Pattern 1 vs Generic Pattern 2: (**VVVIIIPPPPPP** check **Minimum Window Substring** problem to see the diff btw the 2 patterns)
   - 1: end starts from 0; 
   - 2: end start from -1

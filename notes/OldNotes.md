@@ -1,6 +1,10 @@
 # LeetCode Problems
 
+# These notes are not written in Notes.md
+
+
 - [LeetCode Problems](#leetcode-problems)
+- [These notes are not written in Notes.md](#these-notes-are-not-written-in-notesmd)
   - [Greedy](#greedy)
     - [Hints](#hints)
     - [Problems](#problems)
@@ -434,9 +438,6 @@ _____
   * solve it with O(1) space
 
 
-- [Gas Station](https://leetcode.com/problems/gas-station/discuss/)
-  * Didn't know how to solve it
-  * __Needs REVIEW__   * __Practice this problem more__
 
 - [Sort List](https://leetcode.com/problems/sort-list/discuss/)
   * did the quick sort
