@@ -2168,13 +2168,13 @@ class Solution {
   - [solution](https://leetcode.com/problems/subarray-product-less-than-k/solution/)
 
 - [GasStation](https://leetcode.com/problems/gas-station/discuss/)
-  - algo is similar to [Generic Sliding Window Pattern](#generic_sliding_window_pattern)
+  - algo is similar to [Generic Sliding Window Pattern](#generic-sliding-window-pattern)
 
 #### Longest/Shortest Sequence/String
 
 **_Hints_**
 
-<a id="generic_sliding_window_pattern"></a>
+<a id="generic-sliding-window-pattern"></a>
 - Generic Pattern 1 vs Generic Pattern 2: (**VVVIIIPPPPPP** check **Minimum Window Substring** problem to see the diff btw the 2 patterns)
   - 1: end starts from 0; 
   - 2: end start from -1
@@ -2516,6 +2516,42 @@ public class Solution {
 }
 ```
 
+- [Check If a String Can Break Another String](https://leetcode.com/problems/check-if-a-string-can-break-another-string/)
+  - Can be done using Two pointer approach time O(n)
+  - I did it using Sortig both strings time O(n logn)
+  - Solution for 2 pointer appraoch:
+
+```java
+    public boolean checkIfCanBreak(String s1, String s2) {
+        int[] s1Count = charCount(s1);
+        int[] s2Count = charCount(s2);
+        return canBreak(s1Count, s2Count) || canBreak(s2Count, s1Count);
+    }
+    
+    public int[] charCount(String s) {
+        int[] count = new int['z' - 'a' + 1];
+        for(char ch: s.toCharArray()) {
+            count[ch - 'a']++;
+        }
+        return count;
+    }
+    
+    public boolean canBreak(int[] source, int[] dest) {
+        int spareChars = 0;
+        for(int i = 'z' - 'a'; i >= 0 ; i--) {
+		    // if there are any remaining characters, we can use that to match other characters which is less than the current character
+            if(source[i] >= dest[i]) {
+               spareChars += source[i] - dest[i];
+            } else {
+               spareChars -= dest[i] - source[i]; 
+               if(spareChars < 0) {
+                   return false;
+               }
+            }
+        }
+        return spareChars == 0;
+    }
+```
 ---
 
 ---
