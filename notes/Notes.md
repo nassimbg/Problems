@@ -2161,12 +2161,6 @@ class Solution {
     - skip(val) = (u - val _ (a^(|u| - 1) mod p) mod p = ((u mod p) - val _ (a^(|u| - 1) mod p)) mod p
   - [Knuth-Morris-Pratt](https://www.youtube.com/watch?v=D6dCOa_gMoY)
 
-- [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
-  - keep to pointers left and right 
-  - keep on incrementing the right until the cum >= k
-    - then start incrementing the left until u reach cum < k || left == right
-  - [solution](https://leetcode.com/problems/subarray-product-less-than-k/solution/)
-
 - [GasStation](https://leetcode.com/problems/gas-station/discuss/)
   - algo is similar to [Generic Sliding Window Pattern](#generic-sliding-window-pattern)
 
@@ -2303,6 +2297,12 @@ class Solution {
   - if they say its a charac then we are working with ascii then use int[128] to save ur data
   - look at this [generic form](https://leetcode.com/problems/minimum-window-substring/discuss/161215/Easy-Understand-Java-Solution)
 
+- [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/)
+  - keep to pointers left and right 
+  - keep on incrementing the right until the cum >= k
+    - then start incrementing the left until u reach cum < k || left == right
+  - [solution](https://leetcode.com/problems/subarray-product-less-than-k/solution/)
+  
 - [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/description/)
   * time complexity O(n)
   * did it in a greedy way like (__Max Subarray problem__) but kept a queue to try to remove the first element whenever the sum reached the needed limit
