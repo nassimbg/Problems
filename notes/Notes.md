@@ -398,6 +398,10 @@
   - transform the logical explanation into the code
   - check solution
 
+- [Longest Continuous Increasing Subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence/)
+  - Every (continuous) increasing subsequence is disjoint, and the boundary of each such subsequence occurs whenever nums[i-1] >= nums[i]. When it does, it marks the start of a new increasing subsequence at nums[i], and we store such i in the variable anchor.
+  - For example, if nums = [7, 8, 9, 1, 2, 3], then anchor starts at 0 (nums[anchor] = 7) and gets set again to anchor = 3 (nums[anchor] = 1). Regardless of the value of anchor, we record a candidate answer of i - anchor + 1, the length of the subarray nums[anchor], nums[anchor+1], ..., nums[i]; and our answer gets updated appropriately.
+
 - [Longest Line of Consecutive One in Matrix](http://shibaili.blogspot.com/2018/11/562-longest-line-of-consecutive-one-in.html)
   - can do it in O(n^2) instead of O(n^3)
 
