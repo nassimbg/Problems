@@ -1434,6 +1434,13 @@ class Solution {
   - this question is similar to **Decode Ways** problems since both ask the number of ways to... and both are DP => the initial value of both is 1 for empty string
   - the relation for the other indices are just adding the previous values (ex: dp[i] = dp[i + 1] + dp[i + 2])
 
+- [Number of Longest Increasing Subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
+  - Suppose for sequences ending at nums[i], we knew the length length[i] of the longest sequence, and the number count[i] of such sequences with that length.
+  - For every i < j with A[i] < A[j], we might append A[j] to a longest subsequence ending at A[i]. It means that we have demonstrated count[i] subsequences of length length[i] + 1.
+  - Now, if those sequences are longer than length[j], then we know we have count[i] sequences of this length. If these sequences are equal in length to length[j], then we know that there are now count[i] additional sequences to be counted of that length (ie. count[j] += count[i]).
+  - [solution](https://leetcode.com/problems/number-of-longest-increasing-subsequence/solution/)
+
+
 - [Paint Fence](https://www.programcreek.com/2014/05/leetcode-pain-fence-java/)
 
   - looks like the [House Robber problem](#House_Robber)
