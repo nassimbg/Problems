@@ -2412,6 +2412,11 @@ class Solution {
 - [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/description/)
   - Here we have to apply the [Rabin-Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm)
 
+
+- [Repeated String Match](https://leetcode.com/problems/repeated-string-match/)
+  - [solution](https://leetcode.com/problems/repeated-string-match/solution/)
+
+
 ---
 
 ## Start / End Pointers
@@ -3606,6 +3611,10 @@ public int lastManStanding2(int input1, int input2) {
 
 - [Data Stream as Disjoint Intervals](#data_stream_as_disjoint_intervals)
   - this problem can also be done using UnionFind
+
+- [Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+  - upon adding an edge if both verticies have the same parent (within the same cluster) => this edge is the edge that makes the graph cyclic => return it
+  - [solution](https://leetcode.com/problems/redundant-connection/solution/)
 
 ## Disjoint Sets
 
