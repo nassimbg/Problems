@@ -653,7 +653,7 @@ class Solution {
 
 - [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
   - same as **Maximum Size Subarray Sum Equals k**
-  - Asked by **Talabat**
+  - Asked by **T**
 
 - [Max Sum of Rectangle No Larger Than K](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/description/)
 
@@ -3218,6 +3218,10 @@ public int lastManStanding2(int input1, int input2) {
 
 - [Replace Words](https://leetcode.com/problems/replace-words/)
   - normal trie
+
+- [Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs/)
+  - add a cummulative sum field at every node
+  - the sum in the node will contain all the summation of value in its children words
   
 ### Match Prefix/Word with DIFF
 
