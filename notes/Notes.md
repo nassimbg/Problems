@@ -3422,7 +3422,35 @@ public int lastManStanding2(int input1, int input2) {
     which means it returns the Max value of a path from this current node to one of its child
   - In addition to that it compares with the globalMaxValue if one of root.val, root.val + leftSum, root.val + rightSum, root.val + rightSum + leftSum is greater than globalMaxValue to set it as the new globalMaxValue. As you can see **root.val + rightSum + leftSum** is never returned by the function since we only return the value of a path going to **one subtree and not both**
 
-* [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/)
+- [Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/)
+  - [solution](https://leetcode.com/problems/longest-univalue-path/solution/)
+  
+``` java
+  class Solution {
+    int ans;
+    public int longestUnivaluePath(TreeNode root) {
+        ans = 0;
+        arrowLength(root);
+        return ans;
+    }
+    public int arrowLength(TreeNode node) {
+        if (node == null) return 0;
+        int left = arrowLength(node.left)
+        int right = arrowLength(node.right);
+        int arrowLeft = 0, arrowRight = 0;
+        if (node.left != null && node.left.val == node.val) {
+            arrowLeft += left + 1;
+        }
+        if (node.right != null && node.right.val == node.val) {
+            arrowRight += right + 1;
+        }
+        ans = Math.max(ans, arrowLeft + arrowRight);
+        return Math.max(arrowLeft, arrowRight);
+    }
+}
+```
+
+- [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/)
   - <a id="List_To_BST"></a>
   - **Needs REVIEW**
   - VVVVIIIIIPPPPPPP
